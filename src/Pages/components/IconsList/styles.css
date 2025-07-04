@@ -1,0 +1,29 @@
+.lines-color {
+    color: var(--lines-color);
+}
+.white-color {
+    color: var(--white);
+}
+
+.icons a {
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease; 
+}
+
+.icons a svg {
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease; 
+}
+
+.icons a:hover svg {
+    transform: scale(1.1);
+}
+
+.icon-scale svg {
+    transition: all 0.2s ease;
+}
+.icon-scale:hover svg {
+    transform: scale(1.1);
+}
