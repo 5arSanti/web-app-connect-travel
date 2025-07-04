@@ -1,5 +1,3 @@
-import { AuthWrapper } from "../../components/AuthWrapper";
-
 import { FadeWrapper } from "../../components/FadeWrapper";
 import { SectionServices } from "../../components/ScreenHome/SectionServices";
 import { SectionContact } from "../../components/ScreenHome/SectionContact";
@@ -13,24 +11,23 @@ import { InitialSectioninfo } from "../../components/ScreenHome/InitialSectionIn
 
 const Home = () => {
     return (
-
-        <AuthWrapper>
+        <>
             <FadeWrapper>
                 <StyledSection id="home">
-                    <InitialSectioninfo/>
+                    <InitialSectioninfo />
                 </StyledSection>
             </FadeWrapper>
 
-            <SectionServices/>
+            <SectionServices />
 
-            <SectionAboutUs/>
+            <SectionAboutUs />
 
-            <SectionUsersOpinions/>
+            <SectionUsersOpinions />
 
-            <SectionContact/>
+            <SectionContact />
 
-            <SectionNews/>
-        </AuthWrapper>
+            <SectionNews />
+        </>
     );
 }
 
