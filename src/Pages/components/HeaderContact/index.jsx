@@ -16,7 +16,7 @@ const HeaderContact = () => {
             <IconsList gap justifyContent="start" size={20} padding={0} white={true}/>
 
             <TextCard textAlign="end" white={true}>
-                {contactInfo["Numero de celular"].icon} {contactInfo["Numero de celular"].info}
+                {contactInfo.phone.icon} {contactInfo.phone.info}
             </TextCard>
 
         </WrapperContainer2>

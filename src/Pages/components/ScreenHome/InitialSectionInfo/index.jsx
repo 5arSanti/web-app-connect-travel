@@ -16,7 +16,7 @@ const InitialSectioninfo = () => {
             </WrapperContainer2>
 
             <div>
-                <TextCard white={true} textAlign="center" fontSize={16}>{contactInfo["Numero de celular"].info}</TextCard>
+                <TextCard white={true} textAlign="center" fontSize={16}>{contactInfo.phone.info}</TextCard>
                 <IconsList padding={10} white={true}/>
             </div>
 
