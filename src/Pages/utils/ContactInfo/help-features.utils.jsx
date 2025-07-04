@@ -1,4 +1,4 @@
-import { FaClock, FaGlobe, FaHeadset, FaShieldAlt } from "react-icons/fa";
+import { FaHeadset, FaClock, FaGlobe, FaShieldAlt } from "react-icons/fa";
 
 export const helpFeatures = [
     {

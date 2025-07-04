@@ -18,6 +18,7 @@ import { Footer } from "../components/Footer";
 import { ToastContainer } from "react-toastify";
 import { AppRoutes } from "../Routes";
 import { FloatingNav } from "../components/FloatingNav";
+import { FloatingWhatsApp } from "../components/FloatingWhatsApp";
 
 // Utils
 import { scrollToValue } from "../utils/scrollToValue";
@@ -45,7 +46,10 @@ const App = () => {
                     <AppRoutes/>
 
                     <FloatingNav/>
+                    <FloatingWhatsApp/>
+                    
                     <ToastContainer/>
+                    
                     <Footer/>
                 </Wrapper>
             </HashRouter>

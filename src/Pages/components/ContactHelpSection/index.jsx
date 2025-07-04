@@ -3,7 +3,7 @@ import { WrapperContainer2 } from "../WrapperContainers";
 import { helpFeatures } from "../../utils/ContactInfo/help-features.utils";
 
 import "./styles.css";
-import { FaGlobe } from "react-icons/fa";
+import { FaGlobe, FaWhatsapp } from "react-icons/fa";
 
 const ContactHelpSection = () => {
     
@@ -38,26 +38,6 @@ const ContactHelpSection = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* Call to Action */}
-                <div className="help-cta">
-                    <div className="cta-content">
-                        <h3 className="cta-title">¡Comienza tu aventura hoy!</h3>
-                        <p className="cta-description">
-                            Descubre destinos increíbles y crea recuerdos que durarán toda la vida.
-                        </p>
-                        <div className="cta-buttons">
-                            <button className="cta-button primary">Contactar Ahora</button>
-                            <button className="cta-button secondary">Ver Destinos</button>
-                        </div>
-                    </div>
-                    <div className="cta-image">
-                        <div className="image-placeholder">
-                            <FaGlobe className="placeholder-icon" />
-                        </div>
-                    </div>
-                </div>
-
             </WrapperContainer2>
         </div>
     );
