@@ -1,6 +1,6 @@
-# Equilibrium EGES - Grupo Empresarial de la Salud
+# Connect Travel's - Tu Conexión con el Mundo
 
-Aplicación web moderna desarrollada con React para Equilibrium EGES, un grupo empresarial de la salud que ofrece servicios de estética, salud integral y atención geriátrica.
+Aplicación web moderna desarrollada con React para Connect Travel's, una empresa líder en turismo nacional e internacional que conecta viajeros con los destinos más increíbles del mundo.
 
 ## 🚀 Características
 
@@ -16,11 +16,11 @@ Aplicación web moderna desarrollada con React para Equilibrium EGES, un grupo e
 La aplicación incluye navegación a las siguientes secciones:
 
 - **Inicio** (`#home`): Sección principal con información de bienvenida
-- **Servicios** (`#servicios`): Catálogo de servicios ofrecidos
+- **Servicios** (`#servicios`): Catálogo de servicios de viajes
 - **Nosotros** (`#nosotros`): Información sobre la empresa
-- **Opiniones** (`#opiniones`): Testimonios de clientes
+- **Opiniones** (`#opiniones`): Testimonios de clientes satisfechos
 - **Contacto** (`#contacto`): Información de contacto
-- **Noticias** (`#noticias`): Últimas noticias y actualizaciones
+- **Noticias** (`#noticias`): Últimas noticias y promociones
 
 ### Tipos de Navegación
 
@@ -105,15 +105,15 @@ npm run preview
 src/
 ├── Pages/
 │   ├── App/
-│   │   ├── components/
-│   │   │   ├── NavOptions/          # Navegación principal
-│   │   │   ├── FloatingNav/         # Navegación flotante
-│   │   │   └── ...
-│   │   ├── Screens/
-│   │   │   └── Home/                # Página principal con secciones
-│   │   └── Routes/                  # Configuración de rutas
-│   ├── Context/                     # Context API
-│   └── assets/                      # Imágenes y recursos
+│   ├── components/
+│   │   ├── NavOptions/          # Navegación principal
+│   │   ├── FloatingNav/         # Navegación flotante
+│   │   └── ...
+│   ├── Screens/
+│   │   └── Home/                # Página principal con secciones
+│   └── Routes/                  # Configuración de rutas
+├── Context/                     # Context API
+├── assets/                      # Imágenes y recursos
 └── main.jsx                     # Punto de entrada
 ```
 
@@ -166,6 +166,17 @@ La navegación se adapta automáticamente:
 - Compatible con todos los navegadores
 - Experiencia de usuario fluida
 
+## 🏖️ Servicios de Viajes
+
+Connect Travel's ofrece los siguientes servicios:
+
+- **Viajes Nacionales**: Destinos dentro del país
+- **Viajes Internacionales**: Destinos en todo el mundo
+- **Paquetes Todo Incluido**: Vacaciones sin preocupaciones
+- **Cruceros y Navegación**: Experiencias marítimas
+- **Turismo de Negocios**: Servicios corporativos
+- **Excursiones y Tours**: Experiencias guiadas
+
 ## 🔒 Autenticación
 
 El sistema de autenticación está integrado pero comentado en la navegación principal. Para activarlo:
@@ -188,4 +199,4 @@ Este proyecto está bajo la Licencia MIT.
 
 ## 📞 Contacto
 
-Para más información sobre Equilibrium EGES, visita nuestra aplicación web o contáctanos directamente.
+Para más información sobre Connect Travel's, visita nuestra aplicación web o contáctanos directamente.

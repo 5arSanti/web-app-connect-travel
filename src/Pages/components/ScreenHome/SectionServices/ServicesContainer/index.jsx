@@ -1,10 +1,9 @@
-
 import { ServiceCard } from "../ServiceCard";
 import { GridContainer } from "../../../GridContainer";
-import { egesServices } from "../../../../utils/EGESServices";
+import { connectTravelServices } from "../../../../utils/EGESServices";
 
 const ServicesContainer = () => {
-    const mainServices = egesServices
+    const mainServices = connectTravelServices
 
     return(
         <GridContainer className="grid-1-1-1" padding={0} gap={0}>
