@@ -1,3 +1,4 @@
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaSquarePhone } from "react-icons/fa6";
 
@@ -14,22 +15,26 @@ const contactInfo = {
     },
 }
 
-const socialMediaInfo = [
-    {
-        name: "Facebook",
-        link: "",
-        icon: <FaFacebookF className={white ? "white-color" : "lines-color"} />,
-    },
-    {
-        name: "Instagram",
-        link: "",
-        icon: <FaInstagram className={white ? "white-color" : "lines-color"} />,
-    },
-    {
-        name: "WhatsApp",
-        link: "",
-        icon: <FaWhatsapp className={white ? "white-color" : "lines-color"} />,
-    },
-]
+const getSocialMediaInfo = (white = false) => {
+    const socialMediaInfo = [
+        {
+            name: "Facebook",
+            link: "",
+            icon: <FaFacebookF className={white ? "white-color" : "lines-color"} />,
+        },
+        {
+            name: "Instagram",
+            link: "",
+            icon: <FaInstagram className={white ? "white-color" : "lines-color"} />,
+        },
+        {
+            name: "WhatsApp",
+            link: "",
+            icon: <FaWhatsapp className={white ? "white-color" : "lines-color"} />,
+        },
+    ]
 
-export { contactInfo, socialMediaInfo };
+    return socialMediaInfo;
+}
+
+export { contactInfo, getSocialMediaInfo };
