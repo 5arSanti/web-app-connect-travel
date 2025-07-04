@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaWhatsapp, FaTimes, FaComments } from "react-icons/fa";
+import { contactInfo } from "../../utils/ContactInfo/contactInfo";
 
 import "./styles.css";
 
@@ -8,7 +9,7 @@ const FloatingWhatsApp = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const handleWhatsAppClick = () => {
-        const phoneNumber = "573001234567"; // Número de Connect Travel
+        const phoneNumber = contactInfo.phone.info.replace(/\s/g, '').slice(5);
         const message = "Hola! Me interesa conocer más sobre los servicios de Connect Travel. ¿Podrían ayudarme?";
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
@@ -20,7 +21,6 @@ const FloatingWhatsApp = () => {
 
     return (
         <div className="floating-whatsapp-container">
-            {/* Chat Preview (when expanded) */}
             {isExpanded && (
                 <div className="chat-preview">
                     <div className="chat-header">
@@ -52,7 +52,6 @@ const FloatingWhatsApp = () => {
                 </div>
             )}
 
-            {/* Floating Button */}
             <div 
                 className={`floating-button ${isExpanded ? 'expanded' : ''}`}
                 onMouseEnter={() => setIsHovered(true)}
@@ -74,7 +73,6 @@ const FloatingWhatsApp = () => {
                 )}
             </div>
 
-            {/* Pulse Animation */}
             <div className="pulse-ring"></div>
         </div>
     );

@@ -3,15 +3,12 @@ import { WrapperContainer2 } from "../WrapperContainers";
 import { helpFeatures } from "../../utils/ContactInfo/help-features.utils";
 
 import "./styles.css";
-import { FaGlobe, FaWhatsapp } from "react-icons/fa";
 
 const ContactHelpSection = () => {
     
     return (
         <div className="help-section">
             <WrapperContainer2 flexDirection="column" padding={40} gap={40}>
-                
-                {/* Header */}
                 <div className="help-header">
                     <h2 className="help-title">¿Necesitas Ayuda?</h2>
                     <p className="help-subtitle">
@@ -20,7 +17,6 @@ const ContactHelpSection = () => {
                     </p>
                 </div>
 
-                {/* Features Grid */}
                 <div className="help-features">
                     {helpFeatures.map((feature, index) => (
                         <div 
