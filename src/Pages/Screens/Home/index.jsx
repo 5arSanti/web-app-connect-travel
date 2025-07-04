@@ -16,7 +16,7 @@ const Home = () => {
 
         <AuthWrapper>
             <FadeWrapper>
-                <StyledSection>
+                <StyledSection id="home">
                     <InitialSectioninfo/>
                 </StyledSection>
             </FadeWrapper>

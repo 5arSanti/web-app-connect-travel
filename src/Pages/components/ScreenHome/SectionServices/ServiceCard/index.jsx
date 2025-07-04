@@ -4,11 +4,10 @@ import { SubTitle } from "../../../SubTitle";
 import { Link } from "react-router-dom";
 
 import "./styles.css"
-import { Icons } from "../../../../utils/Icons";
 
 const ServiceCard = ({item={}}) => {
     return(
-        <Link className="service-container" to={`/${item.id}`}>
+        <Link className="service-container" to={`/${item.uri}`}>
             <WrapperContainer2 
                 flexDirection="column" 
                 justifyContent="center" 
@@ -16,14 +15,14 @@ const ServiceCard = ({item={}}) => {
                 padding={50} 
                 gap={30}
             >
-                {Icons[item.Icono]}
+                {item.icon}
 
                 <WrapperContainer2 flexDirection="column" gap={0} padding={0}>
-                    <TextCard fontSize={14}>{item.Entidad}</TextCard>
-                    <SubTitle>{item.Nombre}</SubTitle>
+                    <TextCard fontSize={14}>{item.mainSection}</TextCard>
+                    <SubTitle>{item.serviceName}</SubTitle>
 
                 </WrapperContainer2>
-                <TextCard fontSize={16}>{item.Descripcion}</TextCard>
+                <TextCard fontSize={16}>{item.description}</TextCard>
 
             </WrapperContainer2>
         </Link>

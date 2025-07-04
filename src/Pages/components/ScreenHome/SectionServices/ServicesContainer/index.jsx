@@ -1,13 +1,10 @@
 
 import { ServiceCard } from "../ServiceCard";
 import { GridContainer } from "../../../GridContainer";
-import { AppContext } from "../../../../../Context";
-import React from "react";
+import { egesServices } from "../../../../utils/EGESServices";
 
 const ServicesContainer = () => {
-    const context = React.useContext(AppContext);
-
-    const { mainServices } = context.responseData;
+    const mainServices = egesServices
 
     return(
         <GridContainer className="grid-1-1-1" padding={0} gap={0}>

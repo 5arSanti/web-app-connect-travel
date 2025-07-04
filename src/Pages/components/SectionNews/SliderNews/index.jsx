@@ -1,17 +1,12 @@
-import React from "react";
-import Slider from "react-slick";
-import { AppContext } from "../../../../Context";
 
+import Slider from "react-slick";
 
 import { NextArrowCard, PrevArrowCard } from "./ArrowsCard";
 import { NewsCard } from "../NewsCard";
 import { WrapperContainer2 } from "../../WrapperContainers";
+import { news } from "../../../utils/news";
 
 const SliderNews = () => {
-	const { windowWith, responseData } = React.useContext(AppContext);
-
-	const { news } = responseData;
-
     const options = {
         infinite: true,
 		speed: 1250,
@@ -45,8 +40,8 @@ const SliderNews = () => {
     }
 
 
-    return(
-        <WrapperContainer2 justifyContent="center" alignItems="center" padding={windowWith <= 450 ? 0 : 15}>
+    return(	
+        <WrapperContainer2 justifyContent="center" alignItems="center" padding={15}>
             <Slider {...options}>
                 {news?.map((item, index) => (
                     <NewsCard key={index} item={item}/>

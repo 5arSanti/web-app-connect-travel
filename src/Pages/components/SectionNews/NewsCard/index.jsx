@@ -14,9 +14,9 @@ const NewsCard = ({item={}}) => {
     return (
         <WrapperContainer2 flexDirection="column" padding={"0 10px"}>
             <Link 
-                to={`/news/${item.ID_Noticia}`} 
+                to={`/news/${item.id}`} 
                 style={{width: "100%", height: "100%"}} 
-                title={`Ir a ${item.Titulo}`}
+                title={`Ir a ${item.title}`}
             >
 
                 <WrapperContainer1 
@@ -42,13 +42,13 @@ const NewsCard = ({item={}}) => {
                             <SubTitle>
                                 <TextCard white={true} fontSize={20} className="bold">
                                     <SpanCard fontSize={20} className="bold">
-                                        {item?.Titulo}
+                                        {item?.title}
                                     </SpanCard>
                                 </TextCard>
                             </SubTitle>
 
                             <TextCard white={true} fontSize={12} textAlign="start" className={"italic"}>
-                                Publicado el dia {moment(item?.Fecha_Publicacion).format("DD/MM/YYYY")}
+                                Publicado el dia {moment(item?.publicationDate).format("DD/MM/YYYY")}
                             </TextCard>
                             
                             
@@ -56,7 +56,7 @@ const NewsCard = ({item={}}) => {
                                 white={true} 
                                 fontSize={14}
                             >
-                                {item?.SubTitulo}
+                                {item?.description}
                             </TextCard>
 
                         </WrapperContainer2>
@@ -64,13 +64,13 @@ const NewsCard = ({item={}}) => {
                         <GridContainer padding={0}>
                             <SubInfoCard 
                                 subTitle={"Tipo de noticia"} 
-                                text={item.Tipo_Noticia}
+                                text={item.type}
                                 padding={"10px 20px"}
                                 textAlign="center"
                             />
                             <SubInfoCard 
                                 subTitle={"Categoria de la noticia"} 
-                                text={item.Categoria_Servicio}
+                                text={item.category}
                                 padding={"10px 20px"}
                                 textAlign="center"
                             />
@@ -79,7 +79,7 @@ const NewsCard = ({item={}}) => {
                     </WrapperContainer2>
 
                     <img 
-                        src={item?.Imagen} 
+                        src={item?.image} 
                         className={"bg"}
                         alt="alt-image"
                     />
