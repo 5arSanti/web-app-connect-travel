@@ -1,0 +1,157 @@
+/* Contact Card Styles */
+
+.contact-card {
+    background: var(--white);
+    border-radius: 15px;
+    border: 2px solid var(--lines-color2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--pallete-4), var(--pallete-3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--pallete-3);
+}
+
+.contact-card:hover::before {
+    opacity: 0.05;
+}
+
+.contact-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: var(--pallete-4);
+    border-radius: 12px;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-icon-wrapper svg {
+    font-size: 20px;
+    color: var(--pallete-2);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon-wrapper {
+    background: var(--pallete-3);
+    transform: scale(1.1);
+}
+
+.contact-card:hover .contact-icon-wrapper svg {
+    color: var(--white);
+}
+
+.contact-info-wrapper {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-label {
+    margin-bottom: 5px;
+}
+
+.contact-name {
+    color: var(--pallete-2);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+}
+
+.contact-value {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.contact-card:hover .contact-value {
+    color: var(--pallete-2);
+}
+
+/* Animation for card entrance */
+.contact-card {
+    animation: slideInLeft 0.6s ease;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-card {
+        padding: 15px;
+    }
+    
+    .contact-icon-wrapper {
+        width: 45px;
+        height: 45px;
+        margin-right: 15px;
+    }
+    
+    .contact-icon-wrapper svg {
+        font-size: 18px;
+    }
+    
+    .contact-value {
+        font-size: 14px;
+    }
+    
+    .contact-name {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-card {
+        padding: 12px;
+    }
+    
+    .contact-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+    }
+    
+    .contact-icon-wrapper svg {
+        font-size: 16px;
+    }
+    
+    .contact-value {
+        font-size: 13px;
+    }
+    
+    .contact-name {
+        font-size: 10px;
+    }
+} 

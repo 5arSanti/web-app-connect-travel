@@ -1,0 +1,307 @@
+/* Contact Section Styles */
+
+.contact-slogan {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Main Contact Grid */
+.contact-main-grid {
+    width: 100%;
+    margin: 40px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contact Information Section */
+.contact-info-section {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--lines-color2);
+    transition: all 0.3s ease;
+}
+
+.contact-info-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Map Section */
+.map-section {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.map-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    border-radius: 20px;
+    border: none;
+}
+
+.map-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 0.6s ease;
+}
+
+.location-info h3 {
+    color: var(--pallete-2);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.location-info p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin: 4px 0;
+    font-weight: 500;
+}
+
+/* Social Media Section */
+.social-media-section {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--pallete-4) 0%, var(--white) 100%);
+    border-radius: 20px;
+    margin: 40px 0;
+}
+
+.social-title {
+    color: var(--pallete-2);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Archivo', sans-serif;
+}
+
+.social-subtitle {
+    color: var(--text-color);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.social-icon-link {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--pallete-3), var(--pallete-1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+}
+
+.social-icon-wrapper svg {
+    font-size: 24px;
+    color: var(--pallete-2);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icon-link:hover .social-icon-wrapper {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon-link:hover .social-icon-wrapper::before {
+    opacity: 1;
+}
+
+.social-icon-link:hover .social-icon-wrapper svg {
+    color: var(--white);
+}
+
+/* Specific social media colors */
+.social-icon-link:nth-child(1):hover .social-icon-wrapper::before {
+    background: linear-gradient(135deg, #1877F2, #4267B2);
+}
+
+.social-icon-link:nth-child(2):hover .social-icon-wrapper::before {
+    background: linear-gradient(135deg, #E4405F, #C13584);
+}
+
+.social-icon-link:nth-child(3):hover .social-icon-wrapper::before {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-info-section {
+        padding: 30px 20px;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+    
+    .map-overlay {
+        bottom: 15px;
+        left: 15px;
+        padding: 15px;
+    }
+    
+    .social-icons-container {
+        gap: 20px;
+    }
+    
+    .social-icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-icon-wrapper svg {
+        font-size: 20px;
+    }
+    
+    .contact-slogan {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info-section {
+        padding: 25px 15px;
+    }
+    
+    .map-container {
+        height: 250px;
+    }
+    
+    .map-overlay {
+        bottom: 10px;
+        left: 10px;
+        padding: 12px;
+    }
+    
+    .location-info h3 {
+        font-size: 16px;
+    }
+    
+    .location-info p {
+        font-size: 12px;
+    }
+    
+    .social-icons-container {
+        gap: 15px;
+    }
+    
+    .social-icon-wrapper {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icon-wrapper svg {
+        font-size: 18px;
+    }
+    
+    .social-title {
+        font-size: 20px;
+    }
+    
+    .social-subtitle {
+        font-size: 14px;
+    }
+}
+
+/* Hover effects for contact info */
+.contact-info-section:hover {
+    border-color: var(--pallete-3);
+}
+
+/* Map hover effects */
+.map-section:hover .map-overlay {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+} 
