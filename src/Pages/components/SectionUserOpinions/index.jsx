@@ -10,23 +10,25 @@ import "./styles.css"
 
 const SectionUsersOpinions = () => {
     return(
-        <SliderWrapper padding={0} dots={false} arrows={false}>
-            {opinions?.map((item, index) => (
-                <StyledHome key={index} image={item.image}>
-                    <WrapperContainer2 flexDirection="column" justifyContent="center" alignItems="center" padding={"0 200px"} gap={80}>
-                        <CgQuote className="quote-icon"/>
-                        
-                        <TextCard white={true} className="italic" textAlign="center" fontSize={24}>
-                            {item.opinion}
-                        </TextCard>
+        <section id="opiniones">
+            <SliderWrapper padding={0} dots={false} arrows={false}>
+                {opinions?.map((item, index) => (
+                    <StyledHome key={index} image={item.image}>
+                        <WrapperContainer2 flexDirection="column" justifyContent="center" alignItems="center" padding={"0 200px"} gap={80}>
+                            <CgQuote className="quote-icon"/>
+                            
+                            <TextCard white={true} className="italic" textAlign="center" fontSize={24}>
+                                {item.opinion}
+                            </TextCard>
 
-                        <TextCard className="animacion2" width="auto" textAlign="center" white={true}>
-                            {item.name}
-                        </TextCard>
-                    </WrapperContainer2>
-                </StyledHome>
-            ))}
-        </SliderWrapper>
+                            <TextCard className="animacion2" width="auto" textAlign="center" white={true}>
+                                {item.name}
+                            </TextCard>
+                        </WrapperContainer2>
+                    </StyledHome>
+                ))}
+            </SliderWrapper>
+        </section>
     );
 }
 

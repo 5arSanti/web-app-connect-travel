@@ -4,10 +4,13 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-
     padding: 0 40px;
+    flex-wrap: wrap;
 }
 
+.nav-label {
+    display: inline;
+}
 
 .nav-buttons {
 	background-color: transparent;
@@ -18,15 +21,66 @@
 	justify-content: center;
 	align-items: center;
 
-	padding: 5px;
+	padding: 8px 12px;
 
 	cursor: pointer;
 
 	font-size: 14px;
 
     text-align: center;
+    
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    white-space: nowrap;
 }
+
+.nav-buttons:hover {
+    background-color: var(--pallete-4);
+    color: var(--pallete-2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 .nav-buttons svg {
 	width: 20px;
 	height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-buttons-container {
+        gap: 10px;
+        padding: 0 20px;
+    }
+    
+    .nav-buttons {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+    
+    .nav-buttons svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-buttons-container {
+        gap: 5px;
+        padding: 0 10px;
+    }
+    
+    .nav-buttons {
+        font-size: 11px;
+        padding: 5px 6px;
+    }
+    
+    .nav-buttons svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .nav-label {
+        display: none;
+    }
 }

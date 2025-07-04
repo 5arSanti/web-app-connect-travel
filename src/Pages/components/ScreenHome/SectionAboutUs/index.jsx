@@ -4,8 +4,9 @@ import { Title } from "../../Title";
 import { WrapperContainer2 } from "../../WrapperContainers";
 
 const SectionAboutUs = () => {
-    return(
-        <SectionWrapper padding={30}>
+    return (
+
+        <SectionWrapper padding={30} id="nosotros">
             <WrapperContainer2 flexDirection="column" padding={125}>
                 <WrapperContainer2 flexDirection="column" gap={0}>
                     <TextCard fontSize={12} textAlign="center">Somos</TextCard>

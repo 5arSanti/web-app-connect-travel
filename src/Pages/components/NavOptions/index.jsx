@@ -1,48 +1,45 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import { handleLogout } from "../../utils/handleData/handleLogout";
-import { IoLogOutOutline } from "react-icons/io5";
-import { FaUser } from "react-icons/fa6";
-import { FaUserAlt } from "react-icons/fa";
 import { AppContext } from "../../../Context";
 import { NavButtons } from "../NavButtons";
 
-import { RiAdminLine } from "react-icons/ri";
-
 import "./styles.css";
-import { IsAuthWrapper } from "../AuthWrapper/IsAuthWrapper";
-import { IsAdminWrapper } from "../AuthWrapper/IsAdminWrapper";
+import { HashLink } from "react-router-hash-link";
+import { navigationItems } from "../../utils/navigationItems";
 
 
-const NavOptions = ({className="nav-buttons animacion2 pl2"}) => {
+const NavOptions = ({ className = "nav-buttons animacion2 pl2" }) => {
     const { auth } = React.useContext(AppContext)
 
-    return(
+    return (
         <div className="nav-buttons-container">
-            <NavButtons className={className}/>
+            <NavButtons className={className} />
 
-            {!auth && 
+            {/* Navegación a secciones */}
+            {navigationItems.map((item, index) => (
+                <HashLink 
+                    key={index}
+                    to={item.to} 
+                    className={`${className}`}
+                    title={item.label}
+                >
+                    <span className="nav-label">{item.label}</span> {item.icon}
+                </HashLink>
+            ))}
+
+            {/* {!auth && 
                 <Link to={"/login"} className={`${className}`}>Iniciar Sesión <FaUser/></Link>
-            }
+            } */}
 
-            <IsAuthWrapper>
-                <Link to={"/profile"} className={`${className}`}>Perfil <FaUserAlt/></Link>
-            </IsAuthWrapper>
-
-            <IsAdminWrapper>
-                <Link to={"/admin-dash"} className={`${className}`}>Administracion <RiAdminLine/></Link>
-            </IsAdminWrapper>
-            
-            <IsAuthWrapper>
-                <button  
-                    className={`${className}`} 
+            {/* <IsAuthWrapper>
+                <button
+                    className={`${className}`}
                     onClick={handleLogout}
                 >
                     Cerrar Sesión
-                    <IoLogOutOutline/>
+                    <IoLogOutOutline />
                 </button>
-            </IsAuthWrapper>
+            </IsAuthWrapper> */}
         </div>
     )
 }

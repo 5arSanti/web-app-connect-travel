@@ -32,17 +32,6 @@ const AppProvider = ({children}) => {
         }
     }
 
-    React.useEffect(() => {
-        const endpoints = [
-            "/version",
-            "/services",
-            "/news",
-        ]
-
-        fetchData(endpoints)
-    }, []);
-
-    
     return (
         <AppContext.Provider
             value={{

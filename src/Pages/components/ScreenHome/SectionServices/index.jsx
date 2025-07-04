@@ -6,11 +6,13 @@ import "./styles.css"
 
 const SectionServices = () => {
     return(
-        <FadeWrapper>
-            <WrapperContainer2 flexDirection="column" padding={0}>
-                <ServicesContainer/>
-            </WrapperContainer2>
-        </FadeWrapper>
+        <section id="servicios">
+            <FadeWrapper>
+                <WrapperContainer2 flexDirection="column" padding={0}>
+                    <ServicesContainer/>
+                </WrapperContainer2>
+            </FadeWrapper>
+        </section>
     )
 }
 

@@ -1,0 +1,139 @@
+.floating-nav {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.floating-nav-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--pallete-2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.floating-nav-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+.floating-nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.floating-nav.open .floating-nav-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.floating-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    color: var(--pallete-2);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.floating-nav-item:hover {
+    background: var(--pallete-4);
+    color: var(--pallete-2);
+    transform: translateX(5px);
+}
+
+.floating-nav-item svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.floating-nav-label {
+    white-space: nowrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .floating-nav {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .floating-nav-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .floating-nav-menu {
+        min-width: 180px;
+        padding: 12px;
+    }
+    
+    .floating-nav-item {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .floating-nav-item svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-nav {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .floating-nav-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .floating-nav-menu {
+        min-width: 160px;
+        padding: 10px;
+    }
+    
+    .floating-nav-item {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+    
+    .floating-nav-item svg {
+        width: 16px;
+        height: 16px;
+    }
+} 

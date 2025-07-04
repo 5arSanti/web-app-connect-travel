@@ -6,7 +6,7 @@ import { ContactInformation } from "./ContactInformation";
 
 const SectionContact = () => {
     return(
-        <SectionWrapper padding={30}>
+        <SectionWrapper padding={30} id="contacto">
             <WrapperContainer2 flexDirection="column" padding={100}>
                 <SectionTitle title="CONTACTANOS" subTitle="QUE ESTAS ESPERANDO..."/>
 

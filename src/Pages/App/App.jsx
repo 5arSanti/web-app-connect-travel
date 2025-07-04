@@ -17,6 +17,7 @@ import { AppProvider } from "../../Context";
 import { Footer } from "../components/Footer";
 import { ToastContainer } from "react-toastify";
 import { AppRoutes } from "../Routes";
+import { FloatingNav } from "../components/FloatingNav";
 
 // Utils
 import { scrollToValue } from "../utils/scrollToValue";
@@ -43,6 +44,7 @@ const App = () => {
 
                     <AppRoutes/>
 
+                    <FloatingNav/>
                     <ToastContainer/>
                     <Footer/>
                 </Wrapper>

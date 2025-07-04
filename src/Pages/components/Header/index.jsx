@@ -9,7 +9,7 @@ const Header = () => {
 
     return(
         <nav className="nav-container animacion-nav">
-            <NavLink to="/">
+            <NavLink to="/home">
                 <img src={mainLogo} alt="" />
             </NavLink>
 
