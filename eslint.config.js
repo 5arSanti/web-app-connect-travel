@@ -22,8 +22,12 @@ export default defineConfig([
         sourceType: 'module',
       },
     },
+    plugins: [
+      reactRefresh.eslint(),
+    ],
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
   },
 ])
