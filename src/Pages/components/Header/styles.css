@@ -16,16 +16,6 @@
     background-color: var(--navbar-color);
 }
 
-.nav-container > a {
-    padding: 0 75px;
-    background-color: var(--lines-color);
-}
-
-.nav-container img {
-    height: var(--navbar-height);
-    object-fit: contain;
-}
-
 .icon-responsive {
     width: 30px;
     height: 30px;
@@ -33,16 +23,18 @@
     cursor: pointer;
     transition: all 1s ease;
 }
-.icon-responsive svg{
+
+.icon-responsive svg {
     fill: var(--white);
     height: 100%;
     width: 100%;
 }
 
-.navbar-right ul{
+.navbar-right ul {
     flex-direction: row;
 }
-.close-button{
+
+.close-button {
     height: 28px;
     width: 28px;
     padding: 4px;
@@ -53,10 +45,11 @@
 
 
 @media (max-width: 950px) {
-    .navbar .navbar-right{
+    .navbar .navbar-right {
         display: none;
     }
-    .icon-responsive{
+
+    .icon-responsive {
         display: flex;
         align-items: center;
     }

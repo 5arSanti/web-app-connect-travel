@@ -7,13 +7,14 @@ import "./styles.css"
 
 const HeaderContact = () => {
     return (
-        <WrapperContainer2 
-            padding={"15px 150px"} 
-            className="header-contact-container" 
+        <WrapperContainer2
+            padding={"15px 150px"}
+            className="header-contact-container"
             justifyContent="space-between"
-            
+            height="auto"
+
         >
-            <IconsList gap justifyContent="start" size={20} padding={0} white={true}/>
+            <IconsList gap justifyContent="start" size={20} padding={0} white={true} />
 
             <TextCard textAlign="end" white={true}>
                 {contactInfo.phone.icon} {contactInfo.phone.info}

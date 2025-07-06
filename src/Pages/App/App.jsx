@@ -40,13 +40,8 @@ const App = () => {
         <AppProvider>
             <HashRouter>
                 <Wrapper>
-                    <Header />
-                    <HeaderContact />
 
                     <AppRoutes />
-
-                    <FloatingNav />
-                    <FloatingWhatsApp />
 
                     <ToastContainer
                         position="top-right"
@@ -59,8 +54,6 @@ const App = () => {
                         draggable
                         pauseOnHover
                     />
-
-                    <Footer />
                 </Wrapper>
             </HashRouter>
         </AppProvider>

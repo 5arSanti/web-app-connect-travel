@@ -1,0 +1,22 @@
+.sidebar {
+    background: #fff;
+    border-right: 1px solid #e5e5e5;
+    min-width: 220px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.03);
+}
+
+.ps-menuitem-root {
+    font-size: 15px;
+    color: #222;
+    margin-bottom: 2px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.ps-menuitem-root:hover {
+    background: #f5f5f5;
+}
+
+.ps-sidebar-container {
+    background: #fff;
+}

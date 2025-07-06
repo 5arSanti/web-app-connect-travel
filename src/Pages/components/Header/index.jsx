@@ -1,19 +1,14 @@
-import { NavLink } from "react-router-dom";
 import { NavOptions } from "../NavOptions";
-
-import { mainLogo } from "../../../assets";
-
 import "./styles.css"
+import { LogoCard } from "../LogoCard";
 
 const Header = () => {
 
-    return(
+    return (
         <nav className="nav-container animacion-nav">
-            <NavLink to="/home">
-                <img src={mainLogo} alt="" />
-            </NavLink>
+            <LogoCard padding={"0 75px"} />
 
-            <NavOptions/>
+            <NavOptions />
         </nav>
     );
 }
