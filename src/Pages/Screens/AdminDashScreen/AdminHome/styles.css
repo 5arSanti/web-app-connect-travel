@@ -1,0 +1,5 @@
+.admin-home-item {
+    border-bottom: 1px solid var(--lines-color);
+    text-align: start;
+    padding: 5px;
+}

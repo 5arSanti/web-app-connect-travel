@@ -31,9 +31,9 @@ const Home = () => {
 
             <SectionServices />
 
-            {/* <SectionAboutUs /> */}
+            <SectionAboutUs />
 
-            {/* <SectionUsersOpinions /> */}
+            <SectionUsersOpinions />
 
             <SectionContact />
 

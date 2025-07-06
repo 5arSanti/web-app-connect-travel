@@ -1,13 +1,14 @@
 import React from "react";
 import { fetchAllData } from "../Pages/utils/handleData/handleFetchData";
 import { handleNotifications } from "../Pages/utils/handleNotifications";
+import { MenuItem } from "../interfaces/menu-items";
 
-export const AppContext = React.createContext();
+export const AppContext = React.createContext<any>({});
 
-const AppProvider = ({children}) => {
+const AppProvider = ({ children }) => {
 
-    //LOADING, ERROR
-    const [loading, setLoading] = React.useState(null);
+    //LOADING
+    const [loading, setLoading] = React.useState<boolean | null>(null);
 
     //Login Auth
     const [auth, setAuth] = React.useState(false);
@@ -18,26 +19,28 @@ const AppProvider = ({children}) => {
     // RESPONSE:
     const [responseData, setResponseData] = React.useState({});
 
-    const fetchData = async (endpoints, setState=setResponseData) => {
+    const fetchData = async (endpoints, setState = setResponseData) => {
         try {
             setLoading(true);
             const data = await fetchAllData(endpoints);
-            setState((prevData) => ({ ...prevData, ...data}));
-        } 
+            setState((prevData) => ({ ...prevData, ...data }));
+        }
         catch (err) {
             handleNotifications("error", err.message)
-        } 
+        }
         finally {
             setLoading(false);
         }
     }
+
+    const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
 
     return (
         <AppContext.Provider
             value={{
                 loading,
                 setLoading,
-                
+
                 auth,
                 setAuth,
 
@@ -50,8 +53,11 @@ const AppProvider = ({children}) => {
                 //Informacion desde el serveidor
                 responseData,
                 setResponseData,
-                
-                fetchData
+
+                fetchData,
+
+                selectedItem,
+                setSelectedItem
             }}
         >
             {children}

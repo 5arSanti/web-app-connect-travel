@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import SidebarLayout from '../../components/Sidebar/SidebarLayout';
-import { useState } from 'react';
 import { getMenuItems } from '../../utils/menu-item.utils';
 import { MenuItem } from '../../../interfaces/menu-items';
 
-const AdminDashScreen = () => {
-    const [selectedItem, setSelectedItem] = useState<MenuItem | null>(getMenuItems()[0]);
+interface AdminDashScreenProps {
+    selectedItem: MenuItem | null;
+    setSelectedItem: Dispatch<SetStateAction<MenuItem | null>>;
+}
+
+const AdminDashScreen = ({ selectedItem, setSelectedItem }: AdminDashScreenProps) => {
 
     return (
         <SidebarLayout
-            menuItems={getMenuItems(setSelectedItem)}
+            menuItems={getMenuItems()}
             selectedItem={selectedItem}
             setSelectedItem={setSelectedItem}
         />

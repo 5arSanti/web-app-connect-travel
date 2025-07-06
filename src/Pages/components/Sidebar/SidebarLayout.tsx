@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import { SidebarCard } from './SidebarCard';
 import { MainContent } from './MainContent';
 import { MenuItem } from '../../../interfaces/menu-items';
+import { SidebarCard } from './SidebarCard';
 
 interface SidebarLayoutProps {
     menuItems: MenuItem[];

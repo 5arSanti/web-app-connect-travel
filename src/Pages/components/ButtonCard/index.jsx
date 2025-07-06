@@ -8,7 +8,8 @@ const ButtonCard = ({
     type = "button",
     padding = 20,
     borderWidth = 1,
-    borderRadius = 0
+    borderRadius = 0,
+    style = {}
 }) => {
     return (
         <button
@@ -19,7 +20,8 @@ const ButtonCard = ({
             style={{
                 padding: padding,
                 borderWidth: borderWidth,
-                borderRadius: borderRadius
+                borderRadius: borderRadius,
+                ...style
             }}
         >
             {children}

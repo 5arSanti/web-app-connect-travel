@@ -1,6 +1,6 @@
 //Dependencies
 import React from "react";
-import { HashRouter, Navigate, useLocation, useRoutes } from "react-router-dom";
+import { HashRouter, useLocation } from "react-router-dom";
 
 // CSS
 import './App.css';
@@ -11,20 +11,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 //Context
-import { AppProvider } from "../../Context";
 
 // Components
-import { Footer } from "../components/Footer";
 import { ToastContainer } from "react-toastify";
 import { AppRoutes } from "../Routes";
-import { FloatingNav } from "../components/FloatingNav";
-import { FloatingWhatsApp } from "../components/FloatingWhatsApp";
 
 // Utils
 import { scrollToValue } from "../utils/scrollToValue";
-import { Header } from "../components/Header";
 
-import { HeaderContact } from "../components/HeaderContact";
+import { AppProvider } from "../../Context";
 
 const Wrapper = ({ children }) => {
     const location = useLocation();

@@ -3,12 +3,12 @@ import { FaBuilding, FaCog, FaHome, FaImage, FaNewspaper, FaTags, FaUsers } from
 import { MenuItem } from "../../interfaces/menu-items";
 import { AdminHome } from "../Screens/AdminDashScreen/AdminHome";
 
-const getMenuItems = (setSelectedItem?: (item: MenuItem) => void): MenuItem[] => {
+const getMenuItems = (): MenuItem[] => {
     const menuItems: MenuItem[] = [
         {
             icon: <FaHome />,
             label: 'Inicio',
-            children: <AdminHome setSelectedItem={setSelectedItem} />,
+            children: <AdminHome />,
             description: 'Volver a la pagina principal de Connect Travel\'s.',
             path: '/home'
         },
