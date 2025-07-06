@@ -27,7 +27,7 @@ const InputCard = ({
                     placeholder={placeholder}
                     name={id}
                     id={id}
-                    onChange={(event) => {onChange(event.target.value)}}
+                    onChange={onChange}
                     required={required}
                     defaultValue={defaultValue}
                 />

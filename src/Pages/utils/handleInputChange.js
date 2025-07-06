@@ -1,10 +1,8 @@
-const handleInputChange = (key, value, setState) => {
-    const numericValue = parseInt(value) || value;
-
-    setState((prevValues) => ({ 
-        ...prevValues, 
-        [key]: numericValue
-     }));
+const handleInputChange = (e) => {
+    setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+    });
 };
 
 export { handleInputChange }

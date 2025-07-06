@@ -26,7 +26,7 @@ import { Header } from "../components/Header";
 
 import { HeaderContact } from "../components/HeaderContact";
 
-const Wrapper = ({children}) => {
+const Wrapper = ({ children }) => {
     const location = useLocation();
     React.useLayoutEffect(() => {
         scrollToValue();
@@ -40,17 +40,27 @@ const App = () => {
         <AppProvider>
             <HashRouter>
                 <Wrapper>
-                    <Header/>
-                    <HeaderContact/>
+                    <Header />
+                    <HeaderContact />
 
-                    <AppRoutes/>
+                    <AppRoutes />
 
-                    <FloatingNav/>
-                    <FloatingWhatsApp/>
-                    
-                    <ToastContainer/>
-                    
-                    <Footer/>
+                    <FloatingNav />
+                    <FloatingWhatsApp />
+
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                    />
+
+                    <Footer />
                 </Wrapper>
             </HashRouter>
         </AppProvider>

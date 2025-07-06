@@ -6,10 +6,10 @@ import { NavButtons } from "../NavButtons";
 import "./styles.css";
 import { HashLink } from "react-router-hash-link";
 import { navigationItems } from "../../utils/navigationItems";
+import { FaUser } from "react-icons/fa";
 
 
 const NavOptions = ({ className = "nav-buttons animacion2 pl2" }) => {
-    const { auth } = React.useContext(AppContext)
 
     return (
         <div className="nav-buttons-container">
@@ -17,9 +17,9 @@ const NavOptions = ({ className = "nav-buttons animacion2 pl2" }) => {
 
             {/* Navegación a secciones */}
             {navigationItems.map((item, index) => (
-                <HashLink 
+                <HashLink
                     key={index}
-                    to={item.to} 
+                    to={item.to}
                     className={`${className}`}
                     title={item.label}
                 >
@@ -27,9 +27,7 @@ const NavOptions = ({ className = "nav-buttons animacion2 pl2" }) => {
                 </HashLink>
             ))}
 
-            {/* {!auth && 
-                <Link to={"/login"} className={`${className}`}>Iniciar Sesión <FaUser/></Link>
-            } */}
+            <HashLink to={"/login"} className={`${className}`}>Iniciar Sesión <FaUser /></HashLink>
 
             {/* <IsAuthWrapper>
                 <button
