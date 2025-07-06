@@ -1,37 +1,33 @@
 import React from "react";
-import { fetchAllData } from "../Pages/utils/handleData/handleFetchData";
-import { handleNotifications } from "../Pages/utils/handleNotifications";
 import { MenuItem } from "../interfaces/menu-items";
+import { User } from "@supabase/supabase-js";
 
-export const AppContext = React.createContext<any>({});
+interface AppContextType {
+    loading: boolean | null;
+    setLoading: React.Dispatch<React.SetStateAction<boolean | null>>;
+    user: User | null;
+    setUser: React.Dispatch<React.SetStateAction<User | null>>;
+    selectedItem: MenuItem | null;
+    setSelectedItem: React.Dispatch<React.SetStateAction<MenuItem | null>>;
+}
 
-const AppProvider = ({ children }) => {
+export const AppContext = React.createContext<AppContextType>({
+    loading: null,
+    setLoading: () => { },
+    user: null,
+    setUser: () => { },
+    selectedItem: null,
+    setSelectedItem: () => { },
+});
+
+const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
     //LOADING
     const [loading, setLoading] = React.useState<boolean | null>(null);
 
     //Login Auth
-    const [auth, setAuth] = React.useState(false);
-    const [admin, setAdmin] = React.useState(false);
-    const [user, setUser] = React.useState("");
+    const [user, setUser] = React.useState<User | null>(null);
 
-
-    // RESPONSE:
-    const [responseData, setResponseData] = React.useState({});
-
-    const fetchData = async (endpoints, setState = setResponseData) => {
-        try {
-            setLoading(true);
-            const data = await fetchAllData(endpoints);
-            setState((prevData) => ({ ...prevData, ...data }));
-        }
-        catch (err) {
-            handleNotifications("error", err.message)
-        }
-        finally {
-            setLoading(false);
-        }
-    }
 
     const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
 
@@ -41,20 +37,8 @@ const AppProvider = ({ children }) => {
                 loading,
                 setLoading,
 
-                auth,
-                setAuth,
-
                 user,
                 setUser,
-
-                admin,
-                setAdmin,
-
-                //Informacion desde el serveidor
-                responseData,
-                setResponseData,
-
-                fetchData,
 
                 selectedItem,
                 setSelectedItem

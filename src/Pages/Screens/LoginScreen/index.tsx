@@ -23,7 +23,6 @@ const LoginScreen = () => {
         email: "",
         password: "",
     });
-    console.log(values);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
