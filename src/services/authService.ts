@@ -1,54 +1,39 @@
-import { AuthChangeEvent, Session } from '@supabase/supabase-js';
+import { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
 import { supabase } from './supabase';
+import { AuthLoginResponse, AuthStateResponse } from '../interfaces/auth';
 
 export const authService = {
-    async login(email: string, password: string) {
+    async login(email: string, password: string): Promise<AuthLoginResponse> {
         const { data, error } = await supabase.auth.signInWithPassword({
             email,
             password,
         });
 
         if (error) throw error;
-
-        const { data: profile } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', data.user.id)
-            .single();
-
         return {
-            user: { ...data.user, ...profile },
+            user: data.user,
             session: data.session
         };
     },
 
-    async logout() {
+    async logout(): Promise<void> {
         const { error } = await supabase.auth.signOut();
         if (error) throw error;
     },
 
-    async getCurrentUser() {
+    async getCurrentUser(): Promise<User | null> {
         const { data: { user } } = await supabase.auth.getUser();
 
-        if (user) {
-            const { data: profile } = await supabase
-                .from('profiles')
-                .select('*')
-                .eq('id', user.id)
-                .single();
-
-            return { ...user, ...profile };
-        }
-
-        return null;
+        if (!user) return null;
+        return user;
     },
 
-    async isAuthenticated() {
+    async isAuthenticated(): Promise<boolean> {
         const { data: { session } } = await supabase.auth.getSession();
         return !!session;
     },
 
-    onAuthStateChange(callback: (event: AuthChangeEvent, session: Session | null) => Promise<void>) {
+    onAuthStateChange(callback: (event: AuthChangeEvent, session: Session | null) => Promise<void>): AuthStateResponse {
         return supabase.auth.onAuthStateChange(callback);
     }
 }; 
