@@ -16,7 +16,7 @@ const SidebarLayout = ({ menuItems }: SidebarLayoutProps) => {
         <div style={{ display: 'flex', height: '100vh' }}>
             <SidebarCard collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} menuItems={menuItems} />
 
-            <MainContent collapsed={collapsed} setCollapsed={setCollapsed}>
+            <MainContent collapsed={collapsed} setCollapsed={setCollapsed} title={selectedItem?.label}>
                 {selectedItem?.children}
             </MainContent>
         </div>
