@@ -6,14 +6,16 @@ const ServicesContainer = () => {
     const mainServices = connectTravelServices
 
     return(
-        <GridContainer className="grid-1-1-1" padding={0} gap={0}>
-            {mainServices?.map((item, index) => (
-                <ServiceCard 
-                    key={index}
-                    item={item}
-                />
-            ))}
-        </GridContainer>
+        <div className="services-container">
+            <GridContainer className="grid-1-1-1" padding={0} gap={20}>
+                {mainServices?.map((item, index) => (
+                    <ServiceCard 
+                        key={index}
+                        item={item}
+                    />
+                ))}
+            </GridContainer>
+        </div>
     )
 }
 

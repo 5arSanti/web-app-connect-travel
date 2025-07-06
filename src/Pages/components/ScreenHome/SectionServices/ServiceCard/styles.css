@@ -1,28 +1,234 @@
-.service-container {
-    background-color: var(--pallete-1);
+/* Service Card Styles */
+.service-card {
+    display: block;
+    text-decoration: none;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--lines-color2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
     height: 100%;
-
-    transition: all 0.3s ease;
-}
-.service-container:hover {
-    background-color: var(--white);
 }
 
-.service-container p, .service-container h2 {
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pallete-3), var(--pallete-1));
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.service-card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.service-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg, var(--pallete-1), var(--pallete-4));
+    border-radius: 50%;
+    margin-bottom: 25px;
+    font-size: 32px;
+    color: var(--white);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-icon-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--pallete-3), var(--pallete-2));
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
+}
+
+.service-card:hover .service-icon-wrapper::before {
+    opacity: 1;
+}
+
+.service-card:hover .service-icon-wrapper {
+    transform: scale(1.05) rotate(3deg);
+}
+
+.service-icon-wrapper svg {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.service-main-section {
+    color: var(--pallete-3) !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 11px !important;
+}
+
+.service-title {
+    color: var(--pallete-2) !important;
+    font-size: 20px !important;
+    font-weight: bold;
+    margin: 0 !important;
+    line-height: 1.3;
+    font-family: 'Archivo', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.service-description {
+    color: var(--text-color) !important;
+    line-height: 1.6;
+    margin: 0 !important;
+    flex: 1;
+}
+
+.service-arrow {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, var(--pallete-4), var(--white));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pallete-2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateX(8px);
+}
+
+.service-card:hover .service-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    background: linear-gradient(135deg, var(--pallete-3), var(--pallete-1));
     color: var(--white);
 }
-.service-container:hover p, .service-container:hover h2 {
-    color: var(--text-color);
-} 
 
-.service-container svg {
-    fill: var(--white);
-    stroke: var(--white);
-
-    width: 80px;
-    height: 80px;
+/* Specific service card colors using the defined palette */
+.service-card:nth-child(1) .service-icon-wrapper {
+    background: linear-gradient(135deg, var(--pallete-1), var(--pallete-4));
 }
-.service-container:hover svg {
-    fill: var(--lines-color);
-    stroke: var(--lines-color);
+
+.service-card:nth-child(2) .service-icon-wrapper {
+    background: linear-gradient(135deg, var(--pallete-2), var(--pallete-6));
+}
+
+.service-card:nth-child(3) .service-icon-wrapper {
+    background: linear-gradient(135deg, var(--pallete-3), var(--pallete-1));
+}
+
+.service-card:nth-child(4) .service-icon-wrapper {
+    background: linear-gradient(135deg, var(--pallete-5), var(--pallete-3));
+}
+
+.service-card:nth-child(5) .service-icon-wrapper {
+    background: linear-gradient(135deg, var(--pallete-1), var(--pallete-2));
+}
+
+.service-card:nth-child(6) .service-icon-wrapper {
+    background: linear-gradient(135deg, var(--pallete-3), var(--pallete-5));
+}
+
+/* Hover effects for specific cards */
+.service-card:nth-child(1):hover .service-icon-wrapper::before {
+    background: linear-gradient(135deg, var(--pallete-3), var(--pallete-1));
+}
+
+.service-card:nth-child(2):hover .service-icon-wrapper::before {
+    background: linear-gradient(135deg, var(--pallete-1), var(--pallete-3));
+}
+
+.service-card:nth-child(3):hover .service-icon-wrapper::before {
+    background: linear-gradient(135deg, var(--pallete-2), var(--pallete-1));
+}
+
+.service-card:nth-child(4):hover .service-icon-wrapper::before {
+    background: linear-gradient(135deg, var(--pallete-3), var(--pallete-2));
+}
+
+.service-card:nth-child(5):hover .service-icon-wrapper::before {
+    background: linear-gradient(135deg, var(--pallete-3), var(--pallete-5));
+}
+
+.service-card:nth-child(6):hover .service-icon-wrapper::before {
+    background: linear-gradient(135deg, var(--pallete-1), var(--pallete-3));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .service-icon-wrapper {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    
+    .service-title {
+        font-size: 18px !important;
+    }
+    
+    .service-description {
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card {
+        padding: 25px 15px;
+    }
+    
+    .service-icon-wrapper {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .service-title {
+        font-size: 16px !important;
+    }
+    
+    .service-description {
+        font-size: 12px !important;
+    }
 }

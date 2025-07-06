@@ -7,24 +7,24 @@ import "./styles.css"
 
 const ServiceCard = ({item={}}) => {
     return(
-        <Link className="service-container" to={`/${item.uri}`}>
-            <WrapperContainer2 
-                flexDirection="column" 
-                justifyContent="center" 
-                alignItems="start" 
-                padding={50} 
-                gap={30}
-            >
-                {item.icon}
-
-                <WrapperContainer2 flexDirection="column" gap={0} padding={0}>
-                    <TextCard fontSize={14}>{item.mainSection}</TextCard>
-                    <SubTitle>{item.serviceName}</SubTitle>
-
-                </WrapperContainer2>
-                <TextCard fontSize={16}>{item.description}</TextCard>
-
-            </WrapperContainer2>
+        <Link className="service-card" to={`/${item.uri}`}>
+            <div className="service-card-content">
+                <div className="service-icon-wrapper">
+                    {item.icon}
+                </div>
+                
+                <div className="service-text-content">
+                    <TextCard fontSize={12} className="service-main-section">{item.mainSection}</TextCard>
+                    <SubTitle className="service-title">{item.serviceName}</SubTitle>
+                    <TextCard fontSize={14} className="service-description">{item.description}</TextCard>
+                </div>
+                
+                <div className="service-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </div>
+            </div>
         </Link>
     )
 }
