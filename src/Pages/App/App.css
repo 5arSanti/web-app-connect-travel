@@ -1,18 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 :root{
     --navbar-color: transparent;
-    --footer-color:  #918ef4;
+    --footer-color:  #2CB8B2;
 
     --main-body-color: #EEFAFF;
     --main-title-color: #141b41;
 
-    --lines-color: #87c3c6;
+    --lines-color: #268FBE;
     --lines-color2: #dee7e7;
 
-    --pallete-1: #98b9f2;
+    --pallete-1: #268FBE;
     --pallete-2: #141b41;
-    --pallete-3: #918ef4;
+    --pallete-3: #2CB8B2;
     --pallete-4: #eaf1ff;
-    --pallete-5: #becfec;
+    --pallete-5: #A9F04D;
     --pallete-6: #141b41ab;
 
     --text-color: #717171;
@@ -49,7 +51,7 @@ p, span, div, h2, h1 {
 
 body {
     margin: 0;
-    font-family: "Roboto" !important;
+    font-family: "Manrope" !important;
     font-weight: 100;
     font-style: normal;
 
