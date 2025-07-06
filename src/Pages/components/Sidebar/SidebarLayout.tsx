@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import { SidebarCard } from './Sidebar';
+import { SidebarCard } from './SidebarCard';
 import { MainContent } from './MainContent';
 import { MenuItem } from '../../../interfaces/menu-items';
 
@@ -14,7 +14,7 @@ const SidebarLayout = ({ menuItems, selectedItem, setSelectedItem }: SidebarLayo
 
     return (
         <div style={{ display: 'flex', height: '100vh' }}>
-            <SidebarCard collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} menuItems={menuItems} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+            <SidebarCard collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} menuItems={menuItems} setSelectedItem={setSelectedItem} />
 
             <MainContent collapsed={collapsed} setCollapsed={setCollapsed}>
                 {selectedItem?.children}

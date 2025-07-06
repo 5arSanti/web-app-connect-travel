@@ -5,7 +5,7 @@ import { getMenuItems } from '../../utils/menu-item.utils';
 import { MenuItem } from '../../../interfaces/menu-items';
 
 const AdminDashScreen = () => {
-    const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+    const [selectedItem, setSelectedItem] = useState<MenuItem | null>(getMenuItems()[0]);
 
     return (
         <SidebarLayout

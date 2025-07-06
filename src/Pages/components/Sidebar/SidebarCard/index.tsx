@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
-import { LogoCard } from '../LogoCard';
-import SidebarFooterInfo from './SidebarFooter';
-import styles from './sidebar.module.css';
-import SidebarMenu from './SidebarMenu';
+import { LogoCard } from '../../LogoCard';
+import SidebarFooterInfo from '../SidebarFooter';
+import SidebarMenu from '../SidebarMenu';
+import './styles.css';
+import { MenuItem as MenuItemType } from '../../../../interfaces/menu-items';
 
-const SidebarCard = ({ collapsed, onToggle, menuItems, selectedItem, setSelectedItem }) => {
+interface SidebarCardProps {
+    collapsed: boolean;
+    onToggle: () => void;
+    menuItems: MenuItemType[];
+    setSelectedItem: Dispatch<SetStateAction<MenuItemType | null>>;
+}
+
+const SidebarCard = ({ collapsed, onToggle, menuItems, setSelectedItem }: SidebarCardProps) => {
 
     return (
         <Sidebar
             collapsed={collapsed}
             onToggle={onToggle}
-            className={styles.sidebar}
+            className="sidebar"
             transitionDuration={200}
-            transitionTimingFunction="ease-in-out"
         >
             <Menu style={{ backgroundColor: "var(--lines-color)" }}>
                 <LogoCard containerWidth="100%" imageWidth="35%" />
