@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { LogoCard } from '../../LogoCard';
 import SidebarFooterInfo from '../SidebarFooter';
@@ -10,10 +10,9 @@ interface SidebarCardProps {
     collapsed: boolean;
     onToggle: () => void;
     menuItems: MenuItemType[];
-    setSelectedItem: Dispatch<SetStateAction<MenuItemType | null>>;
 }
 
-const SidebarCard = ({ collapsed, onToggle, menuItems, setSelectedItem }: SidebarCardProps) => {
+const SidebarCard = ({ collapsed, onToggle, menuItems }: SidebarCardProps) => {
 
     return (
         <Sidebar
@@ -26,7 +25,7 @@ const SidebarCard = ({ collapsed, onToggle, menuItems, setSelectedItem }: Sideba
                 <LogoCard containerWidth="100%" imageWidth="35%" />
             </Menu>
             <Menu>
-                <SidebarMenu menuItems={menuItems} setSelectedItem={setSelectedItem} />
+                <SidebarMenu menuItems={menuItems} />
             </Menu>
             <Menu>
                 <MenuItem>

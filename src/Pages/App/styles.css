@@ -9,17 +9,16 @@
 
 .shadow-style {
     transition: all 0.15s ease !important;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) !important;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) !important;
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 5px;
 }
-.shadow-style:hover {
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25) !important;
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25) !important;
-    -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.25) !important;
-}
-
 
 .animacion {
     position: relative;
 }
+
 .animacion::after {
     content: "";
     position: absolute;
@@ -30,6 +29,7 @@
     background-color: white;
     transition: width .5s ease;
 }
+
 .animacion:hover::after {
     width: 100%;
 }
@@ -37,6 +37,7 @@
 .animacion2 {
     position: relative;
 }
+
 .animacion2::after {
     content: "";
     position: absolute;
@@ -47,6 +48,7 @@
     background-color: var(--white);
     transition: width .5s ease, left .5s ease;
 }
+
 .animacion2:hover::after {
     left: 0%;
     width: 100%;
@@ -73,4 +75,3 @@
     border: 1px solid var(--pallete-1);
     width: 100%;
 }
-

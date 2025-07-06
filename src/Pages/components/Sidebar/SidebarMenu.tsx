@@ -1,13 +1,14 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { useContext } from 'react';
 import { Menu, MenuItem } from 'react-pro-sidebar';
 import { MenuItem as MenuItemType } from '../../../interfaces/menu-items';
+import { AppContext } from '../../../Context';
 
 interface SidebarMenuProps {
     menuItems: MenuItemType[];
-    setSelectedItem: Dispatch<SetStateAction<MenuItemType | null>>;
 }
 
-const SidebarMenu = ({ menuItems, setSelectedItem }: SidebarMenuProps) => {
+const SidebarMenu = ({ menuItems }: SidebarMenuProps) => {
+    const { setSelectedItem }: { setSelectedItem: (item: MenuItemType) => void } = useContext(AppContext);
 
     return (
         <Menu>

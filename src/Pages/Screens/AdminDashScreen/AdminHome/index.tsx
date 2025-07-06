@@ -39,15 +39,17 @@ const AdminHome = () => {
             >
                 {getMenuItems().map((item: MenuItem, index: number) => (
                     <ButtonCard
-                        className='admin-home-item'
+                        className='nav-buttons'
                         borderWidth={0}
                         key={index}
                         padding={5}
                         onClick={() => {
                             if (item.path) { navigate(item.path); }
                             setSelectedItem && setSelectedItem(item);
-                        }}>
-                        {item.icon} {item.description}
+                        }}
+                    >
+                        {item.icon} {item.label} &gt;
+                        <TextCard fontSize={12} textAlign="start" width="100%">{item.description}</TextCard>
                     </ButtonCard>
                 ))}
             </WrapperContainer2>

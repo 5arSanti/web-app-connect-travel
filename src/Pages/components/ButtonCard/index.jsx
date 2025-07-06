@@ -13,7 +13,7 @@ const ButtonCard = ({
 }) => {
     return (
         <button
-            className={`button-card-container ${className}`}
+            className={`nav-buttons ${className}`}
             title={title}
             onClick={(event) => onClick(event)}
             type={type}
