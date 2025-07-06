@@ -9,7 +9,8 @@ const ButtonCard = ({
     padding = 20,
     borderWidth = 1,
     borderRadius = 0,
-    style = {}
+    style = {},
+    disabled = false
 }) => {
     return (
         <button
@@ -23,6 +24,7 @@ const ButtonCard = ({
                 borderRadius: borderRadius,
                 ...style
             }}
+            disabled={disabled}
         >
             {children}
         </button>

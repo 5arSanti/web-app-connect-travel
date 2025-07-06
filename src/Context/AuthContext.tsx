@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authService } from '../services/authService';
 import { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
+import { AuthLoginResponse } from '../interfaces/auth';
 
 interface AuthContextType {
     user: any | null;
     loading: boolean;
-    login: (email: string, password: string) => Promise<{ success: boolean; data?: any; error?: any }>;
+    login: (email: string, password: string) => Promise<{ success: boolean; data?: AuthLoginResponse; error?: any }>;
     logout: () => Promise<{ success: boolean; error?: any }>;
     isAuthenticated: boolean;
 }
@@ -58,7 +59,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
     };
 
-    const login = async (email: string, password: string) => {
+    const login = async (email: string, password: string): Promise<{ success: boolean; data?: AuthLoginResponse; error?: any }> => {
         try {
             const data = await authService.login(email, password);
             setUser(data.user);

@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import { InputCard } from "../../components/InputsCards";
-import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 import { FaPlaneDeparture } from "react-icons/fa";
-import InputWrapper from "./InputWrapper";
 
 import "./styles.css";
 import { StyledSection } from "../../components/StyledSection";
 import { WrapperContainer2 } from "../../components/WrapperContainers";
-import { SectionTitle } from "../../components/SectionWrapper/SectionTitle";
-import { TextCard } from "../../components/TextComponents";
 import { FadeWrapper } from "../../components/FadeWrapper";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { handleInputChange } from "../../utils/handleInputChange";
 import { useAuth } from "../../../Context/AuthContext";
 import { ButtonCard } from "../../components/ButtonCard";
+import { InputCard } from "../../components/InputsCards";
 
 const LoginScreen = () => {
     const { login } = useAuth();
@@ -22,12 +19,13 @@ const LoginScreen = () => {
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const [values, setValues] = React.useState({
+    const [values, setValues] = React.useState<{ email: string; password: string }>({
         email: "",
         password: "",
     });
+    console.log(values);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
 
@@ -107,27 +105,22 @@ const LoginScreen = () => {
                                 </div>
 
                                 <form className="login-form" onSubmit={handleSubmit}>
-                                    <InputWrapper
-                                        icon={MdEmail}
+                                    <InputCard
+                                        icon={<MdEmail />}
                                         type="email"
                                         id="email"
                                         label="Correo electrónico"
                                         placeholder="Ingresa tu correo electrónico"
-                                        onChange={handleInputChange}
-                                        value={values.email}
+                                        onChange={(e) => handleInputChange(e, setValues)}
+                                        defaultValue={values.email}
                                     />
-
-                                    <InputWrapper
-                                        icon={MdLock}
-                                        type={showPassword ? "text" : "password"}
+                                    <InputCard
+                                        type="password"
                                         id="password"
                                         label="Contraseña"
                                         placeholder="Ingresa tu contraseña"
-                                        onChange={handleInputChange}
-                                        value={values.password}
-                                        showPasswordToggle={true}
-                                        onPasswordToggle={togglePasswordVisibility}
-                                        showPassword={showPassword}
+                                        onChange={(e) => handleInputChange(e, setValues)}
+                                        defaultValue={values.password}
                                     />
 
                                     <div className="form-options">
@@ -144,7 +137,7 @@ const LoginScreen = () => {
                                     <ButtonCard
                                         type="submit"
                                         className="login-button"
-                                        disabled={loading}
+                                        disabled={loading || !values.email || !values.password}
                                     >
                                         {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
                                     </ButtonCard>
