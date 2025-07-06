@@ -2,10 +2,10 @@
 import { mainHome } from "../../../assets";
 import "./styles.css"
 
-const StyledSection = ({children, id, image, height="100vh", className=""}) => {
+const StyledSection = ({ children, id, image = '', height = "100vh", className = "" }) => {
 
     return (
-        <section 
+        <section
             className={`styled-home-main-container ${className}`}
             id={id}
             style={{
@@ -16,7 +16,7 @@ const StyledSection = ({children, id, image, height="100vh", className=""}) => {
                 {children}
             </div>
 
-            <img src={image || mainHome} alt="Main home imagen"/>
+            <img src={image || mainHome} alt="Main home imagen" />
         </section>
     );
 }

@@ -1,7 +1,8 @@
+import { AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { supabase } from './supabase';
 
 export const authService = {
-    async login(email, password) {
+    async login(email: string, password: string) {
         const { data, error } = await supabase.auth.signInWithPassword({
             email,
             password,
@@ -19,45 +20,6 @@ export const authService = {
             user: { ...data.user, ...profile },
             session: data.session
         };
-    },
-
-    async register(userData) {
-        const { email, password, full_name, phone } = userData;
-
-        const { data, error } = await supabase.auth.signUp({
-            email,
-            password,
-            options: {
-                data: {
-                    full_name,
-                    phone
-                }
-            }
-        });
-
-        if (error) throw error;
-
-        if (data.user) {
-            const { error: profileError } = await supabase
-                .from('profiles')
-                .insert([
-                    {
-                        id: data.user.id,
-                        full_name,
-                        email,
-                        phone,
-                        avatar_url: null,
-                        created_at: new Date().toISOString(),
-                        updated_at: new Date().toISOString()
-                    }
-                ]);
-
-            if (profileError) {
-                console.error('Error creating profile:', profileError);
-            }
-        }
-
-        return data;
     },
 
     async logout() {
@@ -86,7 +48,7 @@ export const authService = {
         return !!session;
     },
 
-    onAuthStateChange(callback) {
+    onAuthStateChange(callback: (event: AuthChangeEvent, session: Session | null) => Promise<void>) {
         return supabase.auth.onAuthStateChange(callback);
     }
 }; 

@@ -1,7 +1,22 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authService } from '../services/authService';
+import { AuthChangeEvent, Session } from '@supabase/supabase-js';
 
-const AuthContext = createContext();
+interface AuthContextType {
+    user: any | null;
+    loading: boolean;
+    login: (email: string, password: string) => Promise<{ success: boolean; data?: any; error?: any }>;
+    logout: () => Promise<{ success: boolean; error?: any }>;
+    isAuthenticated: boolean;
+}
+
+const AuthContext = createContext<AuthContextType>({
+    user: null,
+    loading: true,
+    login: () => Promise.resolve({ success: false, error: 'Not implemented' }),
+    logout: () => Promise.resolve({ success: false, error: 'Not implemented' }),
+    isAuthenticated: false
+});
 
 export const useAuth = () => {
     const context = useContext(AuthContext);
@@ -11,27 +26,26 @@ export const useAuth = () => {
     return context;
 };
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         checkUser();
 
-        const { data: { subscription } } = authService.onAuthStateChange(authStateChange);
+        const { data: { subscription } } = authService.onAuthStateChange(async (event: AuthChangeEvent, session: Session | null) => {
+            if (session?.user) {
+                const userWithProfile = await authService.getCurrentUser();
+                setUser(userWithProfile);
+            } else {
+                setUser(null);
+            }
+            setLoading(false);
+        });
 
         return () => subscription.unsubscribe();
     }, []);
 
-    const authStateChange = async (event, session) => {
-        if (session?.user) {
-            const userWithProfile = await authService.getCurrentUser();
-            setUser(userWithProfile);
-        } else {
-            setUser(null);
-        }
-        setLoading(false);
-    };
 
     const checkUser = async () => {
         try {
@@ -44,19 +58,10 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const login = async (email, password) => {
+    const login = async (email: string, password: string) => {
         try {
             const data = await authService.login(email, password);
             setUser(data.user);
-            return { success: true, data };
-        } catch (error) {
-            return { success: false, error: error.message };
-        }
-    };
-
-    const register = async (userData) => {
-        try {
-            const data = await authService.register(userData);
             return { success: true, data };
         } catch (error) {
             return { success: false, error: error.message };
@@ -67,8 +72,10 @@ export const AuthProvider = ({ children }) => {
         try {
             await authService.logout();
             setUser(null);
+            return { success: true };
         } catch (error) {
             console.error('Logout error:', error);
+            return { success: false, error: error.message };
         }
     };
 
@@ -76,7 +83,6 @@ export const AuthProvider = ({ children }) => {
         user,
         loading,
         login,
-        register,
         logout,
         isAuthenticated: !!user
     };

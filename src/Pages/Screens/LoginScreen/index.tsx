@@ -52,7 +52,7 @@ const LoginScreen = () => {
     };
 
     return (
-        <StyledSection height="100vh" className="login-screen">
+        <StyledSection height="100vh" className="login-screen" id="login-screen">
             <div className="login-background">
                 <div className="login-background-overlay"></div>
             </div>
