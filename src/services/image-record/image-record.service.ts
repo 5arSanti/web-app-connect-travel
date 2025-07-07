@@ -52,5 +52,14 @@ export const imageRecordService = {
             .upsert(image_record, { onConflict: 'name' });
         if (error) throw error;
         return { success: true, message: "Imagen cargada correctamente" };
+    },
+
+    async updateImageRecord(id: string, is_active: boolean): Promise<{ success: boolean, message: string }> {
+        const { data, error } = await supabase
+            .from(IMAGE_RECORD_TABLE)
+            .update({ is_active })
+            .eq('id', id);
+        if (error) throw error;
+        return { success: true, message: "Imagen actualizada correctamente" };
     }
 }

@@ -59,6 +59,24 @@ const ImagesRecordScreen = () => {
             setLoading(false);
         }
     };
+
+    const onUpdateImageRecord = async (id: string, is_active: boolean) => {
+        try {
+            setLoading(true);
+            const { success, message } = await imageRecordService.updateImageRecord(id, is_active);
+            if (success) {
+                toast.success(message);
+                await fetchImageRecord();
+            } else {
+                toast.error(message);
+            }
+        } catch (error) {
+            toast.error(error instanceof Error ? error.message : 'Error al actualizar la imagen');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <WrapperContainer2
             flexDirection="column"
@@ -81,7 +99,7 @@ const ImagesRecordScreen = () => {
                     width="100%"
                 >
                     {!loading && imageRecords?.map((imageRecord) => (
-                        <ImageRecordCard key={imageRecord.id} imageRecord={imageRecord} />
+                        <ImageRecordCard key={imageRecord.id} imageRecord={imageRecord} onUpdateImageRecord={onUpdateImageRecord} />
                     ))}
                 </WrapperContainer2>
             </GridContainer>

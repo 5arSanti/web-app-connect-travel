@@ -6,12 +6,14 @@ import { ButtonCard } from "../ButtonCard";
 import { ImageRecord } from "../../../services/image-record/interfaces/image-record";
 import { IMAGE_RECORD_TYPES } from "../../../services/image-record/constant/image-record.constant";
 import "./styles.css";
+import { SwitchCard } from "../SwitchCard";
 
 interface ImageRecordCardProps {
     imageRecord: ImageRecord;
+    onUpdateImageRecord: (id: string, is_active: boolean) => void;
 }
 
-const ImageRecordCard = ({ imageRecord }: ImageRecordCardProps) => {
+const ImageRecordCard = ({ imageRecord, onUpdateImageRecord }: ImageRecordCardProps) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const imageType = IMAGE_RECORD_TYPES.find((type) => type.value === imageRecord.image_type)?.label;
@@ -75,6 +77,10 @@ const ImageRecordCard = ({ imageRecord }: ImageRecordCardProps) => {
                     width="auto"
                     height="auto"
                 >
+                    <SwitchCard
+                        checked={imageRecord.is_active}
+                        onChange={(checked) => { onUpdateImageRecord(imageRecord.id || '', checked) }}
+                    />
 
                     <ButtonCard
                         title="Eliminar"

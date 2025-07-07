@@ -1,0 +1,59 @@
+.switch-card {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    gap: 10px;
+}
+
+.switch-card input {
+    display: none;
+}
+
+.slider {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background: var(--lines-color2, #dee7e7);
+    border-radius: 24px;
+    transition: background 0.3s;
+    box-shadow: 0 2px 8px rgba(38, 143, 190, 0.08);
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    background: var(--pallete-1, #268FBE);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+    box-shadow: 0 1px 4px rgba(38, 143, 190, 0.12);
+}
+
+.switch-card input:checked+.slider {
+    background: var(--pallete-1, #268FBE);
+}
+
+.switch-card input:checked+.slider:before {
+    transform: translateX(20px);
+    background: var(--pallete-3, #2CB8B2);
+}
+
+.switch-label {
+    font-size: 15px;
+    color: var(--pallete-2, #141b41);
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+.switch-card input:disabled+.slider {
+    background: #eee;
+    cursor: not-allowed;
+}
+
+.switch-card input:disabled+.slider:before {
+    background: #ccc;
+}
