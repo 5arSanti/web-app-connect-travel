@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { WrapperContainer1, WrapperContainer2 } from "../WrapperContainers";
-import { AppSettings } from "../../../services/app-settings/interfaces/app-settings";
+import { AppSettingFormValues, AppSettings } from "../../../services/app-settings/interfaces/app-settings";
 import { SpanCard, TextCard } from "../TextComponents";
 import { ICONS } from "../../../constants/icons.constant";
 import { Icon } from "../../../interfaces/icons";
@@ -9,9 +9,32 @@ import { ButtonCard } from "../ButtonCard";
 import { ExpandableCard } from "../ExpandableCard";
 import { AppSettingForm } from "./AppSettingForm";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { appSettingsService } from "../../../services/app-settings/app-settings.service";
+import { toast } from "react-toastify";
 
 const AppSettingCard = ({ appSetting }: { appSetting: AppSettings }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, formData: AppSettingFormValues) => {
+        e.preventDefault();
+
+        try {
+            setIsLoading(true);
+            const { success, message } = await appSettingsService.updateAppSetting(formData);
+            if (success) {
+                toast.success(message);
+            }
+            else {
+                throw new Error("Error al actualizar la configuración de la aplicación");
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setIsLoading(false);
+            setIsEditing(false);
+        }
+    }
 
     return (
         <WrapperContainer2
@@ -71,7 +94,7 @@ const AppSettingCard = ({ appSetting }: { appSetting: AppSettings }) => {
                     borderWidth={0}
                     borderRadius={10}
                     className="shadow-style"
-
+                    disabled={isLoading}
                 >
                     {isEditing ? <IoCloseCircleOutline /> : <FaEdit />}
                 </ButtonCard>
@@ -80,8 +103,9 @@ const AppSettingCard = ({ appSetting }: { appSetting: AppSettings }) => {
                 <ExpandableCard open={isEditing}>
                     <AppSettingForm
                         appSetting={appSetting}
-                        handleSubmit={() => { }}
+                        handleSubmit={handleSubmit}
                         setIsEditing={setIsEditing}
+                        isLoading={isLoading}
                     />
                 </ExpandableCard>
             )}

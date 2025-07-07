@@ -2,7 +2,7 @@
 import React from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./styles.css";
-import { InputCardProps, OptionInputCardProps } from "../../../interfaces/input-cards";
+import { InputCardProps, OptionInputCardProps, TextAreaCardProps } from "../../../interfaces/input-cards";
 
 const InputCard = ({
     type = "text",
@@ -76,7 +76,14 @@ const OptionInputCard = ({
     );
 }
 
-const TextAreaCard = ({ id, label, placeholder = "placeholder", onChange, required = true, defaultValue = "" }) => {
+const TextAreaCard = ({
+    id,
+    label,
+    placeholder = "placeholder",
+    onChange,
+    required = true,
+    defaultValue = ""
+}: TextAreaCardProps) => {
     return (
         <div className="input-container">
             <label htmlFor={id}>{label} {required && "*"}</label>
@@ -84,7 +91,7 @@ const TextAreaCard = ({ id, label, placeholder = "placeholder", onChange, requir
                 placeholder={placeholder}
                 name={id}
                 id={id}
-                onChange={(event) => { onChange(event.target.value) }}
+                onChange={onChange}
                 required={required}
                 defaultValue={defaultValue}
             />

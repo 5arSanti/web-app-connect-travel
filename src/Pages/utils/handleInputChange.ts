@@ -10,4 +10,14 @@ const handleInputChange = (
     }));
 };
 
-export { handleInputChange }
+const handleTextAreaChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+    setFormData: React.Dispatch<React.SetStateAction<any>>
+) => {
+    setFormData((prev: object) => ({
+        ...prev,
+        [e.target.name]: e.target.value
+    }));
+};
+
+export { handleInputChange, handleTextAreaChange }

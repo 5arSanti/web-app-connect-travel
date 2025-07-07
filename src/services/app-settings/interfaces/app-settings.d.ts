@@ -10,6 +10,7 @@ export interface AppSettings {
 }
 
 export interface AppSettingFormValues {
+    id: string;
     key: AppSettingsEnum;
     value: string;
     description: string | null;

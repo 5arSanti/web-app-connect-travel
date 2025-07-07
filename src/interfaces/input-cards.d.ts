@@ -23,3 +23,12 @@ export interface OptionInputCardProps {
     padding?: number | string;
     required?: boolean;
 }
+
+export interface TextAreaCardProps {
+    id: string;
+    label: string;
+    placeholder: string;
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    required?: boolean;
+    defaultValue: string;
+}

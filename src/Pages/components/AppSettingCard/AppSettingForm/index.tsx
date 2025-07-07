@@ -3,14 +3,27 @@ import { WrapperContainer2 } from "../../WrapperContainers";
 
 import { AppSettingFormValues, AppSettings } from "../../../../services/app-settings/interfaces/app-settings";
 import { InputCard, TextAreaCard } from "../../InputsCards";
-import { handleInputChange } from "../../../utils/handleInputChange";
+import { handleInputChange, handleTextAreaChange } from "../../../utils/handleInputChange";
 import { ButtonCard } from "../../ButtonCard";
 import { GridContainer } from "../../GridContainer";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaSpinner } from "react-icons/fa";
 
-export const AppSettingForm = ({ appSetting, handleSubmit, setIsEditing }: { appSetting: AppSettings, handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void, setIsEditing: (isEditing: boolean) => void }) => {
+interface AppSettingFormProps {
+    appSetting: AppSettings,
+    handleSubmit: (e: React.FormEvent<HTMLFormElement>, formData: AppSettingFormValues) => void,
+    setIsEditing: (isEditing: boolean) => void,
+    isLoading: boolean
+}
+
+export const AppSettingForm = ({
+    appSetting,
+    handleSubmit,
+    setIsEditing,
+    isLoading
+}: AppSettingFormProps) => {
     const [formData, setFormData] = useState<AppSettingFormValues>({
+        id: appSetting.id,
         key: appSetting.key,
         value: appSetting.value,
         description: appSetting.description
@@ -26,7 +39,7 @@ export const AppSettingForm = ({ appSetting, handleSubmit, setIsEditing }: { app
             height="auto"
             width="100%"
         >
-            <form style={{ width: "100%", display: "flex", flexDirection: "column", gap: 20 }} onSubmit={handleSubmit}>
+            <form style={{ width: "100%", display: "flex", flexDirection: "column", gap: 20 }} onSubmit={(e) => handleSubmit(e, formData)}>
                 <WrapperContainer2
                     flexDirection="row"
                     justifyContent="start"
@@ -58,7 +71,7 @@ export const AppSettingForm = ({ appSetting, handleSubmit, setIsEditing }: { app
                     id="description"
                     label="Descripción"
                     placeholder="Descripción"
-                    onChange={(e) => handleInputChange(e, setFormData)}
+                    onChange={(e) => handleTextAreaChange(e, setFormData)}
                     defaultValue={formData.description || ""}
                     required={false}
                 />
@@ -78,8 +91,9 @@ export const AppSettingForm = ({ appSetting, handleSubmit, setIsEditing }: { app
                         type="submit"
                         className="shadow-style"
                         borderRadius={10}
+                        disabled={isLoading}
                     >
-                        <FaCheck /> Guardar
+                        {isLoading ? <FaSpinner /> : <FaCheck />} Guardar
                     </ButtonCard>
                 </GridContainer>
             </form>
