@@ -66,7 +66,15 @@ const ImageRecordCard = ({ imageRecord }: ImageRecordCardProps) => {
                     <TextCard fontSize={12}><SpanCard fontSize={12}>Descripción:</SpanCard> {imageRecord.description}</TextCard>
                 </WrapperContainer2>
 
-                <WrapperContainer2>
+                <WrapperContainer2
+                    padding={0}
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center"
+                    gap={10}
+                    width="auto"
+                    height="auto"
+                >
 
                     <ButtonCard
                         title="Eliminar"
