@@ -1,0 +1,13 @@
+.icon-active {
+    fill: var(--white);
+    stroke: var(--white);
+    width: 20px;
+    height: 20px;
+}
+
+.icon-inactive {
+    fill: var(--white);
+    stroke: var(--white);
+    width: 20px;
+    height: 20px;
+}

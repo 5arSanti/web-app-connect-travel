@@ -47,8 +47,9 @@ export const imageRecordService = {
             created_at: new Date(),
         }
 
-        const { data, error } = await supabase.from(IMAGE_RECORD_TABLE)
-            .insert(image_record);
+        const { data, error } = await supabase
+            .from(IMAGE_RECORD_TABLE)
+            .upsert(image_record, { onConflict: 'name' });
         if (error) throw error;
         return { success: true, message: "Imagen cargada correctamente" };
     }

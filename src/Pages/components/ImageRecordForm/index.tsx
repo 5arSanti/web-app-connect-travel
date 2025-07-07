@@ -1,35 +1,21 @@
-import React, { useState } from "react";
-import { SubTitle } from "../SubTitle";
-import { WrapperContainer1, WrapperContainer2 } from "../WrapperContainers";
+import React from "react";
+import { WrapperContainer2 } from "../WrapperContainers";
 import { ButtonCard } from "../ButtonCard";
 import { OptionInputCard, TextAreaCard, UploadFileCard } from "../InputsCards";
-import { ImageRecordType } from "../../../services/image-record/enum/image-record.enum";
-import { toast } from "react-toastify";
 import { handleFileChange } from "../../utils/handleFileChange";
-import { handleInputChange, handleSelectChange, handleTextAreaChange } from "../../utils/handleInputChange";
+import { handleSelectChange, handleTextAreaChange } from "../../utils/handleInputChange";
 import { UploadFileFormValues } from "../../../services/image-record/interfaces/image-record";
-import { imageRecordService } from "../../../services/image-record/image-record.service";
+import { IMAGE_RECORD_TYPES } from "../../../services/image-record/constant/image-record.constant";
 
 const ACCEPTED_EXTENSIONS = ['.jpg', '.jpeg', '.png'];
 
-const IMAGE_RECORD_TYPES = [
-    {
-        label: "Travel Week",
-        value: ImageRecordType.TRAVEL_WEEK,
-    },
-    {
-        label: "Bloqueo",
-        value: ImageRecordType.BLOCK,
-    }
-];
 
 interface UploadFileProps {
     handleSubmit: (e: React.FormEvent<HTMLFormElement>, formData: UploadFileFormValues) => void;
+    loading: boolean;
 }
 
-const ImageRecordForm = ({ handleSubmit }: UploadFileProps) => {
-    const [loading, setLoading] = useState<boolean>(false);
-
+const ImageRecordForm = ({ handleSubmit, loading }: UploadFileProps) => {
     const [values, setValues] = React.useState<UploadFileFormValues>({
         files: [],
         image_type: null,

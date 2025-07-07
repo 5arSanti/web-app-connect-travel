@@ -1,12 +1,13 @@
 import "./styles.css";
 
-const TextCard = ({ children, textAlign = "start", width = "100%", className = "", fontSize = 16, white = false }) => {
+const TextCard = ({ children, textAlign = "start", width = "100%", className = "", fontSize = 16, white = false, backgroundColor = "transparent" }) => {
     return (
         <p
             style={{
                 textAlign: textAlign,
                 width: width,
                 fontSize: fontSize,
+                backgroundColor: backgroundColor,
             }}
             className={`text-card ${className} ${white ? "white-color" : "text-color"}`}>{children}</p>
     );

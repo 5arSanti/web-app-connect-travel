@@ -16,6 +16,7 @@
 
     transition: all 0.1s ease;
 }
+
 .anchor-card {
     display: flex;
     align-items: center;
@@ -23,15 +24,22 @@
 
     transition: all 0.1s ease;
 }
+
 .anchor-card svg {
     margin: 0 10px;
     width: 15px;
     height: 15px;
     color: var(--lines-color);
 }
+
 .bold {
     font-weight: bold;
 }
+
 .italic {
     font-style: italic;
+}
+
+.text-nowrap {
+    white-space: nowrap;
 }

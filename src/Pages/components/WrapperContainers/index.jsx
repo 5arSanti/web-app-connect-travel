@@ -11,7 +11,9 @@ const WrapperContainer1 = ({
     alignItems = "center",
     className = "",
     height = "auto",
-    width = "100%"
+    width = "100%",
+    backgroundColor = "transparent",
+    borderRadius = 0
 }) => {
     return (
         <div className={`wrapper-container2 shadow-style ${className}`} style={{
@@ -23,7 +25,9 @@ const WrapperContainer1 = ({
             justifyContent: justifyContent,
             alignItems: alignItems,
             height: height,
-            width: width
+            width: width,
+            backgroundColor: backgroundColor,
+            borderRadius: borderRadius
         }}>
             {children}
         </div>
@@ -40,7 +44,8 @@ const WrapperContainer2 = ({
     alignItems = "center",
     className = "",
     height = "100%",
-    width = "100%"
+    width = "100%",
+    backgroundColor = "transparent"
 }) => {
     return (
         <div className={`wrapper-container2 ${className}`} style={{
@@ -52,7 +57,8 @@ const WrapperContainer2 = ({
             justifyContent: justifyContent,
             alignItems: alignItems,
             height: height,
-            width: width
+            width: width,
+            backgroundColor: backgroundColor
         }}>
             {children}
         </div>

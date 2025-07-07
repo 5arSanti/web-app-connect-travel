@@ -72,11 +72,18 @@ const ImagesRecordScreen = () => {
             </SubTitle>
 
             <GridContainer className="grid-075-125" justifyContent="start" alignItems="start">
-                <ImageRecordForm handleSubmit={handleSubmit} />
+                <ImageRecordForm handleSubmit={handleSubmit} loading={loading} />
 
-                {!loading && imageRecords?.map((imageRecord) => (
-                    <ImageRecordCard key={imageRecord.id} imageRecord={imageRecord} />
-                ))}
+                <WrapperContainer2
+                    flexDirection="column"
+                    gap={10}
+                    padding={0}
+                    width="100%"
+                >
+                    {!loading && imageRecords?.map((imageRecord) => (
+                        <ImageRecordCard key={imageRecord.id} imageRecord={imageRecord} />
+                    ))}
+                </WrapperContainer2>
             </GridContainer>
         </WrapperContainer2>
     );
