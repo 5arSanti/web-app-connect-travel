@@ -1,7 +1,8 @@
 import React from "react";
-import { FaBuilding, FaCog, FaHome, FaImage, FaNewspaper, FaTags, FaUsers } from "react-icons/fa";
+import { FaBuilding, FaCog, FaHome, FaImage, FaNewspaper, FaTags } from "react-icons/fa";
 import { MenuItem } from "../../interfaces/menu-items";
 import { AdminHome } from "../Screens/AdminDashScreen/AdminHome";
+import { AppSettingsScreen } from "../Screens/AdminDashScreen/AppSettingsScreen";
 
 const getMenuItems = (): MenuItem[] => {
     const menuItems: MenuItem[] = [
@@ -15,7 +16,7 @@ const getMenuItems = (): MenuItem[] => {
         {
             icon: <FaCog />,
             label: 'Configuraciones',
-            children: <p>Configuraciones</p>,
+            children: <AppSettingsScreen />,
             description: 'Configuraciones de la plataforma.'
         },
         {

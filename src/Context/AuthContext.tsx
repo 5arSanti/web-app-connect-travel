@@ -34,14 +34,20 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         checkUser();
 
-        const { data: { subscription } } = authService.onAuthStateChange(async (event: AuthChangeEvent, session: Session | null) => {
+        const { data: { subscription } } = authService.onAuthStateChange((event: AuthChangeEvent, session: Session | null) => {
+            console.log('session:', session);
             if (session?.user) {
-                const userWithProfile = await authService.getCurrentUser();
-                setUser(userWithProfile);
+                authService.getCurrentUser().then(userWithProfile => {
+                    setUser(userWithProfile);
+                    setLoading(false);
+                }).catch(() => {
+                    setUser(null);
+                    setLoading(false);
+                });
             } else {
                 setUser(null);
+                setLoading(false);
             }
-            setLoading(false);
         });
 
         return () => subscription.unsubscribe();

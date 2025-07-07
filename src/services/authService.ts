@@ -33,7 +33,7 @@ export const authService = {
         return !!session;
     },
 
-    onAuthStateChange(callback: (event: AuthChangeEvent, session: Session | null) => Promise<void>): AuthStateResponse {
+    onAuthStateChange(callback: (event: AuthChangeEvent, session: Session | null) => void): AuthStateResponse {
         return supabase.auth.onAuthStateChange(callback);
     }
 }; 
