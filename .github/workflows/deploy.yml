@@ -32,6 +32,9 @@ jobs:
           cache: 'npm'
 
       - name: Build
+        env:
+          VITE_DB_PROJECT_URL: ${{ vars.VITE_DB_PROJECT_URL }}
+          VITE_DB_API_KEY: ${{ vars.VITE_DB_API_KEY }}
         run: | 
           npm install
           npm run build
