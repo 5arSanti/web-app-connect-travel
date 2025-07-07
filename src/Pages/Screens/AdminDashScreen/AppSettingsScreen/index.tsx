@@ -6,6 +6,7 @@ import { WrapperContainer2 } from "../../../components/WrapperContainers";
 import { appSettingsService } from "../../../../services/app-settings/app-settings.service";
 import { TextCard } from "../../../components/TextComponents";
 import { toast } from "react-toastify";
+import { AppSettingCard } from "../../../components/AppSettingCard";
 
 const AppSettingsScreen = () => {
 
@@ -39,7 +40,9 @@ const AppSettingsScreen = () => {
             <SubTitle>
                 Configuraciones
             </SubTitle>
-            <TextCard>{loading ? 'Cargando...' : 'Configuraciones cargadas'}</TextCard>
+            {appSettings?.map((appSetting) => (
+                <AppSettingCard key={appSetting.id} appSetting={appSetting} />
+            ))}
         </WrapperContainer2>
     );
 };

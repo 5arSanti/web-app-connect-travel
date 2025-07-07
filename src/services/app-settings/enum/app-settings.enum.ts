@@ -1,3 +1,3 @@
 export enum AppSettingsEnum {
-    IVA = 'iva',
+    IVA = 'IVA',
 }
