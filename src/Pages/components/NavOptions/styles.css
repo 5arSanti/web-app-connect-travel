@@ -13,22 +13,22 @@
 }
 
 .nav-buttons {
-	background-color: transparent;
-	color: var(--pallete-2);
+    background-color: transparent;
+    color: var(--pallete-2);
 
-	display: flex;
-	gap: 5px;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
 
-	padding: 8px 12px;
+    padding: 8px 12px;
 
-	cursor: pointer;
+    cursor: pointer;
 
-	font-size: 14px;
+    font-size: 14px;
 
     text-align: center;
-    
+
     transition: all 0.3s ease;
     border-radius: 5px;
     white-space: nowrap;
@@ -38,12 +38,12 @@
     background-color: var(--pallete-4);
     color: var(--pallete-2);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-buttons svg {
-	width: 20px;
-	height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 /* Responsive Design */
@@ -52,12 +52,12 @@
         gap: 10px;
         padding: 0 20px;
     }
-    
+
     .nav-buttons {
         font-size: 12px;
         padding: 6px 8px;
     }
-    
+
     .nav-buttons svg {
         width: 18px;
         height: 18px;
@@ -69,17 +69,17 @@
         gap: 5px;
         padding: 0 10px;
     }
-    
+
     .nav-buttons {
         font-size: 11px;
         padding: 5px 6px;
     }
-    
+
     .nav-buttons svg {
         width: 16px;
         height: 16px;
     }
-    
+
     .nav-label {
         display: none;
     }

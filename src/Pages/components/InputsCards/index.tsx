@@ -2,7 +2,7 @@
 import React from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./styles.css";
-import { InputCardProps, OptionInputCardProps, TextAreaCardProps } from "../../../interfaces/input-cards";
+import { InputCardProps, OptionInputCardProps, TextAreaCardProps, UploadFileCardProps } from "../../../interfaces/input-cards";
 
 const InputCard = ({
     type = "text",
@@ -45,7 +45,7 @@ const OptionInputCard = ({
     onChange,
     defaultValue = "",
     none = false,
-    padding = 15,
+    padding = 10,
     required = false
 }: OptionInputCardProps) => {
 
@@ -66,9 +66,9 @@ const OptionInputCard = ({
                 {array && array?.map((item, index) => (
                     <option
                         key={index}
-                        value={item?.id || item}
+                        value={item?.value || item}
                     >
-                        {item?.Nombre || item}
+                        {item?.label || item}
                     </option>
                 ))}
             </select>
@@ -107,7 +107,7 @@ const UploadFileCard = ({
     multiple = false,
     info = "Archivos PDF (.pdf) o Excel (.xlsx)",
     accept = ".pdf, .xlsx"
-}) => {
+}: UploadFileCardProps) => {
     const array = filesArray ? [...filesArray] : null;
 
     return (

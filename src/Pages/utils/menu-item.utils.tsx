@@ -3,6 +3,7 @@ import { FaBuilding, FaCog, FaHome, FaImage, FaNewspaper, FaTags } from "react-i
 import { MenuItem } from "../../interfaces/menu-items";
 import { AdminHome } from "../Screens/AdminDashScreen/AdminHome";
 import { AppSettingsScreen } from "../Screens/AdminDashScreen/AppSettingsScreen";
+import { ImagesRecordScreen } from "../Screens/AdminDashScreen/ImagesRecordScreen";
 
 const getMenuItems = (): MenuItem[] => {
     const menuItems: MenuItem[] = [
@@ -34,7 +35,7 @@ const getMenuItems = (): MenuItem[] => {
         {
             icon: <FaImage />,
             label: 'Carga de imágenes',
-            children: <p>Carga de imágenes</p>,
+            children: <ImagesRecordScreen />,
             description: 'Carga de imagenes de servicios.'
         },
         {

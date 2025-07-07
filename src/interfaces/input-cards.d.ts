@@ -32,3 +32,13 @@ export interface TextAreaCardProps {
     required?: boolean;
     defaultValue: string;
 }
+
+export interface UploadFileCardProps {
+    id: string;
+    label?: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    filesArray: File[];
+    multiple?: boolean;
+    info?: string;
+    accept?: string;
+}

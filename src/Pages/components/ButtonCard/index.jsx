@@ -10,7 +10,8 @@ const ButtonCard = ({
     borderWidth = 1,
     borderRadius = 0,
     style = {},
-    disabled = false
+    disabled = false,
+    width = "auto"
 }) => {
     return (
         <button
@@ -22,6 +23,7 @@ const ButtonCard = ({
                 padding: padding,
                 borderWidth: borderWidth,
                 borderRadius: borderRadius,
+                width: width,
                 ...style
             }}
             disabled={disabled}
