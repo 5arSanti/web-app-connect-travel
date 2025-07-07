@@ -35,7 +35,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         checkUser();
 
         const { data: { subscription } } = authService.onAuthStateChange((event: AuthChangeEvent, session: Session | null) => {
-            console.log('session:', session);
             if (session?.user) {
                 authService.getCurrentUser().then(userWithProfile => {
                     setUser(userWithProfile);
@@ -69,7 +68,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         try {
             const data = await authService.login(email, password);
             setUser(data.user);
-            console.log(data);
             return { success: true, data };
         } catch (error) {
             return { success: false, error: error.message };

@@ -1,43 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import { WrapperContainer1, WrapperContainer2 } from "../WrapperContainers";
 import { AppSettings } from "../../../services/app-settings/interfaces/app-settings";
 import { SpanCard, TextCard } from "../TextComponents";
 import { ICONS } from "../../../constants/icons.constant";
 import { Icon } from "../../../interfaces/icons";
+import { FaCheck, FaEdit } from "react-icons/fa";
+import { ButtonCard } from "../ButtonCard";
+import { ExpandableCard } from "../ExpandableCard";
+import { AppSettingForm } from "./AppSettingForm";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const AppSettingCard = ({ appSetting }: { appSetting: AppSettings }) => {
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+
     return (
-        <WrapperContainer1
-            flexDirection="row"
-            justifyContent="start"
+        <WrapperContainer2
+            flexDirection="column"
+            justifyContent="center"
             alignItems="center"
-            gap={30}
+            gap={0}
             width="100%"
-            padding={"20px 35px"}
+            padding={0}
+            height="auto"
         >
-            {ICONS.find((icon: Icon) => icon.name === appSetting.key)?.icon}
-            <WrapperContainer2
-                padding={0}
-                width="auto"
-                flexDirection="column"
-                justifyContent="start"
-                alignItems="start"
-                gap={20}
+            <WrapperContainer1
+                flexDirection="row"
+                justifyContent="space-between"
+                alignItems="center"
+                gap={30}
+                width="100%"
+                padding={"20px 35px"}
             >
                 <WrapperContainer2
+                    padding={0}
+                    width="100%"
                     flexDirection="row"
                     justifyContent="start"
-                    alignItems="start"
-                    gap={50}
-                    padding={0}
+                    alignItems="center"
+                    gap={20}
                 >
-                    <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Nombre:</SpanCard> {appSetting.key}</TextCard>
-                    <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Valor actual:</SpanCard> {appSetting.value}</TextCard>
-                </WrapperContainer2>
-                <TextCard fontSize={12}><SpanCard fontSize={12}>Descripción:</SpanCard> {appSetting.description}</TextCard>
-            </WrapperContainer2>
+                    {ICONS.find((icon: Icon) => icon.name === appSetting.key)?.icon}
 
-        </WrapperContainer1>
+                    <WrapperContainer2
+                        padding={0}
+                        width="auto"
+                        flexDirection="column"
+                        justifyContent="start"
+                        alignItems="start"
+                        gap={20}
+                    >
+                        <WrapperContainer2
+                            flexDirection="row"
+                            justifyContent="start"
+                            alignItems="start"
+                            gap={50}
+                            padding={0}
+                        >
+                            <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Nombre:</SpanCard> {appSetting.key}</TextCard>
+                            <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Valor actual:</SpanCard> {appSetting.value}</TextCard>
+                        </WrapperContainer2>
+                        <TextCard fontSize={12}><SpanCard fontSize={12}>Descripción:</SpanCard> {appSetting.description}</TextCard>
+                    </WrapperContainer2>
+                </WrapperContainer2>
+
+                <ButtonCard
+                    title="Editar"
+                    onClick={() => { setIsEditing(!isEditing) }}
+                    type="button"
+                    padding={10}
+                    borderWidth={0}
+                    borderRadius={10}
+                    className="shadow-style"
+
+                >
+                    {isEditing ? <IoCloseCircleOutline /> : <FaEdit />}
+                </ButtonCard>
+            </WrapperContainer1>
+            {isEditing && (
+                <ExpandableCard open={isEditing}>
+                    <AppSettingForm
+                        appSetting={appSetting}
+                        handleSubmit={() => { }}
+                        setIsEditing={setIsEditing}
+                    />
+                </ExpandableCard>
+            )}
+        </WrapperContainer2>
     )
 }
 
