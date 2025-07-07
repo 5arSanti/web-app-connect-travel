@@ -4,7 +4,7 @@ import { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
 import { AuthLoginResponse } from '../interfaces/auth';
 
 interface AuthContextType {
-    user: any | null;
+    user: User | null;
     loading: boolean;
     login: (email: string, password: string) => Promise<{ success: boolean; data?: AuthLoginResponse; error?: any }>;
     logout: () => Promise<{ success: boolean; error?: any }>;
@@ -63,6 +63,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         try {
             const data = await authService.login(email, password);
             setUser(data.user);
+            console.log(data);
             return { success: true, data };
         } catch (error) {
             return { success: false, error: error.message };

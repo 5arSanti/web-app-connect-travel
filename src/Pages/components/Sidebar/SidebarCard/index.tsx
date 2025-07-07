@@ -29,6 +29,7 @@ const SidebarCard = ({ collapsed, onToggle, menuItems }: SidebarCardProps) => {
             </Menu>
             <Menu>
                 <MenuItem>
+
                     <SidebarFooterInfo />
                 </MenuItem>
             </Menu>

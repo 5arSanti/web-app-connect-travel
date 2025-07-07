@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
-:root{
+:root {
     --navbar-color: transparent;
-    --footer-color:  #2CB8B2;
+    --footer-color: #2CB8B2;
 
     --main-body-color: #EEFAFF;
     --main-title-color: #141b41;
@@ -10,16 +10,16 @@
     --lines-color: #268FBE;
     --lines-color2: #dee7e7;
 
-    --pallete-1: #268FBE;
+    --pallete-1: rgb(38, 143, 190);
     --pallete-2: #141b41;
-    --pallete-3: #2CB8B2;
+    --pallete-3: rgb(44, 184, 178);
     --pallete-4: #eaf1ff;
     --pallete-5: #A9F04D;
     --pallete-6: #141b41ab;
 
     --text-color: #717171;
     --all-info-container-color: #E6EFFD;
-    
+
     --black-to-white-color: #000000;
     --white-to-black-color: #FFFFFF;
 
@@ -27,15 +27,15 @@
 
     --navbar-height: 120px;
 
-    --white: rgba(255,255,255,1);
-    --white-025: rgba(255,255,255,.25);
-    --white-05: rgba(255,255,255,.5);
-    --white-075: rgba(255,255,255,.75);
-    --white-095: rgba(255,255,255,0.95);
+    --white: rgba(255, 255, 255, 1);
+    --white-025: rgba(255, 255, 255, .25);
+    --white-05: rgba(255, 255, 255, .5);
+    --white-075: rgba(255, 255, 255, .75);
+    --white-095: rgba(255, 255, 255, 0.95);
 
-    --black: rgba(0,0,0,1);
-    --black-025: rgba(0,0,0,0.25);
-    --black-05: rgba(0,0,0,0.5);
+    --black: rgba(0, 0, 0, 1);
+    --black-025: rgba(0, 0, 0, 0.25);
+    --black-05: rgba(0, 0, 0, 0.5);
 
     --green-bg: #e6ffe2;
     --red-bg: #ffe5e3;
@@ -45,7 +45,11 @@ html {
     scroll-behavior: smooth;
 }
 
-p, span, div, h2, h1 {
+p,
+span,
+div,
+h2,
+h1 {
     margin: 0 !important;
 }
 
@@ -60,6 +64,7 @@ body {
     transition: all 0.2s ease;
     box-sizing: border-box;
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -69,6 +74,7 @@ a {
     text-decoration: none !important;
     color: transparent;
 }
+
 button {
     border: none;
 }

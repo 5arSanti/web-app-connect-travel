@@ -2,7 +2,7 @@
 import { mainHome } from "../../../assets";
 import "./styles.css"
 
-const StyledSection = ({ children, id, image = '', height = "100vh", className = "" }) => {
+const StyledSection = ({ children, id, image = '', height = "100vh", className = "", background = "" }) => {
 
     return (
         <section
@@ -12,9 +12,11 @@ const StyledSection = ({ children, id, image = '', height = "100vh", className =
                 height: height,
             }}
         >
-            <div className="gradient-container">
+            <div className={`gradient-container`}>
                 {children}
             </div>
+
+            <div className={background}></div>
 
             <img src={image || mainHome} alt="Main home imagen" />
         </section>
