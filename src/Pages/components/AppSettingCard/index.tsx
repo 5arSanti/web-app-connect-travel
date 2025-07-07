@@ -12,29 +12,14 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { appSettingsService } from "../../../services/app-settings/app-settings.service";
 import { toast } from "react-toastify";
 
-const AppSettingCard = ({ appSetting }: { appSetting: AppSettings }) => {
+interface AppSettingCardProps {
+    appSetting: AppSettings;
+    handleSubmit: (e: React.FormEvent<HTMLFormElement>, formData: AppSettingFormValues) => void;
+}
+
+const AppSettingCard = ({ appSetting, handleSubmit }: AppSettingCardProps) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, formData: AppSettingFormValues) => {
-        e.preventDefault();
-
-        try {
-            setIsLoading(true);
-            const { success, message } = await appSettingsService.updateAppSetting(formData);
-            if (success) {
-                toast.success(message);
-            }
-            else {
-                throw new Error("Error al actualizar la configuración de la aplicación");
-            }
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setIsLoading(false);
-            setIsEditing(false);
-        }
-    }
 
     return (
         <WrapperContainer2

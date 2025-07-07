@@ -11,7 +11,6 @@ export const appSettingsService = {
     },
 
     async updateAppSetting(appSetting: AppSettingFormValues): Promise<{ success: boolean, message: string }> {
-        console.log(appSetting);
         const { data, error } = await supabase.from(APP_SETTINGS_TABLE)
             .update(appSetting)
             .eq('id', appSetting.id)

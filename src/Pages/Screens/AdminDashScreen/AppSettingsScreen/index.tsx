@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { AppSettings } from "../../../../services/app-settings/interfaces/app-settings";
+import { AppSettingFormValues, AppSettings } from "../../../../services/app-settings/interfaces/app-settings";
 import { SubTitle } from "../../../components/SubTitle";
 import { WrapperContainer2 } from "../../../components/WrapperContainers";
 import { appSettingsService } from "../../../../services/app-settings/app-settings.service";
@@ -14,20 +14,41 @@ const AppSettingsScreen = () => {
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        const fetchAppSettings = async () => {
-            try {
-                setLoading(true);
-                const appSettings = await appSettingsService.getAppSettings();
-                setAppSettings(appSettings);
-
-            } catch (error) {
-                toast.error(error instanceof Error ? error.message : 'Error al cargar las configuraciones');
-            } finally {
-                setLoading(false);
-            }
-        };
         fetchAppSettings();
     }, []);
+
+    const fetchAppSettings = async () => {
+        try {
+            setLoading(true);
+            const appSettings = await appSettingsService.getAppSettings();
+            setAppSettings(appSettings);
+
+        } catch (error) {
+            toast.error(error instanceof Error ? error.message : 'Error al cargar las configuraciones');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, formData: AppSettingFormValues) => {
+        e.preventDefault();
+
+        try {
+            setLoading(true);
+            const { success, message } = await appSettingsService.updateAppSetting(formData);
+            if (success) {
+                toast.success(message);
+                await fetchAppSettings();
+            }
+            else {
+                throw new Error("Error al actualizar la configuración de la aplicación");
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     return (
         <WrapperContainer2
@@ -40,8 +61,8 @@ const AppSettingsScreen = () => {
             <SubTitle>
                 Configuraciones
             </SubTitle>
-            {appSettings?.map((appSetting) => (
-                <AppSettingCard key={appSetting.id} appSetting={appSetting} />
+            {!loading && appSettings?.map((appSetting) => (
+                <AppSettingCard key={appSetting.id} appSetting={appSetting} handleSubmit={handleSubmit} />
             ))}
         </WrapperContainer2>
     );
