@@ -13,29 +13,29 @@ import "./styles.css";
 const SectionContact = () => {
     const socialMediaInfo = getSocialMediaInfo();
 
-    return(
+    return (
         <SectionWrapper padding={0} id="contacto">
             <WrapperContainer2 flexDirection="column" padding={0} gap={30}>
-                
+
                 <FadeWrapper>
                     <WrapperContainer2 flexDirection="column" gap={20}>
-                        <SectionTitle title="CONTACTANOS" subTitle="ESTAMOS AQUÍ PARA AYUDARTE"/>
+                        <SectionTitle title="CONTACTANOS" subTitle="ESTAMOS AQUÍ PARA AYUDARTE" />
                         <p className="contact-slogan">
-                            ¿Listo para planificar tu próxima aventura? Nuestro equipo de expertos en viajes 
+                            ¿Listo para planificar tu próxima aventura? Nuestro equipo de expertos en viajes
                             está disponible 24/7 para ayudarte a crear la experiencia perfecta.
                         </p>
                     </WrapperContainer2>
                 </FadeWrapper>
 
                 <div className="contact-main-grid">
-                    <GridContainer className="contact-grid">
+                    <GridContainer className="grid-1">
                         <FadeWrapper delay={100}>
                             <div className="contact-info-section">
-                                <ContactInformation/>
+                                <ContactInformation />
                             </div>
                         </FadeWrapper>
 
-                        <FadeWrapper delay={200}>
+                        {/* <FadeWrapper delay={200}>
                             <div className="map-section">
                                 <div className="map-container">
                                     <MapCard width="100%" height={500}/>
@@ -48,7 +48,7 @@ const SectionContact = () => {
                                     </div>
                                 </div>
                             </div>
-                        </FadeWrapper>
+                        </FadeWrapper> */}
 
                     </GridContainer>
                 </div>
@@ -57,12 +57,12 @@ const SectionContact = () => {
                     <div className="social-media-section">
                         <h3 className="social-title">Síguenos en Redes Sociales</h3>
                         <p className="social-subtitle">Mantente conectado y descubre ofertas exclusivas</p>
-                        
+
                         <div className="social-icons-container">
                             {socialMediaInfo.map((social, index) => (
-                                <a 
+                                <a
                                     key={index}
-                                    href={social.link || "#"} 
+                                    href={social.link || "#"}
                                     className="social-icon-link"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -78,7 +78,7 @@ const SectionContact = () => {
                 </FadeWrapper>
 
                 <FadeWrapper delay={800}>
-                    <ContactHelpSection/>
+                    <ContactHelpSection />
                 </FadeWrapper>
 
             </WrapperContainer2>

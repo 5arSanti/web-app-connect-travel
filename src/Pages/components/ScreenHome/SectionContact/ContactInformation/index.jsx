@@ -1,4 +1,5 @@
 import { contactInfo } from "../../../../utils/ContactInfo/contactInfo";
+import { GridContainer } from "../../../GridContainer";
 import { SubTitle } from "../../../SubTitle";
 import { WrapperContainer2 } from "../../../WrapperContainers";
 import { ContactCard } from "../ContactCard";
@@ -22,9 +23,11 @@ const ContactInformation = () => {
 
             <div className="contact-content">
                 <div className="contact-cards-container">
-                    {contactKeys?.map((item, index) => (
-                        <ContactCard key={index} item={item} object={contactInfo} />
-                    ))}
+                    <GridContainer className="grid-1-1">
+                        {contactKeys?.map((item, index) => (
+                            <ContactCard key={index} item={item} object={contactInfo} />
+                        ))}
+                    </GridContainer>
                 </div>
             </div>
         </WrapperContainer2>

@@ -20,7 +20,7 @@ const contactInfo = {
     },
     hours: {
         name: "Horario de Atención",
-        info: "Lunes a Viernes: 8:00 AM - 6:00 PM | Sábados: 9:00 AM - 2:00 PM",
+        info: "24 horas, 7 días a la semana",
         icon: <FaLocationDot />
     }
 }
