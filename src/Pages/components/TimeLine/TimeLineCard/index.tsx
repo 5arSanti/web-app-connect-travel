@@ -31,11 +31,11 @@ const TimelineCard = ({ icon, title, description, side }: TimelineCardProps) => 
                     <FadeWrapper delay={0}>
                         <WrapperContainer2 padding={0} justifyContent={align} alignItems="center" gap={10}>
                             <div className="timeline-icon">{icon}</div>
-                            <TextCard fontSize={20} width="auto" className="timeline-title">{title}</TextCard>
+                            <TextCard fontSize={24} width="auto" className="timeline-title">{title}</TextCard>
                         </WrapperContainer2>
                     </FadeWrapper>
                     <FadeWrapper delay={100}>
-                        <TextCard textAlign={align} className="timeline-description">{description}</TextCard>
+                        <TextCard fontSize={18} textAlign={align} className="timeline-description">{description}</TextCard>
                     </FadeWrapper>
                 </WrapperContainer1>
             </WrapperContainer2>
