@@ -1,5 +1,3 @@
-/* About Us Section Styles */
-
 .about-subtitle {
     color: var(--pallete-3) !important;
     font-weight: 600;
@@ -14,17 +12,12 @@
     color: var(--text-color) !important;
 }
 
-/* Stats Section */
-.stats-container {
-    width: 100%;
-    margin: 40px 0;
-}
 
 .stats-grid {
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    max-width: 1000px;
     margin: 0 auto;
 }
 

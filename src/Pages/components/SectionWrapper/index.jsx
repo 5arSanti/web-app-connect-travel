@@ -3,8 +3,18 @@ import { WrapperContainer2 } from "../WrapperContainers";
 
 import "./styles.css"
 
-const SectionWrapper = ({children, id="", border=true, flexDirection = "column", padding = 0, gap = 0, justifyContent="start", alignItems="start"}) => {
-    return(
+const SectionWrapper = ({
+    children,
+    id = "",
+    border = true,
+    flexDirection = "column",
+    padding = 0,
+    gap = 0,
+    justifyContent = "start",
+    alignItems = "start",
+    innerPadding = 125
+}) => {
+    return (
         <section className="section-wrapper" id={id} style={{
             flexDirection: flexDirection,
             padding: padding,
@@ -15,7 +25,7 @@ const SectionWrapper = ({children, id="", border=true, flexDirection = "column",
             {border && <div className="section-decoration"></div>}
 
             <FadeWrapper>
-                <WrapperContainer2 flexDirection="column" padding={125} className="secondary-section-wrapper">
+                <WrapperContainer2 flexDirection="column" padding={innerPadding} className="secondary-section-wrapper">
                     {children}
                 </WrapperContainer2>
             </FadeWrapper>

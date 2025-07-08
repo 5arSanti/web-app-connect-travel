@@ -13,6 +13,7 @@ import { HeaderContact } from "../../components/HeaderContact";
 import { FloatingNav } from "../../components/FloatingNav";
 import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
 import { Footer } from "../../components/Footer";
+import SectionTravelWeek from "../../components/ScreenHome/SectionTravelWeek";
 
 const Home = () => {
     return (
@@ -32,6 +33,8 @@ const Home = () => {
             <SectionServices />
 
             <SectionAboutUs />
+
+            <SectionTravelWeek />
 
             <SectionUsersOpinions />
 

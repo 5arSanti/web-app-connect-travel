@@ -28,8 +28,8 @@ const AboutCard = ({ icon, title, description, delay = 0 }) => {
 
 const SectionAboutUs = () => {
     return (
-        <SectionWrapper padding={30} id="nosotros">
-            <WrapperContainer2 flexDirection="column" padding={50} gap={80}>
+        <SectionWrapper padding={0} id="nosotros" innerPadding={"50px 100px"}>
+            <WrapperContainer2 flexDirection="column" padding={0} gap={40}>
 
                 <FadeWrapper>
                     <WrapperContainer2 flexDirection="column" gap={20}>
@@ -43,17 +43,21 @@ const SectionAboutUs = () => {
                 </FadeWrapper>
 
                 <FadeWrapper delay={200}>
-                    <div className="stats-container">
-                        <GridContainer className="stats-grid">
-                            {statsData.map((stat, index) => (
-                                <div key={index} className="stat-item" style={{ animationDelay: `${index * 100}ms` }}>
-                                    <div className="stat-icon">{stat.icon}</div>
-                                    <div className="stat-number">{stat.number}</div>
-                                    <div className="stat-label">{stat.label}</div>
-                                </div>
-                            ))}
-                        </GridContainer>
-                    </div>
+                    <GridContainer
+                        className="stats-grid"
+                        justifyContent="center"
+                        alignItems="center"
+                        gap={30}
+                        padding={"0 100px"}
+                    >
+                        {statsData.map((stat, index) => (
+                            <div key={index} className="stat-item" style={{ animationDelay: `${index * 100}ms` }}>
+                                <div className="stat-icon">{stat.icon}</div>
+                                <div className="stat-number">{stat.number}</div>
+                                <div className="stat-label">{stat.label}</div>
+                            </div>
+                        ))}
+                    </GridContainer>
                 </FadeWrapper>
 
                 <div className="about-grid-container">
