@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import { IMAGE_RECORD_STORAGE, IMAGE_RECORD_TABLE } from "../../constants/db-tables.constant";
 import { storage, supabase } from "../supabase";
 import { ImageRecordType } from "./enum/image-record.enum";
@@ -57,9 +59,11 @@ export const imageRecordService = {
             });
         if (imageError) throw imageError;
 
+        const image_url = `${import.meta.env.VITE_DB_PROJECT_URL}/storage/v1/object/public/${imageData.fullPath}`;
+
         const image_record: ImageRecord = {
             name: file.name,
-            image_url: imageData.fullPath,
+            image_url,
             image_type,
             description,
             is_active: true,
