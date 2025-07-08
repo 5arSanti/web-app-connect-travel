@@ -7,6 +7,8 @@ import { FadeWrapper } from "../../FadeWrapper";
 import "./styles.css";
 import { aboutData, statsData } from "../../../utils/ContactInfo/about-us.utils";
 import { Title } from "../../Title";
+import React from "react";
+import { TimeLine } from "../../TimeLine";
 
 const AboutCard = ({ icon, title, description, delay = 0 }) => {
     return (
@@ -30,7 +32,6 @@ const SectionAboutUs = () => {
     return (
         <SectionWrapper padding={0} id="nosotros" innerPadding={"50px 100px"}>
             <WrapperContainer2 flexDirection="column" padding={0} gap={40}>
-
                 <FadeWrapper>
                     <WrapperContainer2 flexDirection="column" gap={20}>
                         <TextCard fontSize={14} textAlign="center" className="about-subtitle">Descubre</TextCard>
@@ -60,19 +61,8 @@ const SectionAboutUs = () => {
                     </GridContainer>
                 </FadeWrapper>
 
-                <div className="about-grid-container">
-                    <GridContainer className="about-grid">
-                        {aboutData.map((item, index) => (
-                            <AboutCard
-                                key={index}
-                                icon={item.icon}
-                                title={item.title}
-                                description={item.description}
-                                delay={index * 100}
-                            />
-                        ))}
-                    </GridContainer>
-                </div>
+                <TimeLine />
+
 
                 <FadeWrapper delay={800}>
                     <WrapperContainer2 flexDirection="column" gap={20} className="about-cta">
@@ -84,7 +74,6 @@ const SectionAboutUs = () => {
                         </TextCard>
                     </WrapperContainer2>
                 </FadeWrapper>
-
             </WrapperContainer2>
         </SectionWrapper>
     );
