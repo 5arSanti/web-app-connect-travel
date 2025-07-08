@@ -13,16 +13,19 @@ const SectionWrapper = ({
     justifyContent = "start",
     alignItems = "start",
     innerPadding = 125,
-    backgroundColor = "transparent"
+    backgroundColor = "transparent",
+    className = "",
+    margin = "10px 0"
 }) => {
     return (
-        <section className="section-wrapper" id={id} style={{
+        <section className={`section-wrapper ${className}`} id={id} style={{
             flexDirection: flexDirection,
             padding: padding,
             gap: gap,
             justifyContent: justifyContent,
             alignItems: alignItems,
-            backgroundColor: backgroundColor
+            backgroundColor: backgroundColor,
+            margin: margin
         }}>
             {border && <div className="section-decoration"></div>}
 

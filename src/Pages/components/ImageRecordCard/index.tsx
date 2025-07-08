@@ -18,8 +18,6 @@ const ImageRecordCard = ({ imageRecord, onUpdateImageRecord }: ImageRecordCardPr
 
     const imageType = IMAGE_RECORD_TYPES.find((type) => type.value === imageRecord.image_type)?.label;
 
-    const imageUrl = `${import.meta.env.VITE_DB_PROJECT_URL}/storage/v1/object/public/${imageRecord.image_url}`;
-
     return (
         <WrapperContainer2
             flexDirection="column"
@@ -38,7 +36,7 @@ const ImageRecordCard = ({ imageRecord, onUpdateImageRecord }: ImageRecordCardPr
                 width="100%"
                 padding={"20px 35px"}
             >
-                <img src={imageUrl} alt={imageRecord.name} style={{ width: "150px", height: "auto", objectFit: "contain", borderRadius: "10px" }} />
+                <img src={imageRecord.image_url} alt={imageRecord.name} style={{ width: "150px", height: "auto", objectFit: "contain", borderRadius: "10px" }} />
 
                 <WrapperContainer2
                     padding={0}

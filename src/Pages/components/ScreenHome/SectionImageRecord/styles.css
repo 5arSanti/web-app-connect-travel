@@ -1,0 +1,242 @@
+.travel-week-section {
+    background: linear-gradient(135deg, var(--pallete-4) 0%, var(--main-body-color) 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.travel-week-description {
+    transition: all 0.3s ease;
+}
+
+.travel-week-description:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.travel-week-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.image-wrapper {
+    max-width: 500px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.image-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.travel-week-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.travel-week-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.nav-dots {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(44, 184, 178, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-dot:hover {
+    background: rgba(44, 184, 178, 0.6);
+    transform: scale(1.2);
+}
+
+.nav-dot.active {
+    background: var(--pallete-3);
+    transform: scale(1.3);
+}
+
+.nav-dot.active::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid var(--pallete-3);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.nav-arrows {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-arrow {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: var(--pallete-3);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(44, 184, 178, 0.3);
+}
+
+.nav-arrow:hover:not(:disabled) {
+    background: var(--pallete-1);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(38, 143, 190, 0.4);
+}
+
+.nav-arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-arrow.prev {
+    transform: rotate(0deg);
+}
+
+.nav-arrow.next {
+    transform: rotate(0deg);
+}
+
+@media (max-width: 768px) {
+    .travel-week-text-container {
+        min-height: 300px;
+        padding: 15px;
+    }
+
+    .travel-week-title {
+        font-size: 24px !important;
+    }
+
+    .travel-week-description {
+        padding: 20px;
+    }
+
+    .travel-week-image-container {
+        min-height: 300px;
+        padding: 15px;
+    }
+
+    .image-wrapper {
+        max-width: 100%;
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .travel-week-text-container {
+        min-height: 250px;
+        padding: 10px;
+    }
+
+    .travel-week-title {
+        font-size: 20px !important;
+    }
+
+    .travel-week-description {
+        padding: 15px;
+    }
+
+    .travel-week-image-container {
+        min-height: 250px;
+        padding: 10px;
+    }
+
+    .nav-arrows {
+        gap: 10px;
+    }
+
+    .nav-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
+.travel-week-section .react-awesome-reveal {
+    transition: all 0.5s ease;
+}
+
+.image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.image-wrapper:hover::before {
+    left: 100%;
+}
+
+@media (max-width: 768px) {
+    .grid-1-1 {
+        gap: 20px;
+    }
+}

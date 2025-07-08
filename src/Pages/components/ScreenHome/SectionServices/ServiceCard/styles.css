@@ -1,6 +1,5 @@
 /* Service Card Styles */
 .service-card {
-    display: block;
     text-decoration: none;
     background: var(--white);
     border-radius: 20px;

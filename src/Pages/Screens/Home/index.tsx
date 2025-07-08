@@ -14,10 +14,12 @@ import { HeaderContact } from "../../components/HeaderContact";
 import { FloatingNav } from "../../components/FloatingNav";
 import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
 import { Footer } from "../../components/Footer";
-import SectionTravelWeek from "../../components/ScreenHome/SectionTravelWeek";
 import { imageRecordService } from "../../../services/image-record/image-record.service";
 import { ImageRecordType } from "../../../services/image-record/enum/image-record.enum";
 import { ImageRecord } from "../../../services/image-record/interfaces/image-record";
+import { MdOutlineBlock, MdOutlineTravelExplore } from "react-icons/md";
+import { SectionImageRecord } from "../../components/ScreenHome/SectionImageRecord";
+import { GiCommercialAirplane } from "react-icons/gi";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
@@ -33,7 +35,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div style={{ width: '100%', height: '100%', boxSizing: 'border-box' }}>
+        <div style={{ width: '100%', height: '100%', boxSizing: 'border-box', margin: 0, padding: 0 }}>
             <Header />
             <HeaderContact />
 
@@ -48,7 +50,21 @@ const Home = () => {
 
             <SectionServices />
 
-            <SectionTravelWeek travelWeeks={travelWeeks} />
+            <SectionImageRecord
+                title="¡Te presentamos los Travel Weeks!"
+                description="¡Descubre las mejores semanas de viajes como lo hacen los mejores!"
+                icon={<GiCommercialAirplane />}
+                layout="text-left"
+                travelWeeks={travelWeeks}
+            />
+
+            <SectionImageRecord
+                title="¡Pero no solo viajes, tambien bloqueos!"
+                description="¡Tienes la disponibilidad de elegir viajar en cualquier momento!"
+                icon={<MdOutlineTravelExplore />}
+                layout="text-right"
+                travelWeeks={blocks}
+            />
 
             <SectionAboutUs />
 

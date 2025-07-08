@@ -2,11 +2,9 @@
     width: 100%;
     box-sizing: border-box;
     display: flex;
-
-    margin: 10px 0;
 }
 
-.section-wrapper .section-decoration{
+.section-wrapper .section-decoration {
     width: 85%;
     box-sizing: border-box;
 

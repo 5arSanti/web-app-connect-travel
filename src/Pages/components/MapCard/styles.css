@@ -19,7 +19,6 @@
     border-radius: 20px;
     width: 100%;
     height: 100%;
-    display: block;
     transition: all 0.3s ease;
 }
 
@@ -50,7 +49,7 @@
     .map-card {
         border-radius: 15px;
     }
-    
+
     .map-iframe {
         border-radius: 15px;
     }
@@ -60,8 +59,8 @@
     .map-card {
         border-radius: 12px;
     }
-    
+
     .map-iframe {
         border-radius: 12px;
     }
-} 
+}
