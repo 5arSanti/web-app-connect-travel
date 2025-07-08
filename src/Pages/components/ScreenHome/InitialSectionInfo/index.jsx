@@ -17,7 +17,7 @@ const InitialSectioninfo = () => {
 
             <div>
                 <TextCard white={true} textAlign="center" fontSize={16}>{contactInfo.phone.info}</TextCard>
-                <IconsList padding={10} white={true}/>
+                <IconsList padding={10} white={true} />
             </div>
 
 

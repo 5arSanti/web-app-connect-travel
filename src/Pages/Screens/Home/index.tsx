@@ -1,3 +1,4 @@
+import React from "react";
 import { FadeWrapper } from "../../components/FadeWrapper";
 import { SectionServices } from "../../components/ScreenHome/SectionServices";
 import { SectionContact } from "../../components/ScreenHome/SectionContact";
@@ -14,8 +15,23 @@ import { FloatingNav } from "../../components/FloatingNav";
 import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
 import { Footer } from "../../components/Footer";
 import SectionTravelWeek from "../../components/ScreenHome/SectionTravelWeek";
+import { imageRecordService } from "../../../services/image-record/image-record.service";
+import { ImageRecordType } from "../../../services/image-record/enum/image-record.enum";
+import { ImageRecord } from "../../../services/image-record/interfaces/image-record";
 
 const Home = () => {
+    const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
+    const [blocks, setBlocks] = React.useState<ImageRecord[]>([]);
+
+    React.useEffect(() => {
+        const fetchTravelWeeks = async () => {
+            const image_records = await imageRecordService.getActiveImageRecords();
+            setTravelWeeks(image_records.filter(item => item.image_type === ImageRecordType.TRAVEL_WEEK));
+            setBlocks(image_records.filter(item => item.image_type === ImageRecordType.BLOCK));
+        };
+        fetchTravelWeeks();
+    }, []);
+
     return (
         <div style={{ width: '100%', height: '100%', boxSizing: 'border-box' }}>
             <Header />
@@ -32,9 +48,10 @@ const Home = () => {
 
             <SectionServices />
 
+            <SectionTravelWeek travelWeeks={travelWeeks} />
+
             <SectionAboutUs />
 
-            <SectionTravelWeek />
 
             <SectionUsersOpinions />
 

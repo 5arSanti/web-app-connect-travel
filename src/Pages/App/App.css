@@ -5,7 +5,7 @@
     --footer-color: #2CB8B2;
 
     --main-body-color: #EEFAFF;
-    --main-title-color: #141b41;
+    --main-title-color: #9696f8;
 
     --lines-color: #268FBE;
     --lines-color2: #dee7e7;
@@ -78,9 +78,4 @@ a {
 
 button {
     border: none;
-}
-
-svg {
-    width: 30px;
-    height: 30px;
 }

@@ -2,10 +2,10 @@ import { TextCard } from "../../TextComponents";
 import { Title } from "../../Title";
 import { WrapperContainer2 } from "../../WrapperContainers";
 
-const SectionTitle = ({title="", subTitle="", white=false}) => {
-    return(
+const SectionTitle = ({ title = "", subTitle = "", white = false }) => {
+    return (
         <WrapperContainer2 flexDirection="column" gap={0} height="auto">
-            {subTitle != "" && 
+            {subTitle != "" &&
                 <TextCard white={white} fontSize={12} textAlign="center">{subTitle}</TextCard>
             }
 

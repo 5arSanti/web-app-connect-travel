@@ -12,6 +12,25 @@ export const imageRecordService = {
         return data;
     },
 
+    async getActiveImageRecords(): Promise<ImageRecord[]> {
+        const { data, error } = await supabase.from(IMAGE_RECORD_TABLE)
+            .select('*')
+            .eq('is_active', true)
+            .order('created_at', { ascending: false });
+        if (error) throw error;
+        return data;
+    },
+
+    async getImageRecordsByType({ image_type }: { image_type?: ImageRecordType }): Promise<ImageRecord[]> {
+        const { data, error } = await supabase.from(IMAGE_RECORD_TABLE)
+            .select('*')
+            .eq('image_type', (image_type ?? '*')!)
+            .eq('is_active', true)
+            .order('created_at', { ascending: false });
+        if (error) throw error;
+        return data
+    },
+
     async createImageRecord(formData: FormData): Promise<{ success: boolean, message: string }> {
         const files: File[] = formData.getAll('file') as File[];
         const image_type: ImageRecordType = formData.get('image_type') as ImageRecordType;
@@ -47,19 +66,21 @@ export const imageRecordService = {
             created_at: new Date(),
         }
 
-        const { data, error } = await supabase
-            .from(IMAGE_RECORD_TABLE)
+        const { error } = await supabase.from(IMAGE_RECORD_TABLE)
             .upsert(image_record, { onConflict: 'name' });
+
         if (error) throw error;
+
         return { success: true, message: "Imagen cargada correctamente" };
     },
 
     async updateImageRecord(id: string, is_active: boolean): Promise<{ success: boolean, message: string }> {
-        const { data, error } = await supabase
-            .from(IMAGE_RECORD_TABLE)
+        const { error } = await supabase.from(IMAGE_RECORD_TABLE)
             .update({ is_active })
             .eq('id', id);
+
         if (error) throw error;
+
         return { success: true, message: "Imagen actualizada correctamente" };
     }
 }

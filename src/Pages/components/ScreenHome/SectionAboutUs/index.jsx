@@ -1,12 +1,12 @@
 import { SectionWrapper } from "../../SectionWrapper";
 import { TextCard } from "../../TextComponents";
-import { Title } from "../../Title";
 import { WrapperContainer2 } from "../../WrapperContainers";
 import { GridContainer } from "../../GridContainer";
 import { FadeWrapper } from "../../FadeWrapper";
 
 import "./styles.css";
 import { aboutData, statsData } from "../../../utils/ContactInfo/about-us.utils";
+import { Title } from "../../Title";
 
 const AboutCard = ({ icon, title, description, delay = 0 }) => {
     return (

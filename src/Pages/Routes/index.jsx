@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 
-import { Home } from "../Screens/Home";
 import { LoginScreen } from "../Screens/LoginScreen";
 import { AdminDashScreen } from "../Screens/AdminDashScreen";
+import { Home } from "../Screens/Home";
 
 const AppRoutes = () => {
 

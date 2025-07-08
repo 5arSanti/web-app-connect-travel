@@ -12,7 +12,8 @@ const SectionWrapper = ({
     gap = 0,
     justifyContent = "start",
     alignItems = "start",
-    innerPadding = 125
+    innerPadding = 125,
+    backgroundColor = "transparent"
 }) => {
     return (
         <section className="section-wrapper" id={id} style={{
@@ -20,7 +21,8 @@ const SectionWrapper = ({
             padding: padding,
             gap: gap,
             justifyContent: justifyContent,
-            alignItems: alignItems
+            alignItems: alignItems,
+            backgroundColor: backgroundColor
         }}>
             {border && <div className="section-decoration"></div>}
 

@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 import "./styles.css";
 import { WrapperContainer2 } from "../WrapperContainers";
-import { Title } from "../Title";
 import { TextCard } from "../TextComponents";
 
 import { MdOpenInNew } from "react-icons/md";
+import { Title } from "../Title";
 
 const Footer = () => {
     const date = new Date();

@@ -15,11 +15,18 @@
     font-weight: 600;
 }
 
+.title svg {
+    width: 40px;
+    height: 40px;
+    color: var(--pallete-3);
+}
+
 @media (max-width: 800px) {
     .title {
         font-size: 20px;
     }
 }
+
 @media (max-width: 450px) {
     .title {
         font-size: 16px;
