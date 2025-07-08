@@ -64,7 +64,7 @@
     font-weight: bold;
     color: var(--pallete-2);
     margin-bottom: 8px;
-    font-family: 'Archivo', sans-serif;
+    /* font-family: 'Archivo', sans-serif; */
 }
 
 .stat-label {
@@ -148,7 +148,7 @@
     font-weight: bold;
     color: var(--pallete-2);
     margin-bottom: 15px;
-    font-family: 'Archivo', sans-serif;
+    /* font-family: 'Archivo', sans-serif; */
     letter-spacing: 1px;
 }
 
@@ -174,7 +174,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     animation: rotate 20s linear infinite;
 }
 
@@ -203,6 +203,7 @@
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -214,28 +215,28 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-    
+
     .about-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .stat-item {
         padding: 20px 15px;
     }
-    
+
     .about-card {
         padding: 30px 20px;
     }
-    
+
     .about-cta {
         padding: 30px 20px;
     }
-    
+
     .stat-number {
         font-size: 28px;
     }
-    
+
     .about-card-title {
         font-size: 18px;
     }
@@ -245,37 +246,54 @@
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stat-item {
         padding: 15px 10px;
     }
-    
+
     .about-card {
         padding: 25px 15px;
     }
-    
+
     .about-card-icon {
         width: 60px;
         height: 60px;
         font-size: 25px;
     }
-    
+
     .stat-number {
         font-size: 24px;
     }
-    
+
     .about-card-title {
         font-size: 16px;
     }
 }
 
 /* Hover Effects for Grid Items */
-.about-card:nth-child(1) { animation-delay: 0ms; }
-.about-card:nth-child(2) { animation-delay: 100ms; }
-.about-card:nth-child(3) { animation-delay: 200ms; }
-.about-card:nth-child(4) { animation-delay: 300ms; }
-.about-card:nth-child(5) { animation-delay: 400ms; }
-.about-card:nth-child(6) { animation-delay: 500ms; }
+.about-card:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.about-card:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.about-card:nth-child(3) {
+    animation-delay: 200ms;
+}
+
+.about-card:nth-child(4) {
+    animation-delay: 300ms;
+}
+
+.about-card:nth-child(5) {
+    animation-delay: 400ms;
+}
+
+.about-card:nth-child(6) {
+    animation-delay: 500ms;
+}
 
 /* Special styling for specific cards */
 .about-card:nth-child(1) .about-card-icon {
@@ -300,4 +318,4 @@
 
 .about-card:nth-child(6) .about-card-icon {
     background: linear-gradient(135deg, #00BCD4, #4DD0E1);
-} 
+}

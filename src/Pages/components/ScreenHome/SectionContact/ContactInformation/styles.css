@@ -10,7 +10,7 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
-    font-family: 'Archivo', sans-serif;
+    /* font-family: 'Archivo', sans-serif; */
 }
 
 .contact-description {
@@ -45,7 +45,7 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 20px;
-    font-family: 'Archivo', sans-serif;
+    /* font-family: 'Archivo', sans-serif; */
 }
 
 /* Responsive Design */
@@ -53,11 +53,11 @@
     .contact-section-title {
         font-size: 20px;
     }
-    
+
     .contact-description {
         font-size: 14px;
     }
-    
+
     .icons-title {
         font-size: 16px;
     }
@@ -67,16 +67,16 @@
     .contact-section-title {
         font-size: 18px;
     }
-    
+
     .contact-description {
         font-size: 13px;
     }
-    
+
     .icons-title {
         font-size: 15px;
     }
-    
+
     .contact-cards-container {
         gap: 15px;
     }
-} 
+}

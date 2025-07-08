@@ -31,7 +31,7 @@
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 15px;
-    font-family: 'Archivo', sans-serif;
+    /* font-family: 'Archivo', sans-serif; */
 }
 
 .help-subtitle {
@@ -132,7 +132,7 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
-    font-family: 'Archivo', sans-serif;
+    /* font-family: 'Archivo', sans-serif; */
 }
 
 .cta-description {
@@ -217,9 +217,12 @@
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
@@ -230,39 +233,39 @@
     .help-title {
         font-size: 26px;
     }
-    
+
     .help-subtitle {
         font-size: 16px;
     }
-    
+
     .help-features {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .help-feature-card {
         padding: 25px;
     }
-    
+
     .help-cta {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
     }
-    
+
     .cta-content {
         text-align: center;
     }
-    
+
     .cta-buttons {
         justify-content: center;
     }
-    
+
     .image-placeholder {
         width: 100px;
         height: 100px;
     }
-    
+
     .placeholder-icon {
         font-size: 40px;
     }
@@ -272,55 +275,55 @@
     .help-title {
         font-size: 22px;
     }
-    
+
     .help-subtitle {
         font-size: 14px;
     }
-    
+
     .help-feature-card {
         padding: 20px;
     }
-    
+
     .feature-icon-wrapper {
         width: 50px;
         height: 50px;
     }
-    
+
     .feature-icon-wrapper svg {
         font-size: 20px;
     }
-    
+
     .feature-title {
         font-size: 16px;
     }
-    
+
     .feature-description {
         font-size: 13px;
     }
-    
+
     .help-cta {
         padding: 30px 20px;
     }
-    
+
     .cta-title {
         font-size: 20px;
     }
-    
+
     .cta-description {
         font-size: 14px;
     }
-    
+
     .cta-button {
         padding: 10px 20px;
         font-size: 12px;
     }
-    
+
     .image-placeholder {
         width: 80px;
         height: 80px;
     }
-    
+
     .placeholder-icon {
         font-size: 30px;
     }
-} 
+}

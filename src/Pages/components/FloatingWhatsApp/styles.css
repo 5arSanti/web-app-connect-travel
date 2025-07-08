@@ -130,7 +130,7 @@
     font-size: 16px;
     font-weight: bold;
     margin: 0 0 4px 0;
-    font-family: 'Archivo', sans-serif;
+    /* font-family: 'Archivo', sans-serif; */
 }
 
 .chat-info p {
@@ -227,6 +227,7 @@
         opacity: 0;
         transform: translateY(-50%) translateX(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(-50%) translateX(0);
@@ -238,6 +239,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -249,6 +251,7 @@
         transform: translate(-50%, -50%) scale(0.8);
         opacity: 1;
     }
+
     100% {
         transform: translate(-50%, -50%) scale(1.2);
         opacity: 0;
@@ -261,22 +264,23 @@
         bottom: 20px;
         right: 20px;
     }
-    
+
     .floating-button {
         width: 55px;
         height: 55px;
     }
-    
+
     .whatsapp-icon {
         font-size: 24px;
     }
-    
+
     .chat-preview {
         width: 280px;
     }
-    
+
     .tooltip {
-        display: none; /* Hide tooltip on mobile */
+        display: none;
+        /* Hide tooltip on mobile */
     }
 }
 
@@ -285,28 +289,28 @@
         bottom: 15px;
         right: 15px;
     }
-    
+
     .floating-button {
         width: 50px;
         height: 50px;
     }
-    
+
     .whatsapp-icon {
         font-size: 22px;
     }
-    
+
     .chat-preview {
         width: 260px;
     }
-    
+
     .chat-header {
         padding: 15px;
     }
-    
+
     .chat-message {
         padding: 15px;
     }
-    
+
     .start-chat-btn {
         padding: 12px 15px;
         font-size: 13px;
@@ -319,17 +323,17 @@
         background: var(--dark-bg);
         border-color: var(--dark-border);
     }
-    
+
     .chat-message {
         background: var(--dark-secondary);
     }
-    
+
     .tooltip {
         background: var(--dark-bg);
         border-color: var(--dark-border);
     }
-    
+
     .tooltip span {
         color: var(--dark-text);
     }
-} 
+}
