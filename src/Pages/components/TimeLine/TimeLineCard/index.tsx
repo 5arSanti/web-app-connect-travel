@@ -30,8 +30,9 @@ const TimelineCard = ({ icon, title, description, side }: TimelineCardProps) => 
                 >
                     <FadeWrapper delay={0}>
                         <WrapperContainer2 padding={0} justifyContent={align} alignItems="center" gap={10}>
-                            <div className="timeline-icon">{icon}</div>
+                            {side === "right" && <div className="timeline-icon">{icon}</div>}
                             <TextCard fontSize={24} width="auto" className="timeline-title">{title}</TextCard>
+                            {side === "left" && <div className="timeline-icon">{icon}</div>}
                         </WrapperContainer2>
                     </FadeWrapper>
                     <FadeWrapper delay={100}>
