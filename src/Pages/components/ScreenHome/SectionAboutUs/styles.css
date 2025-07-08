@@ -64,7 +64,6 @@
     font-weight: bold;
     color: var(--pallete-2);
     margin-bottom: 8px;
-    /* font-family: 'Archivo', sans-serif; */
 }
 
 .stat-label {
@@ -148,7 +147,6 @@
     font-weight: bold;
     color: var(--pallete-2);
     margin-bottom: 15px;
-    /* font-family: 'Archivo', sans-serif; */
     letter-spacing: 1px;
 }
 
