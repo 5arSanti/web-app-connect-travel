@@ -23,7 +23,7 @@ const ContactInformation = () => {
 
             <div className="contact-content">
                 <div className="contact-cards-container">
-                    <GridContainer className="grid-1-1">
+                    <GridContainer className="grid-3" gap={20}>
                         {contactKeys?.map((item, index) => (
                             <ContactCard key={index} item={item} object={contactInfo} />
                         ))}

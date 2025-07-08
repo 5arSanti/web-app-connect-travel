@@ -13,11 +13,6 @@ const contactInfo = {
         info: "info@connecttravel.com",
         icon: <FaEnvelope />
     },
-    address: {
-        name: "Dirección",
-        info: "Direccion",
-        icon: <FaLocationDot />
-    },
     hours: {
         name: "Horario de Atención",
         info: "24 horas, 7 días a la semana",
