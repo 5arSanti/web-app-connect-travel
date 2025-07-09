@@ -20,6 +20,7 @@ import { MdOutlineBlock, MdOutlineTravelExplore } from "react-icons/md";
 import { SectionImageRecord } from "../../components/ScreenHome/SectionImageRecord";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
+import { SectionOpinionForm } from "../../components/ScreenHome/SectionOpinionForm";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
@@ -72,6 +73,8 @@ const Home = () => {
             <SectionUsersOpinions />
 
             <SectionContact />
+
+            <SectionOpinionForm />
 
             <SectionNews />
 

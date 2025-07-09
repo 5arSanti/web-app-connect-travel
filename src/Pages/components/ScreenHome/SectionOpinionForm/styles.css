@@ -1,0 +1,342 @@
+.opinion-main-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opinion-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Image Section */
+.opinion-image-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--pallete-1) 0%, var(--pallete-3) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--white);
+}
+
+.opinion-image-overlay {
+    text-align: center;
+    width: 100%;
+}
+
+.opinion-brand {
+    margin-bottom: 40px;
+}
+
+.opinion-brand .brand-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.opinion-brand .brand-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.opinion-brand .brand-subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.opinion-features {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.feature-icon {
+    font-size: 24px;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.feature-text h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.feature-text p {
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+/* Form Section */
+.opinion-form {
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.opinion-title {
+    font-size: 28px !important;
+    font-weight: bold;
+    color: var(--pallete-2);
+    margin-bottom: 10px;
+}
+
+.opinion-subtitle {
+    font-size: 16px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.italic {
+    font-style: italic;
+    color: var(--lines-color);
+}
+
+/* Rating Container */
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rating-container label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--pallete-2);
+}
+
+.stars-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.star-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star-button svg {
+    font-size: 28px;
+    color: #ddd;
+    transition: all 0.3s ease;
+}
+
+.star-button.active svg {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.star-button:hover svg {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.rating-text {
+    font-size: 14px;
+    color: var(--lines-color);
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+/* Opinion Button */
+.opinion-button {
+    background: linear-gradient(135deg, var(--pallete-1) 0%, var(--pallete-3) 100%) !important;
+    color: var(--white) !important;
+    border: none !important;
+    padding: 18px 30px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    margin-top: 20px !important;
+}
+
+.opinion-button:hover:not(:disabled) {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(38, 143, 190, 0.3) !important;
+}
+
+.opinion-button:disabled {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+}
+
+/* Background Overlay */
+.opinion-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(38, 143, 190, 0.7) 0%,
+            rgba(44, 184, 178, 0.7) 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .opinion-content {
+        grid-template-columns: 1fr;
+        height: auto;
+        max-width: 500px;
+    }
+
+    .opinion-image-section {
+        display: none;
+    }
+
+    .opinion-brand .brand-title {
+        font-size: 28px;
+    }
+
+    .opinion-features {
+        gap: 15px;
+    }
+
+    .feature-item {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .opinion-main-container {
+        padding: 20px;
+    }
+
+    .opinion-content {
+        border-radius: 15px;
+    }
+
+    .opinion-brand .brand-title {
+        font-size: 24px;
+    }
+
+    .opinion-brand .brand-subtitle {
+        font-size: 14px;
+    }
+
+    .feature-item {
+        padding: 10px;
+    }
+
+    .feature-icon {
+        font-size: 20px;
+        min-width: 35px;
+        height: 35px;
+    }
+
+    .feature-text h3 {
+        font-size: 14px;
+    }
+
+    .feature-text p {
+        font-size: 12px;
+    }
+
+    .opinion-title {
+        font-size: 24px !important;
+    }
+
+    .opinion-form {
+        gap: 15px;
+    }
+
+    .star-button svg {
+        font-size: 24px;
+    }
+
+    .opinion-button {
+        padding: 15px 25px !important;
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .opinion-main-container {
+        padding: 10px;
+    }
+
+    .opinion-brand .brand-title {
+        font-size: 20px;
+    }
+
+    .opinion-brand .brand-icon {
+        font-size: 36px;
+    }
+
+    .opinion-features {
+        gap: 15px;
+    }
+
+    .feature-item {
+        padding: 12px;
+    }
+
+    .feature-icon {
+        font-size: 18px;
+        min-width: 30px;
+        height: 30px;
+    }
+
+    .opinion-title {
+        font-size: 20px !important;
+    }
+
+    .opinion-subtitle {
+        font-size: 12px !important;
+    }
+
+    .star-button svg {
+        font-size: 20px;
+    }
+
+    .opinion-button {
+        padding: 12px 20px !important;
+        font-size: 13px !important;
+    }
+}
