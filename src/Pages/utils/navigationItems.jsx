@@ -6,5 +6,6 @@ export const navigationItems = [
     { to: "/home#nosotros", label: "Nosotros", icon: <MdPeople /> },
     { to: "/home#opiniones", label: "Opiniones", icon: <MdRateReview /> },
     { to: "/home#contacto", label: "Contacto", icon: <MdContactPhone /> },
+    { to: "/home#opinion-form-section", label: "Danos tu opinión", icon: <MdRateReview /> },
     { to: "/home#noticias", label: "Noticias", icon: <MdArticle /> },
 ];
