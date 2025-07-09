@@ -7,6 +7,7 @@ import { ImageRecord } from "../../../services/image-record/interfaces/image-rec
 import { IMAGE_RECORD_TYPES } from "../../../services/image-record/constant/image-record.constant";
 import "./styles.css";
 import { SwitchCard } from "../SwitchCard";
+import { ImageCard } from "../ImageCard";
 
 interface ImageRecordCardProps {
     imageRecord: ImageRecord;
@@ -37,7 +38,7 @@ const ImageRecordCard = ({ imageRecord, onUpdateImageRecord, onDeleteImageRecord
                 width="100%"
                 padding={"20px 35px"}
             >
-                <img src={imageRecord.image_url} alt={imageRecord.name} style={{ width: "150px", height: "auto", objectFit: "contain", borderRadius: "10px" }} />
+                <ImageCard imageUrl={imageRecord.image_url} alt={imageRecord.name} />
 
                 <WrapperContainer2
                     padding={0}

@@ -4,6 +4,7 @@ import { MenuItem } from "../../interfaces/menu-items";
 import { AdminHome } from "../Screens/AdminDashScreen/AdminHome";
 import { AppSettingsScreen } from "../Screens/AdminDashScreen/AppSettingsScreen";
 import { ImagesRecordScreen } from "../Screens/AdminDashScreen/ImagesRecordScreen";
+import NewsScreen from "../Screens/AdminDashScreen/NewsScreen";
 
 const getMenuItems = (): MenuItem[] => {
     const menuItems: MenuItem[] = [
@@ -41,7 +42,7 @@ const getMenuItems = (): MenuItem[] => {
         {
             icon: <FaNewspaper />,
             label: 'Noticias',
-            children: <p>Noticias</p>,
+            children: <NewsScreen />,
             description: 'Gestiona las noticias de la plataforma.'
         }
     ]
