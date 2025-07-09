@@ -32,10 +32,6 @@
     box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
 }
 
-.floating-button.expanded {
-    background: linear-gradient(135deg, #128C7E, #075E54);
-}
-
 .whatsapp-icon {
     font-size: 28px;
     color: var(--white);
@@ -96,7 +92,6 @@
     width: 320px;
     overflow: hidden;
     animation: slideInUp 0.4s ease;
-    border: 2px solid var(--lines-color2);
 }
 
 .chat-header {
@@ -106,16 +101,6 @@
     align-items: center;
     gap: 12px;
     color: var(--white);
-}
-
-.chat-avatar {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .chat-avatar svg {
@@ -161,8 +146,8 @@
 }
 
 .chat-message {
+    background-color: var(--pallete-4);
     padding: 20px;
-    background: var(--pallete-4);
     position: relative;
 }
 
@@ -204,20 +189,6 @@
 
 .start-chat-btn svg {
     font-size: 18px;
-}
-
-/* Pulse Animation */
-.pulse-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    border: 3px solid rgba(37, 211, 102, 0.3);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-    pointer-events: none;
 }
 
 /* Animations */
@@ -313,26 +284,5 @@
     .start-chat-btn {
         padding: 12px 15px;
         font-size: 13px;
-    }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    .chat-preview {
-        background: var(--dark-bg);
-        border-color: var(--dark-border);
-    }
-
-    .chat-message {
-        background: var(--dark-secondary);
-    }
-
-    .tooltip {
-        background: var(--dark-bg);
-        border-color: var(--dark-border);
-    }
-
-    .tooltip span {
-        color: var(--dark-text);
     }
 }

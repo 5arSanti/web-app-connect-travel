@@ -12,7 +12,6 @@ import { InitialSectioninfo } from "../../components/ScreenHome/InitialSectionIn
 import { Header } from "../../components/Header";
 import { HeaderContact } from "../../components/HeaderContact";
 import { FloatingNav } from "../../components/FloatingNav";
-import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
 import { Footer } from "../../components/Footer";
 import { imageRecordService } from "../../../services/image-record/image-record.service";
 import { ImageRecordType } from "../../../services/image-record/enum/image-record.enum";
@@ -20,6 +19,7 @@ import { ImageRecord } from "../../../services/image-record/interfaces/image-rec
 import { MdOutlineBlock, MdOutlineTravelExplore } from "react-icons/md";
 import { SectionImageRecord } from "../../components/ScreenHome/SectionImageRecord";
 import { GiCommercialAirplane } from "react-icons/gi";
+import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);

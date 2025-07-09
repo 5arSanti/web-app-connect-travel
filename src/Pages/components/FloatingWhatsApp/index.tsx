@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { FaWhatsapp, FaTimes, FaComments } from "react-icons/fa";
+import { FaWhatsapp, FaTimes } from "react-icons/fa";
 import { contactInfo } from "../../utils/ContactInfo/contactInfo";
 
 import "./styles.css";
 
 const FloatingWhatsApp = () => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
 
     const handleWhatsAppClick = () => {
         const phoneNumber = contactInfo.phone.info.replace(/\s/g, '').slice(5);
@@ -31,7 +30,7 @@ const FloatingWhatsApp = () => {
                             <h4>Connect Travel</h4>
                             <p>En línea • Responde en minutos</p>
                         </div>
-                        <button 
+                        <button
                             className="close-chat"
                             onClick={toggleExpanded}
                         >
@@ -42,7 +41,7 @@ const FloatingWhatsApp = () => {
                         <p>¡Hola! 👋 ¿En qué podemos ayudarte hoy?</p>
                         <span className="message-time">Ahora</span>
                     </div>
-                    <button 
+                    <button
                         className="start-chat-btn"
                         onClick={handleWhatsAppClick}
                     >
@@ -52,10 +51,8 @@ const FloatingWhatsApp = () => {
                 </div>
             )}
 
-            <div 
+            <div
                 className={`floating-button ${isExpanded ? 'expanded' : ''}`}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
                 onClick={isExpanded ? handleWhatsAppClick : toggleExpanded}
             >
                 {isExpanded ? (
@@ -63,12 +60,6 @@ const FloatingWhatsApp = () => {
                 ) : (
                     <>
                         <FaWhatsapp className="whatsapp-icon" />
-                        {isHovered && (
-                            <div className="tooltip">
-                                <FaComments />
-                                <span>¿Necesitas ayuda?</span>
-                            </div>
-                        )}
                     </>
                 )}
             </div>
