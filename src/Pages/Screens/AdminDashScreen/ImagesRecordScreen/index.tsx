@@ -4,7 +4,7 @@ import { SubTitle } from "../../../components/SubTitle";
 import { WrapperContainer2 } from "../../../components/WrapperContainers";
 import { toast } from "react-toastify";
 import { imageRecordService } from "../../../../services/image-record/image-record.service";
-import { ImageRecord } from "../../../../services/image-record/interfaces/image-record";
+import { DeleteImageRecord, ImageRecord } from "../../../../services/image-record/interfaces/image-record";
 import { GridContainer } from "../../../components/GridContainer";
 import { ImageRecordForm } from "../../../components/ImageRecordForm";
 import { UploadFileFormValues } from "../../../../services/image-record/interfaces/image-record";
@@ -79,6 +79,26 @@ const ImagesRecordScreen = () => {
         }
     };
 
+    const onDeleteImageRecord = async ({ id, name }: DeleteImageRecord) => {
+        try {
+            setLoading(true);
+            const { success, message } = await imageRecordService.deleteImageRecord({ id, name });
+            if (success) {
+                toast.success(message);
+                await fetchImageRecord();
+            }
+            else {
+                toast.error(message);
+            }
+        }
+        catch (error) {
+            toast.error(error instanceof Error ? error.message : 'Error al eliminar la imagen');
+        }
+        finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <WrapperContainer2
             flexDirection="column"
@@ -141,7 +161,12 @@ const ImagesRecordScreen = () => {
                     </WrapperContainer2>
                     <ScrollableWrapper height="70vh" justifyContent="start" alignItems="start" gap={10} padding={5}>
                         {!loading && imageRecords?.filter((imageRecord) => filterType === "" ? true : imageRecord.image_type === filterType)?.map((imageRecord) => (
-                            <ImageRecordCard key={imageRecord.id} imageRecord={imageRecord} onUpdateImageRecord={onUpdateImageRecord} />
+                            <ImageRecordCard
+                                key={imageRecord.id}
+                                imageRecord={imageRecord}
+                                onUpdateImageRecord={onUpdateImageRecord}
+                                onDeleteImageRecord={onDeleteImageRecord}
+                            />
                         ))}
                     </ScrollableWrapper>
                 </WrapperContainer2>

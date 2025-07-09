@@ -3,7 +3,7 @@
 import { IMAGE_RECORD_STORAGE, IMAGE_RECORD_TABLE } from "../../constants/db-tables.constant";
 import { storage, supabase } from "../supabase";
 import { ImageRecordType } from "./enum/image-record.enum";
-import { ImageRecord } from "./interfaces/image-record";
+import { DeleteImageRecord, ImageRecord } from "./interfaces/image-record";
 
 export const imageRecordService = {
     async getImageRecords(): Promise<ImageRecord[]> {
@@ -86,5 +86,23 @@ export const imageRecordService = {
         if (error) throw error;
 
         return { success: true, message: "Imagen actualizada correctamente" };
+    },
+
+    async deleteImageRecord({ id, name }: DeleteImageRecord): Promise<{ success: boolean, message: string }> {
+        if (!id || !name) {
+            throw new Error("No se ha proporcionado un id");
+        }
+
+        const { error: imageError } = await storage.from(IMAGE_RECORD_STORAGE)
+            .remove([name]);
+        if (imageError) throw imageError;
+
+        const { error } = await supabase.from(IMAGE_RECORD_TABLE)
+            .delete()
+            .eq('id', id);
+
+        if (error) throw error;
+
+        return { success: true, message: "Imagen eliminada correctamente" };
     }
 }

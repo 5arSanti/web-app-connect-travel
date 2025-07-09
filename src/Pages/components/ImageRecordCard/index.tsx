@@ -11,9 +11,10 @@ import { SwitchCard } from "../SwitchCard";
 interface ImageRecordCardProps {
     imageRecord: ImageRecord;
     onUpdateImageRecord: (id: string, is_active: boolean) => void;
+    onDeleteImageRecord: ({ id, name }: { id: string, name: string }) => void;
 }
 
-const ImageRecordCard = ({ imageRecord, onUpdateImageRecord }: ImageRecordCardProps) => {
+const ImageRecordCard = ({ imageRecord, onUpdateImageRecord, onDeleteImageRecord }: ImageRecordCardProps) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const imageType = IMAGE_RECORD_TYPES.find((type) => type.value === imageRecord.image_type)?.label;
@@ -82,7 +83,7 @@ const ImageRecordCard = ({ imageRecord, onUpdateImageRecord }: ImageRecordCardPr
 
                     <ButtonCard
                         title="Eliminar"
-                        onClick={() => { }}
+                        onClick={() => { onDeleteImageRecord({ id: imageRecord.id || '', name: imageRecord.name }) }}
                         type="button"
                         padding={10}
                         borderWidth={0}

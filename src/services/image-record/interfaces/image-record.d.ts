@@ -15,3 +15,8 @@ export interface UploadFileFormValues {
     image_type: ImageRecordType | null;
     description: string;
 }
+
+export interface DeleteImageRecord {
+    id: string;
+    name: string;
+}
