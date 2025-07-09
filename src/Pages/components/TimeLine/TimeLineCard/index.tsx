@@ -16,7 +16,7 @@ const TimelineCard = ({ icon, title, description, side }: TimelineCardProps) => 
     return (
         <>
             <WrapperContainer2
-                className={`timeline-card ${side}`}
+                className={`timeline-card card-${side} ${side}`}
                 padding={"0px 20px" as unknown as number}
             >
                 <div className={`timeline-dot ${side}`} />

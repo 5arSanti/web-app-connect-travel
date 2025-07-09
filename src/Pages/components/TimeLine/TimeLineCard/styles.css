@@ -1,16 +1,20 @@
 .timeline-card {
     position: relative;
     margin: 40px 0;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    z-index: 2;
 }
 
-.timeline-card.right {
-    justify-content: flex-start;
+.timeline-card:hover .timeline-card-content {
+    background-color: var(--pallete-4) !important;
+    transition: all 0.3s ease !important;
 }
 
+.card-right:hover .timeline-card-content {
+    transform: translateX(10px) !important;
+}
+
+.card-left:hover .timeline-card-content {
+    transform: translateX(-10px) !important;
+}
 
 .timeline-dot {
     position: absolute;
