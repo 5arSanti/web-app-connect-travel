@@ -111,7 +111,7 @@ const ImagesRecordScreen = () => {
                     >
                         <ButtonCard
                             padding={"5px 20px" as unknown as number}
-                            title="Todos"
+                            title="Listar todas las imagenes"
                             className="shadow-style"
                             borderRadius={20}
                             backgroundColor={filterType === "" ? "var(--pallete-2)" : "transparent"}
@@ -120,13 +120,13 @@ const ImagesRecordScreen = () => {
                                 setFilterType("");
                             }}
                         >
-                            Todos
+                            Todas
                         </ButtonCard>
                         {IMAGE_RECORD_TYPES.map((type, index) => (
                             <ButtonCard
                                 key={index}
                                 padding={"5px 20px" as unknown as number}
-                                title={type.label}
+                                title={`Listar imagenes de tipo ${type.label}`}
                                 className="shadow-style"
                                 borderRadius={20}
                                 backgroundColor={filterType === type.value ? "var(--pallete-2)" : "transparent"}

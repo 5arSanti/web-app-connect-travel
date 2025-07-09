@@ -61,8 +61,8 @@ const AppSettingsScreen = () => {
             <SubTitle>
                 Configuraciones
             </SubTitle>
-            {!loading && appSettings?.map((appSetting) => (
-                <AppSettingCard key={appSetting.id} appSetting={appSetting} handleSubmit={handleSubmit} />
+            {!loading && appSettings?.map((appSetting, index) => (
+                <AppSettingCard key={index} appSetting={appSetting} handleSubmit={handleSubmit} />
             ))}
         </WrapperContainer2>
     );
