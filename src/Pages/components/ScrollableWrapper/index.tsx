@@ -14,9 +14,9 @@ const ScrollableWrapper = ({
     children,
     height = "100%",
     gap = 0,
-    alignItems = "center",
+    alignItems = "start",
+    justifyContent = "start",
     padding = 0,
-    justifyContent = "center",
 }: ScrollableWrapperProps) => {
     return (
         <div className="scrollable-wrapper-container" style={{

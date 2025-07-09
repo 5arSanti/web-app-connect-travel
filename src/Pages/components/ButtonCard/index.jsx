@@ -11,7 +11,9 @@ const ButtonCard = ({
     borderRadius = 0,
     style = {},
     disabled = false,
-    width = "auto"
+    width = "auto",
+    backgroundColor = "transparent",
+    color = "var(--text-color)",
 }) => {
     return (
         <button
@@ -20,10 +22,12 @@ const ButtonCard = ({
             onClick={(event) => onClick(event)}
             type={type}
             style={{
-                padding: padding,
-                borderWidth: borderWidth,
-                borderRadius: borderRadius,
-                width: width,
+                padding,
+                borderWidth,
+                borderRadius,
+                width,
+                backgroundColor,
+                color,
                 ...style
             }}
             disabled={disabled}

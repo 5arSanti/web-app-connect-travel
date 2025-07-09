@@ -9,10 +9,14 @@ import { GridContainer } from "../../../components/GridContainer";
 import { ImageRecordForm } from "../../../components/ImageRecordForm";
 import { UploadFileFormValues } from "../../../../services/image-record/interfaces/image-record";
 import { ImageRecordCard } from "../../../components/ImageRecordCard";
+import { ScrollableWrapper } from "../../../components/ScrollableWrapper";
+import { ButtonCard } from "../../../components/ButtonCard";
+import { IMAGE_RECORD_TYPES } from "../../../../services/image-record/constant/image-record.constant";
 
 const ImagesRecordScreen = () => {
 
     const [imageRecords, setImageRecords] = useState<ImageRecord[]>([]);
+    const [filterType, setFilterType] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
@@ -24,7 +28,6 @@ const ImagesRecordScreen = () => {
             setLoading(true);
             const imageRecords = await imageRecordService.getImageRecords();
             setImageRecords(imageRecords);
-
         } catch (error) {
             toast.error(error instanceof Error ? error.message : 'Error al cargar las imagenes');
         } finally {
@@ -45,7 +48,6 @@ const ImagesRecordScreen = () => {
             }
 
             const { success, message } = await imageRecordService.createImageRecord(formData);
-            console.log(success, message);
             if (success) {
                 await fetchImageRecord();
                 toast.success(message);
@@ -98,9 +100,50 @@ const ImagesRecordScreen = () => {
                     padding={0}
                     width="100%"
                 >
-                    {!loading && imageRecords?.map((imageRecord) => (
-                        <ImageRecordCard key={imageRecord.id} imageRecord={imageRecord} onUpdateImageRecord={onUpdateImageRecord} />
-                    ))}
+                    <WrapperContainer2
+                        height="auto"
+                        flexDirection="row"
+                        gap={10}
+                        padding={0}
+                        width="100%"
+                        justifyContent="start"
+                        alignItems="start"
+                    >
+                        <ButtonCard
+                            padding={"5px 20px" as unknown as number}
+                            title="Todos"
+                            className="shadow-style"
+                            borderRadius={20}
+                            backgroundColor={filterType === "" ? "var(--pallete-2)" : "transparent"}
+                            color={filterType === "" ? "var(--white)" : "var(--text-color)"}
+                            onClick={() => {
+                                setFilterType("");
+                            }}
+                        >
+                            Todos
+                        </ButtonCard>
+                        {IMAGE_RECORD_TYPES.map((type, index) => (
+                            <ButtonCard
+                                key={index}
+                                padding={"5px 20px" as unknown as number}
+                                title={type.label}
+                                className="shadow-style"
+                                borderRadius={20}
+                                backgroundColor={filterType === type.value ? "var(--pallete-2)" : "transparent"}
+                                color={filterType === type.value ? "var(--white)" : "var(--text-color)"}
+                                onClick={() => {
+                                    setFilterType(type.value);
+                                }}
+                            >
+                                {type.label}
+                            </ButtonCard>
+                        ))}
+                    </WrapperContainer2>
+                    <ScrollableWrapper height="70vh" justifyContent="start" alignItems="start" gap={10} padding={5}>
+                        {!loading && imageRecords?.filter((imageRecord) => filterType === "" ? true : imageRecord.image_type === filterType)?.map((imageRecord) => (
+                            <ImageRecordCard key={imageRecord.id} imageRecord={imageRecord} onUpdateImageRecord={onUpdateImageRecord} />
+                        ))}
+                    </ScrollableWrapper>
                 </WrapperContainer2>
             </GridContainer>
         </WrapperContainer2>
