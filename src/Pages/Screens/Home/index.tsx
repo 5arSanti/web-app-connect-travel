@@ -1,5 +1,4 @@
 import React from "react";
-import { FadeWrapper } from "../../components/FadeWrapper";
 import { SectionServices } from "../../components/ScreenHome/SectionServices";
 import { SectionContact } from "../../components/ScreenHome/SectionContact";
 
@@ -21,6 +20,7 @@ import { SectionImageRecord } from "../../components/ScreenHome/SectionImageReco
 import { GiCommercialAirplane } from "react-icons/gi";
 import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
 import { SectionOpinionForm } from "../../components/ScreenHome/SectionOpinionForm";
+import { FadeWrapper } from "../../components/FadeWrapper";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);

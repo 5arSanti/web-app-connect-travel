@@ -2,13 +2,13 @@ import { SectionWrapper } from "../../SectionWrapper";
 import { TextCard } from "../../TextComponents";
 import { WrapperContainer2 } from "../../WrapperContainers";
 import { GridContainer } from "../../GridContainer";
-import { FadeWrapper } from "../../FadeWrapper";
 
 import "./styles.css";
 import { aboutData, statsData } from "../../../utils/ContactInfo/about-us.utils";
 import { Title } from "../../Title";
 import React from "react";
 import { TimeLine } from "../../TimeLine";
+import { FadeWrapper } from "../../FadeWrapper";
 
 const AboutCard = ({ icon, title, description, delay = 0 }) => {
     return (

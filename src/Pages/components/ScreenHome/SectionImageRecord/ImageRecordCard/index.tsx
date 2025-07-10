@@ -1,7 +1,7 @@
 import React from "react"
-import { FadeWrapper } from "../../../FadeWrapper"
 import { WrapperContainer2 } from "../../../WrapperContainers"
 import { ImageRecord } from "../../../../../services/image-record/interfaces/image-record"
+import { FadeWrapper } from "../../../FadeWrapper"
 
 const ImageRecordCard = ({ currentTravelWeek }: { currentTravelWeek: ImageRecord }) => {
     return (

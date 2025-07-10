@@ -5,14 +5,13 @@ import { FaPlaneDeparture } from "react-icons/fa";
 import "./styles.css";
 import { StyledSection } from "../../StyledSection";
 import { WrapperContainer2 } from "../../WrapperContainers";
-import { FadeWrapper } from "../../FadeWrapper";
-import { toast } from "react-toastify";
 import { handleInputChange, handleTextAreaChange, handleSelectChange } from "../../../utils/handleInputChange";
 import { ButtonCard } from "../../ButtonCard";
 import { InputCard, OptionInputCard, TextAreaCard } from "../../InputsCards";
 import { TextCard } from "../../TextComponents";
 import { connectTravelServices } from "../../../utils/EGESServices";
 import { ClientOpinion } from "../../../../services/client-opinions/interfaces/client-opinion.interface";
+import { FadeWrapper } from "../../FadeWrapper";
 
 const SectionOpinionForm = () => {
     const [loading, setLoading] = useState(false);

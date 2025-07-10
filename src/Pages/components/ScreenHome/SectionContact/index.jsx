@@ -2,13 +2,13 @@ import { GridContainer } from "../../GridContainer";
 import { SectionWrapper } from "../../SectionWrapper";
 import { SectionTitle } from "../../SectionWrapper/SectionTitle";
 import { WrapperContainer2 } from "../../WrapperContainers";
-import { FadeWrapper } from "../../FadeWrapper";
 import { MapCard } from "../../MapCard";
 import { ContactInformation } from "./ContactInformation";
 import { ContactHelpSection } from "../../ContactHelpSection";
 import { getSocialMediaInfo } from "../../../utils/ContactInfo/contactInfo";
 
 import "./styles.css";
+import { FadeWrapper } from "../../FadeWrapper";
 
 const SectionContact = () => {
     const socialMediaInfo = getSocialMediaInfo();

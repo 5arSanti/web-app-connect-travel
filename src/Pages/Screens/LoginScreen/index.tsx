@@ -5,7 +5,6 @@ import { FaPlaneDeparture } from "react-icons/fa";
 import "./styles.css";
 import { StyledSection } from "../../components/StyledSection";
 import { WrapperContainer2 } from "../../components/WrapperContainers";
-import { FadeWrapper } from "../../components/FadeWrapper";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { handleInputChange } from "../../utils/handleInputChange";
@@ -13,6 +12,7 @@ import { useAuth } from "../../../Context/AuthContext";
 import { ButtonCard } from "../../components/ButtonCard";
 import { InputCard } from "../../components/InputsCards";
 import { TextCard } from "../../components/TextComponents";
+import { FadeWrapper } from "../../components/FadeWrapper";
 
 const LoginScreen = () => {
     const { login } = useAuth();

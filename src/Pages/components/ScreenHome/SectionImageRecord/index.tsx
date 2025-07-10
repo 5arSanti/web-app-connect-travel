@@ -6,9 +6,9 @@ import { WrapperContainer1, WrapperContainer2 } from "../../WrapperContainers";
 import { Title } from "../../Title";
 import { MdOutlineTravelExplore, MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { TextCard } from "../../TextComponents";
-import { FadeWrapper } from "../../FadeWrapper";
 import "./styles.css";
 import { ImageRecordCard } from "./ImageRecordCard";
+import { FadeWrapper } from "../../FadeWrapper";
 
 interface SectionTravelWeekProps {
     title: string;

@@ -1,6 +1,7 @@
 import React from "react";
 import { MenuItem } from "../interfaces/menu-items";
 import { User } from "@supabase/supabase-js";
+import { getMenuItems } from "../Pages/utils/menu-item.utils";
 
 interface AppContextType {
     loading: boolean | null;
@@ -30,6 +31,11 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
 
     const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
+
+    React.useEffect(() => {
+        const menuItems = getMenuItems();
+        setSelectedItem(menuItems[0]);
+    }, []);
 
     return (
         <AppContext.Provider
