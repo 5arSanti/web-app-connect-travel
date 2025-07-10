@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { WrapperContainer1, WrapperContainer2 } from "../WrapperContainers";
 import { AppSettingFormValues, AppSettings } from "../../../services/app-settings/interfaces/app-settings";
 import { SpanCard, TextCard } from "../TextComponents";
-import { ICONS } from "../../../constants/icons.constant";
-import { Icon } from "../../../interfaces/icons";
-import { FaCheck, FaEdit } from "react-icons/fa";
+import { ICONS } from "../../../config/constants/icons.constant";
+import { Icon } from "../../../config/interfaces/icons";
+import { FaEdit } from "react-icons/fa";
 import { ButtonCard } from "../ButtonCard";
 import { ExpandableCard } from "../ExpandableCard";
 import { AppSettingForm } from "./AppSettingForm";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { appSettingsService } from "../../../services/app-settings/app-settings.service";
-import { toast } from "react-toastify";
 
 interface AppSettingCardProps {
     appSetting: AppSettings;

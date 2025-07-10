@@ -6,8 +6,7 @@ import { handleFileChange } from "../../utils/handleFileChange";
 import { handleSelectChange, handleTextAreaChange } from "../../utils/handleInputChange";
 import { UploadFileFormValues } from "../../../services/image-record/interfaces/image-record";
 import { IMAGE_RECORD_TYPES } from "../../../services/image-record/constant/image-record.constant";
-
-const ACCEPTED_EXTENSIONS = ['.jpg', '.jpeg', '.png'];
+import { ACCEPTED_EXTENSIONS } from "../../../config/constants/accepted-extensions.constant";
 
 
 interface UploadFileProps {

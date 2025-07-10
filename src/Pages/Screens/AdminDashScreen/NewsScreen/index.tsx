@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { appSettingsService } from "../../../../services/app-settings/app-settings.service";
 import { newsService } from "../../../../services/news/news.service";
-import { News } from "../../../../services/news/interfaces/news";
+import { News, NewsFormValues } from "../../../../services/news/interfaces/news";
 import { toast } from "react-toastify";
 import { WrapperContainer2 } from "../../../components/WrapperContainers";
 import { SubTitle } from "../../../components/SubTitle";
@@ -29,9 +28,8 @@ const NewsScreen = () => {
             setLoading(true);
             const news = await newsService.getNews();
             setNews(news);
-
         } catch (error) {
-            toast.error(error instanceof Error ? error.message : 'Error al cargar las configuraciones');
+            toast.error(error instanceof Error ? error.message : 'Error al cargar las noticias');
         } finally {
             setLoading(false);
         }
@@ -39,15 +37,74 @@ const NewsScreen = () => {
 
     const fetchCategories = async () => {
         try {
-            setLoading(true);
             const categories = await categoriesService.getCategories();
             setCategories(categories);
         } catch (error) {
             toast.error(error instanceof Error ? error.message : 'Error al cargar las categorías');
+        }
+    }
+
+    const handleCreate = async (e: React.FormEvent<HTMLFormElement>, values: NewsFormValues) => {
+        e.preventDefault();
+        try {
+            setLoading(true);
+            setOpen(false);
+            const response = await newsService.createNews(values);
+
+            if (response.success) {
+                toast.success(response.message);
+                await fetchNews();
+            } else {
+                toast.error(response.message);
+            }
+        } catch (error) {
+            toast.error(error instanceof Error ? error.message : 'Error al crear la noticia');
         } finally {
             setLoading(false);
         }
-    }
+    };
+
+    const handleUpdate = async (e: React.FormEvent<HTMLFormElement>, values: Partial<NewsFormValues>) => {
+        e.preventDefault();
+        try {
+            setLoading(true);
+            setOpen(false);
+
+            if (!values.id) { throw new Error('ID de noticia no encontrado'); }
+
+            const response = await newsService.updateNews(values.id, values);
+
+            if (response.success) {
+                toast.success(response.message);
+                await fetchNews();
+            } else {
+                toast.error(response.message);
+            }
+        } catch (error) {
+            toast.error(error instanceof Error ? error.message : 'Error al actualizar la noticia');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleDelete = async (id: string) => {
+        try {
+            setLoading(true);
+            setOpen(false);
+            const response = await newsService.deleteNews(id);
+
+            if (response.success) {
+                toast.success(response.message);
+                await fetchNews();
+            } else {
+                toast.error(response.message);
+            }
+        } catch (error) {
+            toast.error(error instanceof Error ? error.message : 'Error al eliminar la noticia');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <WrapperContainer2
@@ -58,7 +115,7 @@ const NewsScreen = () => {
             width="100%"
         >
             <SubTitle>
-                Gestion de Noticias
+                Gestión de Noticias
             </SubTitle>
 
             <ButtonCard
@@ -73,15 +130,34 @@ const NewsScreen = () => {
                 {open ? <FaMinus /> : <FaPlus />} {open ? "Cerrar" : "Crear nueva noticia"}
             </ButtonCard>
 
-            <ExpandableCard
-                open={open}
-            >
-                <CreateNewForm categories={categories} />
-            </ExpandableCard>
+            {!loading && <ExpandableCard open={open}>
+                <CreateNewForm
+                    categories={categories}
+                    handleSubmit={handleCreate}
+                    setOpen={setOpen}
+                    loading={loading}
+                />
+            </ExpandableCard>}
 
-            {!loading && news?.map((news, index) => (
-                <NewsCard key={index} news={news} />
-            ))}
+            <WrapperContainer2
+                flexDirection="column"
+                justifyContent="start"
+                alignItems="start"
+                gap={10}
+                width="100%"
+                padding={0}
+            >
+                {!loading && news?.map((newsItem, index) => (
+                    <NewsCard
+                        key={index}
+                        news={newsItem}
+                        categories={categories}
+                        handleUpdate={handleUpdate}
+                        handleDelete={handleDelete}
+                        loading={loading}
+                    />
+                ))}
+            </WrapperContainer2>
         </WrapperContainer2>
     )
 }

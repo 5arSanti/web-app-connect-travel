@@ -2,7 +2,7 @@
 import React from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./styles.css";
-import { InputCardProps, OptionInputCardProps, TextAreaCardProps, UploadFileCardProps } from "../../../interfaces/input-cards";
+import { InputCardProps, OptionInputCardProps, TextAreaCardProps, UploadFileCardProps } from "../../../config/interfaces/input-cards";
 
 const InputCard = ({
     type = "text",

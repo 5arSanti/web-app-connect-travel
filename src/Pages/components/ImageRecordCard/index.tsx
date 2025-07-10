@@ -18,7 +18,7 @@ interface ImageRecordCardProps {
 const ImageRecordCard = ({ imageRecord, onUpdateImageRecord, onDeleteImageRecord }: ImageRecordCardProps) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const imageType = IMAGE_RECORD_TYPES.find((type) => type.value === imageRecord.image_type)?.label;
+    const imageType = IMAGE_RECORD_TYPES.find((type) => type.id === imageRecord.image_type)?.name;
 
     return (
         <WrapperContainer2

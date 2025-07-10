@@ -1,4 +1,4 @@
-import { APP_SETTINGS_TABLE } from "../../constants/db-tables.constant";
+import { APP_SETTINGS_TABLE } from "../../config/constants/db-tables.constant";
 import { supabase } from "../supabase";
 import { AppSettingFormValues, AppSettings } from "./interfaces/app-settings";
 

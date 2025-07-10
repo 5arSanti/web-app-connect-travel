@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 
-import { IMAGE_RECORD_STORAGE, IMAGE_RECORD_TABLE } from "../../constants/db-tables.constant";
+import { IMAGE_RECORD_TABLE } from "../../config/constants/db-tables.constant";
+import { StorageBuckets } from "../../config/enum/storage-buckets.enum";
+import { storageService } from "../storage/storage.service";
 import { storage, supabase } from "../supabase";
 import { ImageRecordType } from "./enum/image-record.enum";
 import { DeleteImageRecord, ImageRecord } from "./interfaces/image-record";
@@ -42,24 +44,9 @@ export const imageRecordService = {
             throw new Error("No se han proporcionado archivos o tipo de imagen");
         }
 
-        if (files && files.length > 1) {
-            throw new Error("Solo se puede cargar un archivo");
-        }
+        const file = storageService.validateFile(files);
 
-        const file = files[0];
-
-        if (file.size > 1 * 1024 * 1024) {
-            throw new Error("El archivo debe ser menor a 1MB");
-        }
-
-        const { data: imageData, error: imageError } = await storage.from(IMAGE_RECORD_STORAGE)
-            .upload(file.name, file, {
-                contentType: file.type,
-                upsert: true,
-            });
-        if (imageError) throw imageError;
-
-        const image_url = `${import.meta.env.VITE_DB_PROJECT_URL}/storage/v1/object/public/${imageData.fullPath}`;
+        const { image_url } = await storageService.uploadFile(file, StorageBuckets.IMAGE_RECORD);
 
         const image_record: ImageRecord = {
             name: file.name,
@@ -93,7 +80,7 @@ export const imageRecordService = {
             throw new Error("No se ha proporcionado un id");
         }
 
-        const { error: imageError } = await storage.from(IMAGE_RECORD_STORAGE)
+        const { error: imageError } = await storage.from(StorageBuckets.IMAGE_RECORD)
             .remove([name]);
         if (imageError) throw imageError;
 

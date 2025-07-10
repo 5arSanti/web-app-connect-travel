@@ -1,31 +1,28 @@
 import React, { useState } from "react";
 import { WrapperContainer2 } from "../../../../components/WrapperContainers";
-import { InputCard, OptionInputCard, TextAreaCard, UploadFileCard } from "../../../../components/InputsCards";
-import { ButtonCard } from "../../../../components/ButtonCard";
 import { Category } from "../../../../../services/categories/interface/categories.interface";
+import { News } from "../../../../../services/news/interfaces/news";
 import { NewsFormValues } from "../../../../../services/news/interfaces/news";
-import { handleInputChange, handleTextAreaChange, handleSelectChange } from "../../../../utils/handleInputChange";
-import { handleFileChange } from "../../../../utils/handleFileChange";
-import { GridContainer } from "../../../../components/GridContainer";
-import { FaImage, FaPlus, FaTimes } from "react-icons/fa";
-import { ACCEPTED_EXTENSIONS } from "../../../../../config/constants/accepted-extensions.constant";
-import { TextCard } from "../../../../components/TextComponents";
 import { NewsForm } from "../NewsForm";
 import { NewsStatus } from "../../../../../services/news/enum/news.enum";
 
-interface CreateNewFormProps {
+interface EditNewFormProps {
+    news: News;
     categories: Category[];
-    handleSubmit: (e: React.FormEvent<HTMLFormElement>, values: NewsFormValues) => Promise<void>;
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    handleSubmit: (e: React.FormEvent<HTMLFormElement>, values: Partial<NewsFormValues>) => void;
+    setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
     loading: boolean;
+    status: NewsStatus;
 }
 
-const CreateNewForm = ({ categories, handleSubmit, setOpen, loading }: CreateNewFormProps) => {
+const EditNewForm = ({ news, categories, handleSubmit, setIsEditing, loading, status }: EditNewFormProps) => {
     const [values, setValues] = useState<NewsFormValues>({
-        title: "",
-        content: "",
-        category_id: "",
-        files: []
+        id: news.id,
+        title: news.title,
+        content: news.content,
+        category_id: news.category_id,
+        image_url: news.image_url,
+        files: [],
     });
 
     const categoriesOptions = categories.map((category) => ({
@@ -38,22 +35,21 @@ const CreateNewForm = ({ categories, handleSubmit, setOpen, loading }: CreateNew
             flexDirection="column"
             justifyContent="start"
             alignItems="start"
-            gap={0}
+            gap={24}
             width="100%"
-            padding={0}
         >
             <form onSubmit={(e) => handleSubmit(e, values)} className="form-style">
                 <NewsForm
                     values={values}
                     setValues={setValues}
                     categoriesOptions={categoriesOptions}
-                    setOpen={setOpen}
+                    setOpen={setIsEditing}
                     loading={loading}
-                    status={NewsStatus.CREATING}
+                    status={status}
                 />
             </form>
         </WrapperContainer2>
     )
 }
 
-export { CreateNewForm }
+export { EditNewForm } 

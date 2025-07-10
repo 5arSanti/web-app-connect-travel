@@ -1,4 +1,4 @@
-import { CATEGORIES_TABLE } from "../../constants/db-tables.constant";
+import { CATEGORIES_TABLE } from "../../config/constants/db-tables.constant";
 import { supabase } from "../supabase";
 import { Category, CategoryFormValues } from "./interface/categories.interface";
 

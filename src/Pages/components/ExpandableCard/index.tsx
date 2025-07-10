@@ -12,9 +12,9 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({ open, children, classNa
     if (open) return (
         <div className={`expandable-card ${className || ""}`}>
             <div
-                className={`expandable-content${open ? " open" : ""}`}
+                className={`expandable-content ${open ? "open" : ""}`}
                 style={{
-                    maxHeight: open ? 500 : 0,
+                    maxHeight: open ? '600px' : 0,
                     overflow: "hidden",
                     transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
                 }}

@@ -1,0 +1,1 @@
+export const ACCEPTED_EXTENSIONS = ['.jpg', '.jpeg', '.png'];
