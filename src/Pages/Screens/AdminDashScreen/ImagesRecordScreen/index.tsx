@@ -146,28 +146,30 @@ const ImagesRecordScreen = () => {
                             <ButtonCard
                                 key={index}
                                 padding={"5px 20px" as unknown as number}
-                                title={`Listar imagenes de tipo ${type.label}`}
+                                title={`Listar imagenes de tipo ${type.name}`}
                                 className="shadow-style"
                                 borderRadius={20}
-                                backgroundColor={filterType === type.value ? "var(--pallete-2)" : "transparent"}
-                                color={filterType === type.value ? "var(--white)" : "var(--text-color)"}
+                                backgroundColor={filterType === type.id ? "var(--pallete-2)" : "transparent"}
+                                color={filterType === type.id ? "var(--white)" : "var(--text-color)"}
                                 onClick={() => {
-                                    setFilterType(type.value);
+                                    setFilterType(type.id);
                                 }}
                             >
-                                {type.label}
+                                {type.name}
                             </ButtonCard>
                         ))}
                     </WrapperContainer2>
                     <ScrollableWrapper height="70vh" justifyContent="start" alignItems="start" gap={10} padding={5}>
-                        {!loading && imageRecords?.filter((imageRecord) => filterType === "" ? true : imageRecord.image_type === filterType)?.map((imageRecord) => (
-                            <ImageRecordCard
-                                key={imageRecord.id}
-                                imageRecord={imageRecord}
-                                onUpdateImageRecord={onUpdateImageRecord}
-                                onDeleteImageRecord={onDeleteImageRecord}
-                            />
-                        ))}
+                        {!loading && imageRecords?.length > 0 && imageRecords
+                            ?.filter((imageRecord) => filterType === "" ? true : imageRecord.image_type === filterType)
+                            ?.map((imageRecord) => (
+                                <ImageRecordCard
+                                    key={imageRecord.id}
+                                    imageRecord={imageRecord}
+                                    onUpdateImageRecord={onUpdateImageRecord}
+                                    onDeleteImageRecord={onDeleteImageRecord}
+                                />
+                            ))}
                     </ScrollableWrapper>
                 </WrapperContainer2>
             </GridContainer>

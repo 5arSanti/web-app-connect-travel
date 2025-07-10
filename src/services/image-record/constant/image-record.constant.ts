@@ -1,12 +1,12 @@
 import { ImageRecordType } from "../enum/image-record.enum";
 
-export const IMAGE_RECORD_TYPES = [
+export const IMAGE_RECORD_TYPES: { id: ImageRecordType, name: string }[] = [
     {
-        label: "Travel Week",
-        value: ImageRecordType.TRAVEL_WEEK,
+        id: ImageRecordType.TRAVEL_WEEK,
+        name: "Travel Week",
     },
     {
-        label: "Bloqueo",
-        value: ImageRecordType.BLOCK,
+        id: ImageRecordType.BLOCK,
+        name: "Bloqueo",
     }
 ];
