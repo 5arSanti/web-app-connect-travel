@@ -5,6 +5,7 @@ import { AdminHome } from "../Screens/AdminDashScreen/AdminHome";
 import { AppSettingsScreen } from "../Screens/AdminDashScreen/AppSettingsScreen";
 import { ImagesRecordScreen } from "../Screens/AdminDashScreen/ImagesRecordScreen";
 import NewsScreen from "../Screens/AdminDashScreen/NewsScreen";
+import CategoriesScreen from "../Screens/AdminDashScreen/CategoriesScreen";
 
 const getMenuItems = (): MenuItem[] => {
     const menuItems: MenuItem[] = [
@@ -30,7 +31,7 @@ const getMenuItems = (): MenuItem[] => {
         {
             icon: <FaTags />,
             label: 'Categorías',
-            children: <p>Categorías</p>,
+            children: <CategoriesScreen />,
             description: 'Gestiona las categorías de los servicios.'
         },
         {

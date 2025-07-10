@@ -51,8 +51,8 @@ const SectionOpinionForm = () => {
     };
 
     const servicesOptions = connectTravelServices.map(service => ({
-        value: service.uri,
-        label: service.serviceName
+        id: service.uri,
+        name: service.serviceName,
     }));
 
     return (
@@ -138,7 +138,7 @@ const SectionOpinionForm = () => {
                                 <OptionInputCard
                                     id="service_id"
                                     label="Servicio utilizado"
-                                    array={servicesOptions}
+                                    array={servicesOptions} s
                                     onChange={(e) => handleSelectChange(e, setValues)}
                                     defaultValue={values.service_id || ""}
                                     none={true}

@@ -31,6 +31,7 @@ export interface TextAreaCardProps {
     onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
     required?: boolean;
     defaultValue: string;
+    minHeight?: number;
 }
 
 export interface UploadFileCardProps {

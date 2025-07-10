@@ -16,11 +16,6 @@ textarea {
 	padding-left: 5px;
 }
 
-/* Inputs de Texto */
-.input-container textarea {
-	min-height: 75px;
-}
-
 .input-container .icon-input-container,
 .input-container textarea {
 	width: 100%;

@@ -66,9 +66,9 @@ const OptionInputCard = ({
                 {array && array?.map((item, index) => (
                     <option
                         key={index}
-                        value={item?.value || item}
+                        value={item?.id || item}
                     >
-                        {item?.label || item}
+                        {item?.name || item}
                     </option>
                 ))}
             </select>
@@ -82,7 +82,8 @@ const TextAreaCard = ({
     placeholder = "placeholder",
     onChange,
     required = true,
-    defaultValue = ""
+    defaultValue = "",
+    minHeight = 75
 }: TextAreaCardProps) => {
     return (
         <div className="input-container">
@@ -94,6 +95,7 @@ const TextAreaCard = ({
                 onChange={onChange}
                 required={required}
                 defaultValue={defaultValue}
+                style={{ minHeight: minHeight }}
             />
         </div>
     );
