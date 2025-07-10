@@ -3,26 +3,26 @@ import { MdNavigateBefore } from "react-icons/md";
 
 import "./styles.css"
 
-const NextArrowCard = ({className, style, onClick}) => {
+const NextArrowCard = ({ className = "", style = {}, onClick = () => { } }) => {
     return (
         <div
             className={`${className} arrow-card`}
-            style={{ ...style}}
+            style={{ ...style }}
             onClick={onClick}
         >
-            <MdNavigateNext/>
+            <MdNavigateNext />
         </div>
     );
 }
-  
-const PrevArrowCard = ({className, style, onClick}) => {
+
+const PrevArrowCard = ({ className = "", style = {}, onClick = () => { } }) => {
     return (
         <div
             className={`${className} arrow-card`}
-            style={{ ...style}}
+            style={{ ...style }}
             onClick={onClick}
         >
-            <MdNavigateBefore/>
+            <MdNavigateBefore />
         </div>
     );
 }

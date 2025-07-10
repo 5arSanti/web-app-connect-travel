@@ -1,19 +1,19 @@
-
+import React from "react";
 import Slider from "react-slick";
 
 import { NextArrowCard, PrevArrowCard } from "./ArrowsCard";
 import { NewsCard } from "../NewsCard";
 import { WrapperContainer2 } from "../../WrapperContainers";
-import { news } from "../../../utils/news";
+import { News } from "../../../../services/news/interfaces/news";
 import "./styles.css";
+import { Category } from "../../../../services/categories/interface/categories.interface";
 
-const SliderNews = () => {
+const SliderNews = ({ news, categories }: { news: News[], categories: Category[] }) => {
 	const options = {
 		infinite: true,
 		speed: 1250,
 		slidesToShow: 2,
 		slidesToScroll: 1,
-		// autoplay: true,
 		autoplaySpeed: 6000,
 		dots: true,
 		arrows: true,
@@ -45,7 +45,7 @@ const SliderNews = () => {
 		<WrapperContainer2 width="100%" justifyContent="center" alignItems="center" padding={15}>
 			<Slider {...options}>
 				{news?.map((item, index) => (
-					<NewsCard key={index} item={item} />
+					<NewsCard key={index} item={item} categories={categories} />
 				))}
 			</Slider>
 		</WrapperContainer2>

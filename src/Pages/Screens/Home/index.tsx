@@ -21,10 +21,16 @@ import { GiCommercialAirplane } from "react-icons/gi";
 import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
 import { SectionOpinionForm } from "../../components/ScreenHome/SectionOpinionForm";
 import { FadeWrapper } from "../../components/FadeWrapper";
+import { newsService } from "../../../services/news/news.service";
+import { News } from "../../../services/news/interfaces/news";
+import { Category } from "../../../services/categories/interface/categories.interface";
+import { categoriesService } from "../../../services/categories/categories.service";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
     const [blocks, setBlocks] = React.useState<ImageRecord[]>([]);
+    const [news, setNews] = React.useState<News[]>([]);
+    const [categories, setCategories] = React.useState<Category[]>([]);
 
     React.useEffect(() => {
         const fetchTravelWeeks = async () => {
@@ -32,7 +38,20 @@ const Home = () => {
             setTravelWeeks(image_records.filter(item => item.image_type === ImageRecordType.TRAVEL_WEEK));
             setBlocks(image_records.filter(item => item.image_type === ImageRecordType.BLOCK));
         };
+
+        const fetchNews = async () => {
+            const news = await newsService.getNews();
+            setNews(news);
+        };
+
+        const fetchCategories = async () => {
+            const categories = await categoriesService.getCategories();
+            setCategories(categories);
+        };
+
         fetchTravelWeeks();
+        fetchNews();
+        fetchCategories();
     }, []);
 
     return (
@@ -76,7 +95,7 @@ const Home = () => {
 
             <SectionOpinionForm />
 
-            <SectionNews />
+            <SectionNews news={news} categories={categories} />
 
             <Footer />
         </div>
