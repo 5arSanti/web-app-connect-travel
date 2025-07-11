@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdPerson, MdEmail, MdRateReview, MdStar } from "react-icons/md";
+import { MdPerson, MdEmail } from "react-icons/md";
 import { FaPlaneDeparture } from "react-icons/fa";
 
 import "./styles.css";
@@ -9,15 +9,20 @@ import { handleInputChange, handleTextAreaChange, handleSelectChange } from "../
 import { ButtonCard } from "../../ButtonCard";
 import { InputCard, OptionInputCard, TextAreaCard } from "../../InputsCards";
 import { TextCard } from "../../TextComponents";
-import { connectTravelServices } from "../../../utils/EGESServices";
-import { ClientOpinion } from "../../../../services/client-opinions/interfaces/client-opinion.interface";
+import { ClientOpinionFormValues } from "../../../../services/client-opinions/interfaces/client-opinion.interface";
 import { FadeWrapper } from "../../FadeWrapper";
+import { clientOpinionService } from "../../../../services/client-opinions/client-opinion.service";
+import { toast } from "react-toastify";
+import { ConnectService } from "../../../../services/connect-services/interfaces/connect-services";
 
-const SectionOpinionForm = () => {
+interface SectionOpinionFormProps {
+    connectServices: ConnectService[];
+}
+
+const SectionOpinionForm = ({ connectServices }: SectionOpinionFormProps) => {
     const [loading, setLoading] = useState(false);
-    const [rating, setRating] = useState(5);
 
-    const [values, setValues] = useState<Partial<ClientOpinion>>({
+    const [values, setValues] = useState<ClientOpinionFormValues>({
         client_name: "",
         client_email: "",
         service_id: "",
@@ -28,31 +33,24 @@ const SectionOpinionForm = () => {
         e.preventDefault();
         setLoading(true);
 
-        // try {
-        //     console.log("Opinión enviada:", { ...values, rating });
-        //     toast.success('¡Gracias por tu opinión! Tu feedback es muy valioso para nosotros.');
+        try {
+            const { success, message } = await clientOpinionService.createClientOpinion(values);
 
-        //     setValues({
-        //         client_name: "",
-        //         client_email: "",    
-        //         service_id: "",
-        //         message: ""
-        //     });
-        //     setRating(5);
-        // } catch (error) {
-        //     toast.error('Error al enviar la opinión. Por favor, intenta nuevamente.');
-        // } finally {
-        //     setLoading(false);
-        // }
+            if (success) {
+                toast.success(message);
+            } else {
+                toast.error(message);
+            }
+        } catch (error) {
+            toast.error(error.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
-    const handleRatingChange = (newRating: number) => {
-        setRating(newRating);
-    };
-
-    const servicesOptions = connectTravelServices.map(service => ({
-        id: service.uri,
-        name: service.serviceName,
+    const servicesOptions = connectServices.map(service => ({
+        id: service.id,
+        name: service.name,
     }));
 
     return (
@@ -122,7 +120,7 @@ const SectionOpinionForm = () => {
                                     label="Nombre completo"
                                     placeholder="Ingresa tu nombre completo"
                                     onChange={(e) => handleInputChange(e, setValues)}
-                                    defaultValue={values.client_name || ""}
+                                    defaultValue={values.client_name}
                                 />
 
                                 <InputCard
@@ -132,15 +130,15 @@ const SectionOpinionForm = () => {
                                     label="Correo electrónico"
                                     placeholder="Ingresa tu correo electrónico"
                                     onChange={(e) => handleInputChange(e, setValues)}
-                                    defaultValue={values.client_email || ""}
+                                    defaultValue={values.client_email}
                                 />
 
                                 <OptionInputCard
                                     id="service_id"
                                     label="Servicio utilizado"
-                                    array={servicesOptions} s
+                                    array={servicesOptions}
                                     onChange={(e) => handleSelectChange(e, setValues)}
-                                    defaultValue={values.service_id || ""}
+                                    defaultValue={values.service_id}
                                     none={true}
                                     required={true}
                                 />
@@ -150,15 +148,21 @@ const SectionOpinionForm = () => {
                                     label="Tu opinión"
                                     placeholder="Comparte tu experiencia, qué te gustó, qué podríamos mejorar..."
                                     onChange={(e) => handleTextAreaChange(e, setValues)}
-                                    defaultValue={values.message || ""}
+                                    defaultValue={values.message}
                                 />
 
                                 <ButtonCard
                                     type="submit"
                                     className="opinion-button"
-                                    disabled={loading || !values.client_name || !values.client_email || !values.service_id || !values.message}
+                                    disabled={
+                                        loading
+                                        || !values.client_name
+                                        || !values.client_email
+                                        || !values.service_id
+                                        || !values.message
+                                    }
                                 >
-                                    {loading ? 'Enviando opinión...' : 'Enviar Opinión'}
+                                    {loading ? 'Guardando su opinión...' : 'Enviar opinión'}
                                 </ButtonCard>
                             </form>
                         </WrapperContainer2>

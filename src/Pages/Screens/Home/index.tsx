@@ -25,12 +25,15 @@ import { newsService } from "../../../services/news/news.service";
 import { News } from "../../../services/news/interfaces/news";
 import { Category } from "../../../services/categories/interface/categories.interface";
 import { categoriesService } from "../../../services/categories/categories.service";
+import { connectServicesService } from "../../../services/connect-services/connect-services.service";
+import { ConnectService } from "../../../services/connect-services/interfaces/connect-services";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
     const [blocks, setBlocks] = React.useState<ImageRecord[]>([]);
     const [news, setNews] = React.useState<News[]>([]);
     const [categories, setCategories] = React.useState<Category[]>([]);
+    const [connectServices, setConnectServices] = React.useState<ConnectService[]>([]);
 
     React.useEffect(() => {
         const fetchTravelWeeks = async () => {
@@ -49,9 +52,15 @@ const Home = () => {
             setCategories(categories);
         };
 
+        const fetchConnectServices = async () => {
+            const connectServices = await connectServicesService.getConnectServices();
+            setConnectServices(connectServices);
+        };
+
         fetchTravelWeeks();
         fetchNews();
         fetchCategories();
+        fetchConnectServices();
     }, []);
 
     return (
@@ -93,7 +102,7 @@ const Home = () => {
 
             <SectionContact />
 
-            <SectionOpinionForm />
+            <SectionOpinionForm connectServices={connectServices} />
 
             <SectionNews news={news} categories={categories} />
 
