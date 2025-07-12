@@ -2,11 +2,18 @@ import React from "react";
 import { ServiceCard } from "../ServiceCard";
 import { GridContainer } from "../../../GridContainer";
 import { ConnectService } from "../../../../../services/connect-services/interfaces/connect-services";
+import { WrapperContainer2 } from "../../../WrapperContainers";
 
 const ServicesContainer = ({ connectServices }: { connectServices: ConnectService[] }) => {
     return (
-        <div className="services-container">
-            <GridContainer className="grid-1-1-1" padding={0} gap={20}>
+        <WrapperContainer2
+            justifyContent="center"
+            alignItems="center"
+            flexDirection="column"
+            gap={20}
+            padding={0}
+        >
+            <GridContainer className="services-grid" padding={0} gap={20}>
                 {connectServices?.map((item, index) => (
                     <ServiceCard
                         key={index}
@@ -14,7 +21,7 @@ const ServicesContainer = ({ connectServices }: { connectServices: ConnectServic
                     />
                 ))}
             </GridContainer>
-        </div>
+        </WrapperContainer2>
     )
 }
 

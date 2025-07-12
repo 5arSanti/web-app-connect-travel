@@ -23,12 +23,12 @@
 
 @media (max-width: 800px) {
     .title {
-        font-size: 20px;
+        font-size: 30px !important;
     }
 }
 
 @media (max-width: 450px) {
     .title {
-        font-size: 16px;
+        font-size: 24px !important;
     }
 }
