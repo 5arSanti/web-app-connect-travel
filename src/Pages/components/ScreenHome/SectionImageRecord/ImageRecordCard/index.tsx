@@ -5,7 +5,7 @@ import { FadeWrapper } from "../../../FadeWrapper"
 
 const ImageRecordCard = ({ currentTravelWeek }: { currentTravelWeek: ImageRecord }) => {
     return (
-        <FadeWrapper delay={300}>
+        <FadeWrapper delay={300} className="image-record-card">
             <WrapperContainer2
                 padding={0}
                 justifyContent="center"

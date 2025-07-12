@@ -4,7 +4,7 @@ import { ImageRecord } from "../../../../services/image-record/interfaces/image-
 import { GridContainer } from "../../GridContainer";
 import { WrapperContainer1, WrapperContainer2 } from "../../WrapperContainers";
 import { Title } from "../../Title";
-import { MdOutlineTravelExplore, MdNavigateNext, MdNavigateBefore } from "react-icons/md";
+import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import { TextCard } from "../../TextComponents";
 import "./styles.css";
 import { ImageRecordCard } from "./ImageRecordCard";
@@ -68,7 +68,7 @@ const SectionImageRecord = ({ title, description, icon, layout, travelWeeks }: S
                 <GridContainer
                     className={`grid-1-1`}
                     padding={0}
-                    gap={0}
+                    gap={20}
                 >
                     {layout === "text-right" && <ImageRecordCard currentTravelWeek={currentTravelWeek} />}
 

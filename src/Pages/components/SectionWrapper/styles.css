@@ -15,7 +15,11 @@
 }
 
 @media (max-width: 800px) {
+    .section-wrapper {
+        padding: 40px !important;
+    }
+
     .secondary-section-wrapper {
-        padding: 30px !important;
+        padding: 0px !important;
     }
 }
