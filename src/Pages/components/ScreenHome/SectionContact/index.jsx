@@ -69,7 +69,7 @@ const SectionContact = () => {
                     </WrapperContainer2>
                 </FadeWrapper>
 
-                <FadeWrapper delay={800}>
+                <FadeWrapper delay={100}>
                     <ContactHelpSection />
                 </FadeWrapper>
 

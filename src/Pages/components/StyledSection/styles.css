@@ -40,7 +40,15 @@
 }
 
 @media (max-width: 480px) {
+    .styled-home-main-container {
+        overflow: hidden;
+    }
+
     .styled-home-main-container img {
+        justify-content: center;
+        align-items: center;
         width: auto;
+        height: 100%;
+        object-fit: cover !important;
     }
 }

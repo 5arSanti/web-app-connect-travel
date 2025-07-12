@@ -298,7 +298,7 @@
 
 @media (max-width: 480px) {
     .opinion-main-container {
-        padding: 10px;
+        padding: 30px !important;
     }
 
     .opinion-brand .brand-title {
@@ -321,6 +321,10 @@
         font-size: 18px;
         min-width: 30px;
         height: 30px;
+    }
+
+    .opinion-form {
+        padding: 0px !important;
     }
 
     .opinion-title {

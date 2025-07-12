@@ -1,0 +1,5 @@
+@media (max-width: 480px) {
+    .news-section-container {
+        padding: 20px 0px !important;
+    }
+}

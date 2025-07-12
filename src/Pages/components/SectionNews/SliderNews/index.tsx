@@ -8,7 +8,7 @@ import { News } from "../../../../services/news/interfaces/news";
 import "./styles.css";
 import { Category } from "../../../../services/categories/interface/categories.interface";
 
-const SliderNews = ({ news, categories }: { news: News[], categories: Category[] }) => {
+const SliderNews = ({ news, categories, arrows = true }: { news: News[], categories: Category[], arrows?: boolean }) => {
 	const options = {
 		infinite: true,
 		speed: 1250,
@@ -17,7 +17,7 @@ const SliderNews = ({ news, categories }: { news: News[], categories: Category[]
 		autoplaySpeed: 6000,
 		autoplay: true,
 		dots: true,
-		arrows: true,
+		arrows: arrows,
 		nextArrow: <NextArrowCard />,
 		prevArrow: <PrevArrowCard />,
 		style: { width: "100%" },
