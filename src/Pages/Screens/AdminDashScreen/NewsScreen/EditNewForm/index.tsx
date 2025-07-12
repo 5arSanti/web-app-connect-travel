@@ -4,7 +4,7 @@ import { Category } from "../../../../../services/categories/interface/categorie
 import { News } from "../../../../../services/news/interfaces/news";
 import { NewsFormValues } from "../../../../../services/news/interfaces/news";
 import { NewsForm } from "../NewsForm";
-import { NewsStatus } from "../../../../../services/news/enum/news.enum";
+import { FormStatus } from "../../../../../config/enum/form-status.enum";
 
 interface EditNewFormProps {
     news: News;
@@ -12,7 +12,7 @@ interface EditNewFormProps {
     handleSubmit: (e: React.FormEvent<HTMLFormElement>, values: Partial<NewsFormValues>) => void;
     setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
     loading: boolean;
-    status: NewsStatus;
+    status: FormStatus;
 }
 
 const EditNewForm = ({ news, categories, handleSubmit, setIsEditing, loading, status }: EditNewFormProps) => {

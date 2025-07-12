@@ -8,6 +8,7 @@ export interface ConnectService {
 }
 
 export interface ConnectServiceFormValues {
+    id?: string;
     name: string;
     description: string;
     icon_name: string;

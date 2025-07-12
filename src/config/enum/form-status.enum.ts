@@ -1,4 +1,4 @@
-export enum NewsStatus {
+export enum FormStatus {
     EDITING = "editing",
     CREATING = "creating",
 }

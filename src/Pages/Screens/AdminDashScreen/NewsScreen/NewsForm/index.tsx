@@ -9,7 +9,7 @@ import { handleFileChange } from "../../../../utils/handleFileChange";
 import { ACCEPTED_EXTENSIONS } from "../../../../../config/constants/accepted-extensions.constant";
 import { ButtonCard } from "../../../../components/ButtonCard";
 import { NewsFormValues } from "../../../../../services/news/interfaces/news";
-import { NewsStatus } from "../../../../../services/news/enum/news.enum";
+import { FormStatus } from "../../../../../config/enum/form-status.enum";
 
 interface NewsFormProps {
     values: NewsFormValues;
@@ -17,7 +17,7 @@ interface NewsFormProps {
     categoriesOptions: { id: string, name: string }[];
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     loading: boolean;
-    status: NewsStatus;
+    status: FormStatus;
 }
 
 const NewsForm = ({ values, setValues, categoriesOptions, setOpen, loading, status }: NewsFormProps) => {
@@ -108,7 +108,7 @@ const NewsForm = ({ values, setValues, categoriesOptions, setOpen, loading, stat
                     borderRadius={8}
                     backgroundColor="var(--pallete-4)"
                 >
-                    <FaPlus /> {loading ? 'Creando...' : `${status === NewsStatus.CREATING ? 'Crear' : 'Actualizar'} Noticia`}
+                    <FaPlus /> {loading ? 'Creando...' : `${status === FormStatus.CREATING ? 'Crear' : 'Actualizar'} Noticia`}
                 </ButtonCard>
 
             </GridContainer>

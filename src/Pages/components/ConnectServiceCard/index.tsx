@@ -5,22 +5,22 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 import { ButtonCard } from "../ButtonCard";
 import { ExpandableCard } from "../ExpandableCard";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { News } from "../../../services/news/interfaces/news";
 import { ImageCard } from "../ImageCard";
-import { NewsFormValues } from "../../../services/news/interfaces/news";
-import { EditNewForm } from "../../Screens/AdminDashScreen/NewsScreen/EditNewForm";
-import { Category } from "../../../services/categories/interface/categories.interface";
 import { FormStatus } from "../../../config/enum/form-status.enum";
+import { ConnectService, ConnectServiceFormValues } from "../../../services/connect-services/interfaces/connect-services";
+import { EditServiceForm } from "../../Screens/AdminDashScreen/ConnectServicesScreen/EditServiceForm";
+import { FadeWrapper } from "../FadeWrapper";
+import { icons } from "../../utils/Icons";
 
-interface NewsCardProps {
-    news: News;
-    categories: Category[];
-    handleUpdate: (e: React.FormEvent<HTMLFormElement>, formData: Partial<NewsFormValues>) => void;
+interface ConnectServiceCardProps {
+    connectService: ConnectService;
+    handleUpdate: (e: React.FormEvent<HTMLFormElement>, formData: Partial<ConnectServiceFormValues>) => void;
     handleDelete: (id: string) => void;
     loading: boolean;
 }
 
-const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: NewsCardProps) => {
+const ConnectServiceCard = ({ connectService, handleUpdate, handleDelete, loading }: ConnectServiceCardProps) => {
+    const { id, name, description, icon_name, image_url, created_at } = connectService;
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
     const formatDate = (dateString: string | Date) => {
@@ -34,10 +34,7 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
         });
     };
 
-    const getCategoryName = (categoryId: string) => {
-        const category = categories.find(cat => cat.id === categoryId);
-        return category ? category.name : 'Sin categoría';
-    };
+    const icon = icons.find(icon => icon.name === icon_name)?.icon;
 
     return (
         <WrapperContainer2
@@ -65,7 +62,17 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
                     alignItems="center"
                     gap={20}
                 >
-                    <ImageCard imageUrl={news.image_url} alt={news.title} />
+                    {image_url && <ImageCard imageUrl={connectService.image_url} alt={connectService.name} />}
+                    <WrapperContainer2
+                        padding={0}
+                        width="auto"
+                        flexDirection="row"
+                        justifyContent="center"
+                        alignItems="center"
+                        className="icon-container"
+                    >
+                        {icon}
+                    </WrapperContainer2>
                     <WrapperContainer2
                         padding={0}
                         width="auto"
@@ -83,14 +90,12 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
                             height="auto"
                         >
 
-                            <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Título:</SpanCard> {news.title}</TextCard>
+                            <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Nombre:</SpanCard> {name}</TextCard>
 
-                            <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Categoría:</SpanCard> {getCategoryName(news.category_id)}</TextCard>
-
-                            <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Fecha:</SpanCard> {formatDate(news.created_at)}</TextCard>
+                            <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Creado el:</SpanCard> {formatDate(created_at)}</TextCard>
                         </WrapperContainer2>
                         <TextCard fontSize={12}>
-                            <SpanCard fontSize={12}>Contenido:</SpanCard> {news.content}
+                            <SpanCard fontSize={12}>Descripción:</SpanCard> {description}
                         </TextCard>
                     </WrapperContainer2>
                 </WrapperContainer2>
@@ -120,7 +125,7 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
 
                     <ButtonCard
                         title="Eliminar"
-                        onClick={() => handleDelete(news.id || "")}
+                        onClick={() => handleDelete(id)}
                         type="button"
                         padding={10}
                         borderWidth={0}
@@ -137,9 +142,8 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
 
             {isEditing && (
                 <ExpandableCard open={isEditing}>
-                    <EditNewForm
-                        news={news}
-                        categories={categories}
+                    <EditServiceForm
+                        connectService={connectService}
                         handleSubmit={handleUpdate}
                         setIsEditing={setIsEditing}
                         loading={loading}
@@ -151,4 +155,4 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
     )
 }
 
-export { NewsCard };
+export { ConnectServiceCard };

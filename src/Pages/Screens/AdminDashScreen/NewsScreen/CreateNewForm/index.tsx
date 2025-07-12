@@ -11,7 +11,7 @@ import { FaImage, FaPlus, FaTimes } from "react-icons/fa";
 import { ACCEPTED_EXTENSIONS } from "../../../../../config/constants/accepted-extensions.constant";
 import { TextCard } from "../../../../components/TextComponents";
 import { NewsForm } from "../NewsForm";
-import { NewsStatus } from "../../../../../services/news/enum/news.enum";
+import { FormStatus } from "../../../../../config/enum/form-status.enum";
 
 interface CreateNewFormProps {
     categories: Category[];
@@ -49,7 +49,7 @@ const CreateNewForm = ({ categories, handleSubmit, setOpen, loading }: CreateNew
                     categoriesOptions={categoriesOptions}
                     setOpen={setOpen}
                     loading={loading}
-                    status={NewsStatus.CREATING}
+                    status={FormStatus.CREATING}
                 />
             </form>
         </WrapperContainer2>

@@ -30,7 +30,7 @@ export const connectServicesService = {
         };
     },
 
-    async updateConnectService(id: string, connectService: ConnectServiceFormValues): Promise<{ success: boolean, message: string }> {
+    async updateConnectService(id: string, connectService: Partial<ConnectServiceFormValues>): Promise<{ success: boolean, message: string }> {
         const { name, description, icon_name } = connectService;
 
         const { error } = await supabase.from(CONNECT_SERVICES_TABLE)
