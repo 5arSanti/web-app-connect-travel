@@ -66,3 +66,24 @@
     color: var(--text-color);
     margin: 0;
 }
+
+@media (max-width: 900px) {
+    .card-right {
+        justify-content: flex-start !important;
+    }
+
+    .card-left {
+        justify-content: flex-end !important;
+    }
+
+    .card-left .timeline-description,
+    .card-left .timeline-container-title {
+        justify-content: flex-start !important;
+        text-align: left !important;
+
+    }
+
+    .card-right .timeline-container-title {
+        flex-direction: row-reverse !important;
+    }
+}

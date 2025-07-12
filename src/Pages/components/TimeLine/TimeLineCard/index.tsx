@@ -28,8 +28,8 @@ const TimelineCard = ({ icon, title, description, side }: TimelineCardProps) => 
                     alignItems={align}
                     padding="20px 30px"
                 >
-                    <FadeWrapper delay={0}>
-                        <WrapperContainer2 padding={0} justifyContent={align} alignItems="center" gap={10}>
+                    <FadeWrapper delay={0} className="timeline-card-content-container">
+                        <WrapperContainer2 className="timeline-container-title" padding={0} justifyContent={align} alignItems="center" gap={10}>
                             {side === "right" && <div className="timeline-icon">{icon}</div>}
                             <TextCard fontSize={24} width="auto" className="timeline-title">{title}</TextCard>
                             {side === "left" && <div className="timeline-icon">{icon}</div>}

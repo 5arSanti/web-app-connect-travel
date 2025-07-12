@@ -205,6 +205,11 @@
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+        padding: 0 !important;
+    }
+
+    .about-us-text-container {
+        padding: 0 !important;
     }
 
     .about-grid {

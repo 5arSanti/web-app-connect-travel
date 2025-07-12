@@ -33,7 +33,7 @@ const SectionAboutUs = () => {
         <SectionWrapper padding={0} id="nosotros" innerPadding={"50px 100px"}>
             <WrapperContainer2 flexDirection="column" padding={0} gap={40}>
                 <FadeWrapper>
-                    <WrapperContainer2 flexDirection="column" gap={20}>
+                    <WrapperContainer2 flexDirection="column" gap={20} className="about-us-text-container">
                         <TextCard fontSize={14} textAlign="center" className="about-subtitle">Descubre</TextCard>
                         <Title fontSize={60}>CONNECT TRAVEL'S</Title>
                         <TextCard textAlign="center" fontSize={18} className="about-main-description">
@@ -64,7 +64,7 @@ const SectionAboutUs = () => {
                 <TimeLine />
 
 
-                <FadeWrapper delay={800}>
+                <FadeWrapper delay={100}>
                     <WrapperContainer2 flexDirection="column" gap={20} className="about-cta">
                         <TextCard textAlign="center" fontSize={20} className="cta-text">
                             ¿Listo para tu próxima aventura?

@@ -4,9 +4,12 @@
     padding: 60px 0 40px 0;
     display: flex;
     justify-content: center;
+
+    box-sizing: border-box;
 }
 
 .timeline-grid {
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 900px;
@@ -29,8 +32,13 @@
 
 
 @media (max-width: 900px) {
+    .timeline-grid-container {
+        padding: 20px 0;
+    }
+
     .timeline-grid {
         grid-template-columns: 1fr;
+        gap: 10px;
     }
 
     .timeline-card.left,
@@ -44,33 +52,12 @@
         left: 0;
         right: auto;
         transform: translateX(-50%);
+        text-align: left;
     }
 
     .timeline-center-line {
-        left: 24px;
         transform: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .timeline-grid-container {
-        padding: 30px 0 20px 0;
-    }
-
-    .timeline-card-content {
-        padding: 16px 12px;
-        min-width: 0;
-        max-width: 95vw;
-    }
-
-    .timeline-dot {
-        width: 16px;
-        height: 16px;
-        top: 16px;
-    }
-
-    .timeline-center-line {
-        width: 2px;
-        left: 16px;
+        left: 0;
+        transform: translateX(0);
     }
 }
