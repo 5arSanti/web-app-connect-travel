@@ -1,11 +1,13 @@
+import React from "react";
 import { WrapperContainer2 } from "../../WrapperContainers"
 import { SectionTitle } from "../../SectionWrapper/SectionTitle";
 import { ServicesContainer } from "./ServicesContainer";
 import { FadeWrapper } from "../../FadeWrapper";
 
 import "./styles.css"
+import { ConnectService } from "../../../../services/connect-services/interfaces/connect-services";
 
-const SectionServices = () => {
+const SectionServices = ({ connectServices }: { connectServices: ConnectService[] }) => {
     return (
         <section id="servicios">
             <FadeWrapper>
@@ -18,11 +20,11 @@ const SectionServices = () => {
                         </p>
                     </WrapperContainer2>
 
-                    <ServicesContainer />
+                    <ServicesContainer connectServices={connectServices} />
                 </WrapperContainer2>
             </FadeWrapper>
         </section>
     )
 }
 
-export { SectionServices };
+export default SectionServices;

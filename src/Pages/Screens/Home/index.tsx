@@ -1,5 +1,4 @@
 import React from "react";
-import { SectionServices } from "../../components/ScreenHome/SectionServices";
 import { SectionContact } from "../../components/ScreenHome/SectionContact";
 
 import "./styles.css"
@@ -15,7 +14,7 @@ import { Footer } from "../../components/Footer";
 import { imageRecordService } from "../../../services/image-record/image-record.service";
 import { ImageRecordType } from "../../../services/image-record/enum/image-record.enum";
 import { ImageRecord } from "../../../services/image-record/interfaces/image-record";
-import { MdOutlineBlock, MdOutlineTravelExplore } from "react-icons/md";
+import { MdOutlineTravelExplore } from "react-icons/md";
 import { SectionImageRecord } from "../../components/ScreenHome/SectionImageRecord";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
@@ -27,6 +26,7 @@ import { Category } from "../../../services/categories/interface/categories.inte
 import { categoriesService } from "../../../services/categories/categories.service";
 import { connectServicesService } from "../../../services/connect-services/connect-services.service";
 import { ConnectService } from "../../../services/connect-services/interfaces/connect-services";
+import SectionServices from "../../components/ScreenHome/SectionServices";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
@@ -77,7 +77,7 @@ const Home = () => {
                 </StyledSection>
             </FadeWrapper>
 
-            <SectionServices />
+            <SectionServices connectServices={connectServices} />
 
             <SectionImageRecord
                 title="¡Te presentamos los Travel Weeks!"
