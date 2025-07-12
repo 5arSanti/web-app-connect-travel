@@ -1,7 +1,7 @@
-import mainLogo from "./main-logo.jpg"
-import mainHome from "./main-home.png"
+import mainLogo from "./main-logo.png"
+import mainHome from "./main-home.jpg"
 
-export { 
+export {
     mainLogo,
     mainHome
 }

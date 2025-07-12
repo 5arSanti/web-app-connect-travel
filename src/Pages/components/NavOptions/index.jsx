@@ -4,7 +4,7 @@ import { navigationItems } from "../../utils/navigationItems";
 import { FaUser } from "react-icons/fa";
 
 
-const NavOptions = ({ className = "nav-buttons animacion2 pl2" }) => {
+const NavOptions = ({ className = "nav-buttons animacion2 pl2", isAuthPage = false }) => {
 
     return (
         <div className="nav-buttons-container">
@@ -19,7 +19,7 @@ const NavOptions = ({ className = "nav-buttons animacion2 pl2" }) => {
                 </HashLink>
             ))}
 
-            <HashLink to={"/login"} className={`${className}`}>Iniciar Sesión <FaUser /></HashLink>
+            {!isAuthPage && <HashLink to={"/login"} className={`${className}`}>Iniciar Sesión <FaUser /></HashLink>}
         </div>
     )
 }

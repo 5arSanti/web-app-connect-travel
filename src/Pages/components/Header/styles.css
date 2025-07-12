@@ -9,11 +9,9 @@
     justify-content: space-between;
     align-items: center;
 
-    color: #FFFFFF;
-
     transition: all 0.75s ease;
 
-    background-color: var(--navbar-color);
+    background: radial-gradient(circle at left center, var(--lines-color) 18%, var(--white) 65%) !important;
 }
 
 .icon-responsive {
