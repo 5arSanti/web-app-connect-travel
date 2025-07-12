@@ -17,9 +17,10 @@ import { ConnectService } from "../../../../services/connect-services/interfaces
 
 interface SectionOpinionFormProps {
     connectServices: ConnectService[];
+    realoadClientOpinions: () => void;
 }
 
-const SectionOpinionForm = ({ connectServices }: SectionOpinionFormProps) => {
+const SectionOpinionForm = ({ connectServices, realoadClientOpinions }: SectionOpinionFormProps) => {
     const [loading, setLoading] = useState(false);
 
     const [values, setValues] = useState<ClientOpinionFormValues>({

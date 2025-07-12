@@ -27,6 +27,8 @@ import { categoriesService } from "../../../services/categories/categories.servi
 import { connectServicesService } from "../../../services/connect-services/connect-services.service";
 import { ConnectService } from "../../../services/connect-services/interfaces/connect-services";
 import SectionServices from "../../components/ScreenHome/SectionServices";
+import { clientOpinionService } from "../../../services/client-opinions/client-opinion.service";
+import { ClientOpinion } from "../../../services/client-opinions/interfaces/client-opinion.interface";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
@@ -34,33 +36,40 @@ const Home = () => {
     const [news, setNews] = React.useState<News[]>([]);
     const [categories, setCategories] = React.useState<Category[]>([]);
     const [connectServices, setConnectServices] = React.useState<ConnectService[]>([]);
+    const [clientOpinions, setClientOpinions] = React.useState<ClientOpinion[]>([]);
+
+    const fetchTravelWeeks = async () => {
+        const image_records = await imageRecordService.getActiveImageRecords();
+        setTravelWeeks(image_records.filter(item => item.image_type === ImageRecordType.TRAVEL_WEEK));
+        setBlocks(image_records.filter(item => item.image_type === ImageRecordType.BLOCK));
+    };
+
+    const fetchNews = async () => {
+        const news = await newsService.getNews();
+        setNews(news);
+    };
+
+    const fetchCategories = async () => {
+        const categories = await categoriesService.getCategories();
+        setCategories(categories);
+    };
+
+    const fetchConnectServices = async () => {
+        const connectServices = await connectServicesService.getConnectServices();
+        setConnectServices(connectServices);
+    };
+
+    const fetchClientOpinions = async () => {
+        const clientOpinions = await clientOpinionService.getClientOpinions();
+        setClientOpinions(clientOpinions);
+    };
 
     React.useEffect(() => {
-        const fetchTravelWeeks = async () => {
-            const image_records = await imageRecordService.getActiveImageRecords();
-            setTravelWeeks(image_records.filter(item => item.image_type === ImageRecordType.TRAVEL_WEEK));
-            setBlocks(image_records.filter(item => item.image_type === ImageRecordType.BLOCK));
-        };
-
-        const fetchNews = async () => {
-            const news = await newsService.getNews();
-            setNews(news);
-        };
-
-        const fetchCategories = async () => {
-            const categories = await categoriesService.getCategories();
-            setCategories(categories);
-        };
-
-        const fetchConnectServices = async () => {
-            const connectServices = await connectServicesService.getConnectServices();
-            setConnectServices(connectServices);
-        };
-
         fetchTravelWeeks();
         fetchNews();
         fetchCategories();
         fetchConnectServices();
+        fetchClientOpinions();
     }, []);
 
     return (
@@ -97,12 +106,11 @@ const Home = () => {
 
             <SectionAboutUs />
 
-
-            <SectionUsersOpinions />
+            <SectionUsersOpinions clientOpinions={clientOpinions} />
 
             <SectionContact />
 
-            <SectionOpinionForm connectServices={connectServices} />
+            <SectionOpinionForm connectServices={connectServices} realoadClientOpinions={fetchClientOpinions} />
 
             <SectionNews news={news} categories={categories} />
 

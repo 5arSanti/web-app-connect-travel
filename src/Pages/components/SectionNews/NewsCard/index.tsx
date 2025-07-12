@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment"
-import { Link } from "react-router-dom";
 
 import { SubTitle } from "../../SubTitle";
 import { SpanCard, TextCard } from "../../TextComponents";
@@ -14,14 +13,12 @@ import { Category } from "../../../../services/categories/interface/categories.i
 
 const NewsCard = ({ item, categories }: { item: News, categories: Category[] }) => {
     const category = categories.find(category => category.id === item.category_id)?.name;
+
     return (
         <WrapperContainer2 flexDirection="column" padding={"0 10px" as unknown as number}>
-            <Link
-                to={`/news/${item.id}`}
+            <div
                 style={{ width: "100%", height: "100%" }}
-                title={`Ir a ${item.title}`}
             >
-
                 <WrapperContainer1
                     gap={0}
                     padding={0 as unknown as string}
@@ -81,7 +78,7 @@ const NewsCard = ({ item, categories }: { item: News, categories: Category[] }) 
                         alt="alt-image"
                     />
                 </WrapperContainer1>
-            </Link>
+            </div>
         </WrapperContainer2>
     );
 }

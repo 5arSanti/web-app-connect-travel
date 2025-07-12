@@ -15,6 +15,7 @@ const SliderNews = ({ news, categories }: { news: News[], categories: Category[]
 		slidesToShow: 2,
 		slidesToScroll: 1,
 		autoplaySpeed: 6000,
+		autoplay: true,
 		dots: true,
 		arrows: true,
 		nextArrow: <NextArrowCard />,
