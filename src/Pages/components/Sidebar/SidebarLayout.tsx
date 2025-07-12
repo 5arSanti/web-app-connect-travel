@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { MainContent } from './MainContent';
-import { MenuItem } from '../../../interfaces/menu-items';
+import { MenuItem } from '../../../config/interfaces/menu-items';
 import { SidebarCard } from './SidebarCard';
 import { AppContext } from '../../../Context';
 
@@ -16,7 +16,7 @@ const SidebarLayout = ({ menuItems }: SidebarLayoutProps) => {
         <div style={{ display: 'flex', height: '100vh' }}>
             <SidebarCard collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} menuItems={menuItems} />
 
-            <MainContent collapsed={collapsed} setCollapsed={setCollapsed} title={selectedItem?.label}>
+            <MainContent collapsed={collapsed} setCollapsed={setCollapsed} title={selectedItem?.label} description={selectedItem?.description}>
                 {selectedItem?.children}
             </MainContent>
         </div>

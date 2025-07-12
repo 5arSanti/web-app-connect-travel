@@ -7,7 +7,7 @@ export const clientOpinionService = {
     async getClientOpinions(): Promise<ClientOpinion[]> {
         const { data, error } = await supabase.from(CLIENT_OPINIONS_TABLE)
             .select('*')
-            .eq('deleted_at', null)
+            .is('deleted_at', null)
             .order('created_at', { ascending: false });
 
         if (error) throw error;
@@ -34,11 +34,17 @@ export const clientOpinionService = {
     },
 
     async deleteClientOpinion(id: string): Promise<{ success: boolean, message: string }> {
+        if (!id) {
+            throw new Error('No se proporcionó un ID válido');
+        }
+
         const { error } = await supabase.from(CLIENT_OPINIONS_TABLE)
             .update({
-                deleted_at: new Date()
+                deleted_at: new Date().toISOString()
             })
-            .eq('id', id);
+            .eq('id', id)
+            .select()
+            .single();
 
         if (error) throw error;
 

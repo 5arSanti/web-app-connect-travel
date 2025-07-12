@@ -5,6 +5,7 @@ export interface ClientOpinion {
     message: string;
     client_email: string;
     created_at: Date;
+    deleted_at: Date | null;
 }
 
 export interface ClientOpinionFormValues {
