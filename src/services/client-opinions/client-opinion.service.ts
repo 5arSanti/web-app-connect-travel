@@ -5,7 +5,10 @@ import { ClientOpinion, ClientOpinionFormValues } from "./interfaces/client-opin
 
 export const clientOpinionService = {
     async getClientOpinions(): Promise<ClientOpinion[]> {
-        const { data, error } = await supabase.from(CLIENT_OPINIONS_TABLE).select('*');
+        const { data, error } = await supabase.from(CLIENT_OPINIONS_TABLE)
+            .select('*')
+            .eq('deleted_at', null)
+            .order('created_at', { ascending: false });
 
         if (error) throw error;
 
@@ -32,7 +35,9 @@ export const clientOpinionService = {
 
     async deleteClientOpinion(id: string): Promise<{ success: boolean, message: string }> {
         const { error } = await supabase.from(CLIENT_OPINIONS_TABLE)
-            .delete()
+            .update({
+                deleted_at: new Date()
+            })
             .eq('id', id);
 
         if (error) throw error;

@@ -7,6 +7,7 @@ export const connectServicesService = {
     async getConnectServices(): Promise<ConnectService[]> {
         const { data, error } = await supabase.from(CONNECT_SERVICES_TABLE)
             .select('*')
+            .order('created_at', { ascending: false });
 
         if (error) throw error;
 
