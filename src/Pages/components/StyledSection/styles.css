@@ -38,3 +38,9 @@
 
     z-index: 1;
 }
+
+@media (max-width: 480px) {
+    .styled-home-main-container img {
+        width: auto;
+    }
+}

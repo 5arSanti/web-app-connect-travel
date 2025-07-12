@@ -14,10 +14,9 @@ const SectionUsersOpinions = ({ clientOpinions }: { clientOpinions: ClientOpinio
         <section id="opiniones" className="opinions-section">
 
             <WrapperContainer2 flexDirection="column" gap={0} padding={0}>
-                {/* Mitad izquierda - Carrusel de opiniones */}
                 <div className="opinions-carousel-container">
                     <FadeWrapper>
-                        <WrapperContainer2 flexDirection="column" gap={30} padding={50}>
+                        <WrapperContainer2 flexDirection="column" gap={30} padding={50} className="opinions-carousel-content">
                             <WrapperContainer2 flexDirection="column" gap={5}>
                                 <TextCard fontSize={14} textAlign="center" className="opinions-subtitle">
                                     Testimonios

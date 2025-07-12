@@ -5,22 +5,22 @@ import { helpFeatures } from "../../utils/ContactInfo/help-features.utils";
 import "./styles.css";
 
 const ContactHelpSection = () => {
-    
+
     return (
         <div className="help-section">
-            <WrapperContainer2 flexDirection="column" padding={40} gap={40}>
+            <WrapperContainer2 flexDirection="column" padding={40} gap={40} className="help-section-container">
                 <div className="help-header">
                     <h2 className="help-title">¿Necesitas Ayuda?</h2>
                     <p className="help-subtitle">
-                        Nuestro equipo de expertos en viajes está aquí para hacer de tu experiencia 
+                        Nuestro equipo de expertos en viajes está aquí para hacer de tu experiencia
                         algo extraordinario. No dudes en contactarnos.
                     </p>
                 </div>
 
                 <div className="help-features">
                     {helpFeatures.map((feature, index) => (
-                        <div 
-                            key={index} 
+                        <div
+                            key={index}
                             className="help-feature-card"
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >

@@ -18,7 +18,7 @@ const SectionContact = () => {
             <WrapperContainer2 flexDirection="column" padding={0} gap={30}>
 
                 <FadeWrapper>
-                    <WrapperContainer2 flexDirection="column" gap={20}>
+                    <WrapperContainer2 flexDirection="column" gap={20} className="contact-title-container">
                         <SectionTitle title="CONTACTANOS" subTitle="ESTAMOS AQUÍ PARA AYUDARTE" />
                         <p className="contact-slogan">
                             ¿Listo para planificar tu próxima aventura? Nuestro equipo de expertos en viajes
@@ -35,26 +35,18 @@ const SectionContact = () => {
                             </div>
                         </FadeWrapper>
 
-                        {/* <FadeWrapper delay={200}>
-                            <div className="map-section">
-                                <div className="map-container">
-                                    <MapCard width="100%" height={500}/>
-                                </div>
-                                <div className="map-overlay">
-                                    <div className="location-info">
-                                        <h3>Oficina Principal</h3>
-                                        <p>Santa Rosa de Cabal, Risaralda</p>
-                                        <p>Colombia</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </FadeWrapper> */}
-
                     </GridContainer>
                 </div>
 
                 <FadeWrapper delay={600}>
-                    <div className="social-media-section">
+                    <WrapperContainer2
+                        flexDirection="column"
+                        gap={15}
+                        padding={20}
+                        className="social-media-section"
+                        alignItems="center"
+                        justifyContent="center"
+                    >
                         <h3 className="social-title">Síguenos en Redes Sociales</h3>
                         <p className="social-subtitle">Mantente conectado y descubre ofertas exclusivas</p>
 
@@ -74,7 +66,7 @@ const SectionContact = () => {
                                 </a>
                             ))}
                         </div>
-                    </div>
+                    </WrapperContainer2>
                 </FadeWrapper>
 
                 <FadeWrapper delay={800}>

@@ -247,9 +247,8 @@
         grid-template-rows: 1fr 1fr;
     }
 
-    .opinions-carousel-container,
-    .opinions-image-container {
-        height: 50vh;
+    .opinions-carousel-content {
+        padding: 0px !important;
     }
 
     .opinions-container {
@@ -286,6 +285,10 @@
 }
 
 @media (max-width: 480px) {
+    .image-overlay {
+        padding: 75px 20px !important;
+    }
+
     .opinions-header {
         margin-bottom: 20px;
     }
