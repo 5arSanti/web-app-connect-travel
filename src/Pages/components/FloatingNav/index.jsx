@@ -1,45 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
 
 import "./styles.css";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import { navigationItems } from "../../utils/navigationItems";
 
-const FloatingNav = () => {
+const FloatingNav = ({ isAuthPage = false }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.pageYOffset;
-            setIsVisible(scrollTop > 300);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const handleNavClick = () => {
         setIsOpen(false);
     };
 
-    if (!isVisible) return null;
-
     return (
         <div className={`floating-nav ${isOpen ? 'open' : ''}`}>
-            <button 
+            <button
                 className="floating-nav-toggle"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle navigation"
             >
                 {isOpen ? <MdClose /> : <MdMenu />}
             </button>
-            
             <div className="floating-nav-menu">
                 {navigationItems.map((item, index) => (
-                    <HashLink 
+                    <HashLink
                         key={index}
-                        to={item.to} 
+                        to={item.to}
                         className="floating-nav-item"
                         onClick={handleNavClick}
                         title={item.label}
@@ -48,6 +36,22 @@ const FloatingNav = () => {
                         <span className="floating-nav-label">{item.label}</span>
                     </HashLink>
                 ))}
+
+                {!isAuthPage && (
+                    <>
+                        <div className="floating-nav-separator"></div>
+
+                        <Link
+                            to="/login"
+                            className="floating-nav-item floating-nav-login"
+                            onClick={handleNavClick}
+                            title="Iniciar Sesión"
+                        >
+                            <FaUser />
+                            <span className="floating-nav-label">Iniciar Sesión</span>
+                        </Link>
+                    </>
+                )}
             </div>
         </div>
     );

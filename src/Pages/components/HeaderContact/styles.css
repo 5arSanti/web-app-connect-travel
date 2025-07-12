@@ -7,3 +7,9 @@
     height: 15px;
     fill: var(--white);
 }
+
+@media (max-width: 700px) {
+    .header-contact-container {
+        padding: 15px 30px !important;
+    }
+}

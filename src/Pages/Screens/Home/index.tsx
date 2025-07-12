@@ -7,7 +7,6 @@ import { SectionNews } from "../../components/SectionNews";
 import { SectionUsersOpinions } from "../../components/SectionUserOpinions";
 import { StyledSection } from "../../components/StyledSection";
 import { InitialSectioninfo } from "../../components/ScreenHome/InitialSectionInfo";
-import { Header } from "../../components/Header";
 import { HeaderContact } from "../../components/HeaderContact";
 import { FloatingNav } from "../../components/FloatingNav";
 import { Footer } from "../../components/Footer";
@@ -29,6 +28,7 @@ import { ConnectService } from "../../../services/connect-services/interfaces/co
 import SectionServices from "../../components/ScreenHome/SectionServices";
 import { clientOpinionService } from "../../../services/client-opinions/client-opinion.service";
 import { ClientOpinion } from "../../../services/client-opinions/interfaces/client-opinion.interface";
+import { Header } from "../../components/Header";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
@@ -77,7 +77,6 @@ const Home = () => {
             <Header />
             <HeaderContact />
 
-            <FloatingNav />
             <FloatingWhatsApp />
 
             <FadeWrapper>

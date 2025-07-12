@@ -13,8 +13,8 @@ import { ButtonCard } from "../../components/ButtonCard";
 import { InputCard } from "../../components/InputsCards";
 import { TextCard } from "../../components/TextComponents";
 import { FadeWrapper } from "../../components/FadeWrapper";
-import { Header } from "../../components/Header";
 import { HeaderContact } from "../../components/HeaderContact";
+import { Header } from "../../components/Header";
 
 const LoginScreen = () => {
     const { login } = useAuth();

@@ -11,7 +11,7 @@
 
     transition: all 0.75s ease;
 
-    background: radial-gradient(circle at left center, var(--lines-color) 18%, var(--white) 65%) !important;
+    background: radial-gradient(circle at left center, var(--lines-color) 18%, var(--white) 65%);
 }
 
 .icon-responsive {
@@ -40,9 +40,12 @@
     border-radius: 6px;
 }
 
+/* Responsive Design */
+@media (max-width: 1100px) {
+    .nav-container {
+        justify-content: flex-start;
+    }
 
-
-@media (max-width: 950px) {
     .navbar .navbar-right {
         display: none;
     }
@@ -50,5 +53,20 @@
     .icon-responsive {
         display: flex;
         align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        background: var(--lines-color) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 15px;
     }
 }

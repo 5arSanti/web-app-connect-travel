@@ -1,9 +1,9 @@
 .nav-buttons-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     padding: 0 40px;
     flex-wrap: wrap;
 }
@@ -48,7 +48,11 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    .nav-label {
+        display: none;
+    }
+
     .nav-buttons-container {
         gap: 10px;
         padding: 0 20px;
