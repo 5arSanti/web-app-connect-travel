@@ -93,7 +93,7 @@ const SectionImageRecord = ({ title, description, icon, layout, travelWeeks }: S
                             </Title>
                         </FadeWrapper>
                         <FadeWrapper delay={300}>
-                            <TextCard textAlign="center">¡Descubre las mejores semanas de viajes como lo hacen los mejores!</TextCard>
+                            <TextCard textAlign="center">{description}</TextCard>
                         </FadeWrapper>
 
                         <FadeWrapper delay={400}>
