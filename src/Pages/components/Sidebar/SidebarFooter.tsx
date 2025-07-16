@@ -4,6 +4,8 @@ import { ButtonCard } from '../ButtonCard';
 import { useAuth } from '../../../Context/AuthContext';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { Menu, MenuItem } from 'react-pro-sidebar';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 const SidebarFooterInfo = () => {
     const { logout, user } = useAuth();
@@ -31,23 +33,38 @@ const SidebarFooterInfo = () => {
     };
 
     return (
-        <WrapperContainer2
-            justifyContent='center'
-            alignItems='center'
-            padding={16}
-        >
+        <Menu>
+            {user && (
+                <MenuItem style={{
+                    padding: '0px 15px',
+                    margin: '5px 0px',
+                    borderRadius: '5px',
+                    color: 'var(--pallete-2)',
+                    fontSize: '10px',
+                    height: 'auto',
+                }}>
+                    <div style={{ fontWeight: 'bold' }}>{user?.user_metadata?.name}</div>
+                    <div style={{ fontWeight: 'bold' }}>{user?.user_metadata?.email}</div>
+                </MenuItem>
+            )}
 
-            <div style={{ fontWeight: 'bold' }}>{user?.user_metadata?.name}</div>
-            <div style={{ fontWeight: 'bold' }}>{user?.user_metadata?.email}</div>
-
-            <ButtonCard
+            <MenuItem
+                icon={<FaSignOutAlt />}
+                style={{
+                    padding: '0px 15px',
+                    margin: '5px 0px',
+                    borderRadius: '5px',
+                    color: 'var(--pallete-2)',
+                    fontSize: '10px',
+                    height: 'auto',
+                }}
                 className='menu-item'
                 onClick={handleSubmit}
                 disabled={loading}
             >
                 {loading ? 'Cerrando sesión...' : 'Cerrar sesión'}
-            </ButtonCard>
-        </WrapperContainer2>
+            </MenuItem>
+        </Menu>
     );
 };
 

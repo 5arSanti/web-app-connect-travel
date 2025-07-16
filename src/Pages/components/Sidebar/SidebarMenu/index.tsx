@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Menu, MenuItem } from 'react-pro-sidebar';
-import { MenuItem as MenuItemType } from '../../../../interfaces/menu-items';
+import { MenuItem as MenuItemType } from '../../../../config/interfaces/menu-items';
 import { AppContext } from '../../../../Context';
 import './styles.css';
 

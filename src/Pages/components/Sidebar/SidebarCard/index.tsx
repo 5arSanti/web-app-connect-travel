@@ -4,7 +4,7 @@ import { LogoCard } from '../../LogoCard';
 import SidebarFooterInfo from '../SidebarFooter';
 import SidebarMenu from '../SidebarMenu';
 import './styles.css';
-import { MenuItem as MenuItemType } from '../../../../interfaces/menu-items';
+import { MenuItem as MenuItemType } from '../../../../config/interfaces/menu-items';
 
 interface SidebarCardProps {
     collapsed: boolean;
@@ -28,10 +28,7 @@ const SidebarCard = ({ collapsed, onToggle, menuItems }: SidebarCardProps) => {
                 <SidebarMenu menuItems={menuItems} />
             </Menu>
             <Menu>
-                <MenuItem>
-
-                    <SidebarFooterInfo />
-                </MenuItem>
+                <SidebarFooterInfo />
             </Menu>
         </Sidebar>
     );
