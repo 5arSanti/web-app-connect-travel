@@ -15,8 +15,7 @@ const SectionServices = ({ connectServices }: { connectServices: ConnectService[
                     <WrapperContainer2 flexDirection="column" gap={20}>
                         <SectionTitle title="NUESTROS SERVICIOS" subTitle="CONNECT TRAVEL'S" />
                         <p className="services-slogan">
-                            Descubre una amplia gama de servicios turísticos diseñados para hacer de tu viaje
-                            una experiencia inolvidable. Desde destinos nacionales hasta aventuras internacionales.
+                            Descubre la amplia gama de servicios y destinos turísticos que tenemos preparados para ti, creando una experiencia única e inolvidable en tus viajes.
                         </p>
                     </WrapperContainer2>
 

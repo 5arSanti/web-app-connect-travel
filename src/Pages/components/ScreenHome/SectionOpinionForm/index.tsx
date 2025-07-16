@@ -105,7 +105,7 @@ const SectionOpinionForm = ({ connectServices, realoadClientOpinions }: SectionO
                                     Comparte tu Experiencia
                                 </TextCard>
                                 <TextCard textAlign="center" fontSize={14} className="opinion-subtitle">
-                                    Cuéntanos sobre tu viaje y ayúdanos a mejorar
+                                    La confianza de cada viajero hace parte del corazón de nuestra agencia, cuéntanos ¿cómo fue tu experiencia con nosotros?
                                 </TextCard>
                             </WrapperContainer2>
 

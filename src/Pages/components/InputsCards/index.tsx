@@ -51,7 +51,7 @@ const OptionInputCard = ({
 
     return (
         <div className="input-container">
-            <label htmlFor={id}>{label} </label>
+            <label htmlFor={id}>{label} {required && "*"}</label>
             <select
                 name={id}
                 id={id}

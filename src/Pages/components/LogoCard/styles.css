@@ -10,6 +10,12 @@
 .main-logo-card img {
     height: 100%;
     object-fit: contain;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.main-logo-card:hover img {
+    transform: scale(1.05);
 }
 
 @media (max-width: 700px) {

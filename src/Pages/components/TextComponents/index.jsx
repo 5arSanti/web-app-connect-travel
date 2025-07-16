@@ -13,11 +13,11 @@ const TextCard = ({ children, textAlign = "start", width = "100%", className = "
     );
 }
 
-const SpanCard = ({ children, className = "", fontSize = 16 }) => {
+const SpanCard = ({ children, className = "", fontSize = 16, white = false }) => {
     return (
         <span className={`span-card ${className}`} style={{
             fontSize: fontSize,
-
+            color: white ? "white" : "",
         }}>{children}</span>
     );
 }

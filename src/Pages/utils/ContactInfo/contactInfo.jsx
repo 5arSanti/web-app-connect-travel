@@ -5,7 +5,7 @@ import { FaSquarePhone, FaEnvelope } from "react-icons/fa6";
 const contactInfo = {
     phone: {
         name: "Numero de celular",
-        info: "(+57) 000 000 0000",
+        info: "000 000 0000",
         icon: <FaSquarePhone />
     },
     email: {
@@ -24,12 +24,12 @@ const getSocialMediaInfo = (white = false) => {
     const socialMediaInfo = [
         {
             name: "Facebook",
-            link: "",
+            link: "https://www.facebook.com/profile.php?id=61577192944323",
             icon: <FaFacebookF className={white ? "white-color" : "lines-color"} />,
         },
         {
             name: "Instagram",
-            link: "",
+            link: "https://www.instagram.com/connecttravels_/",
             icon: <FaInstagram className={white ? "white-color" : "lines-color"} />,
         },
         {

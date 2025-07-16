@@ -37,8 +37,7 @@ const SectionAboutUs = () => {
                         <TextCard fontSize={14} textAlign="center" className="about-subtitle">Descubre</TextCard>
                         <Title fontSize={60}>CONNECT TRAVEL'S</Title>
                         <TextCard textAlign="center" fontSize={18} className="about-main-description">
-                            Somos una empresa líder en turismo nacional e internacional con más de 15 años de experiencia
-                            conectando viajeros con los destinos más increíbles del mundo.
+                            Somos una agencia especializada en turismo nacional e internacional con más de 15 años de trayectoria en el mercado, creando momentos inolvidables para cada viajero.
                         </TextCard>
                     </WrapperContainer2>
                 </FadeWrapper>

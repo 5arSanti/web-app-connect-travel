@@ -15,6 +15,8 @@ import { TextCard } from "../../components/TextComponents";
 import { FadeWrapper } from "../../components/FadeWrapper";
 import { HeaderContact } from "../../components/HeaderContact";
 import { Header } from "../../components/Header";
+import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
+import { Footer } from "../../components/Footer";
 
 const LoginScreen = () => {
     const { login } = useAuth();
@@ -142,6 +144,9 @@ const LoginScreen = () => {
                     </WrapperContainer2>
                 </FadeWrapper>
             </StyledSection>
+
+            <FloatingWhatsApp />
+            <Footer />
         </>
     );
 };

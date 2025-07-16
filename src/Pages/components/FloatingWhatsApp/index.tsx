@@ -8,8 +8,8 @@ const FloatingWhatsApp = () => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const handleWhatsAppClick = () => {
-        const phoneNumber = contactInfo.phone.info.replace(/\s/g, '').slice(5);
-        const message = "Hola! Me interesa conocer más sobre los servicios de Connect Travel. ¿Podrían ayudarme?";
+        const phoneNumber = contactInfo.phone.info.replace(/\s/g, '');
+        const message = "Hola! Me interesa conocer más sobre los servicios de Connect Travel's. ¿Podrían ayudarme?";
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };

@@ -22,7 +22,7 @@ const SectionUsersOpinions = ({ clientOpinions }: { clientOpinions: ClientOpinio
                                     Testimonios
                                 </TextCard>
                                 <TextCard fontSize={32} textAlign="center" className="opinions-title">
-                                    LO QUE DICEN NUESTROS CLIENTES
+                                    Las experiencias de nuestros viajeros 💙
                                 </TextCard>
                                 <TextCard fontSize={16} textAlign="center" className="opinions-description">
                                     Descubre las experiencias de quienes han confiado en nosotros para sus viajes
