@@ -60,7 +60,7 @@ const LoginScreen = () => {
             >
 
                 <FadeWrapper>
-                    <WrapperContainer2 className="login-main-container" padding={0} justifyContent="center" alignItems="center">
+                    <WrapperContainer2 className="login-main-container" padding={"0px 10px" as unknown as number} justifyContent="center" alignItems="center">
                         <div className="login-content">
                             <div className="login-image-section">
                                 <div className="login-image-overlay">

@@ -184,6 +184,10 @@
 }
 
 @media (max-width: 768px) {
+    .login-form {
+        padding: 0px;
+    }
+
     .login-main-container {
         padding: 20px;
     }
