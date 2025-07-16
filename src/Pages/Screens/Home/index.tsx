@@ -89,7 +89,7 @@ const Home = () => {
 
             <SectionImageRecord
                 title="¡Te presentamos los Travel Weeks!"
-                description="Encuentra aquí las mejores ofertas de la semana para iniciar tu aventura!"
+                description="¡La oportunidad perfecta para vacacionar con un precio exclusivo!"
                 icon={<GiCommercialAirplane />}
                 layout="text-left"
                 travelWeeks={travelWeeks}
