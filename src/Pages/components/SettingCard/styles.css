@@ -1,0 +1,63 @@
+.setting-card {
+    position: fixed;
+    bottom: 40px;
+    left: 50px;
+
+    z-index: 2;
+    padding: 10px 25px;
+    border-radius: 20px;
+
+    background-color: var(--pallete-2);
+    transition: background-color 0.3s, color 0.3s, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), width 0.5s cubic-bezier(0.22, 1, 0.36, 1), min-width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    width: fit-content;
+    min-width: 180px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.setting-card-hover {
+    background-color: var(--pallete-4);
+    color: var(--pallete-1);
+    transform: scale(1.08);
+}
+
+.setting-card-short,
+.setting-card-detail {
+    display: block;
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    white-space: pre-line;
+}
+
+.setting-card-short {
+    opacity: 1;
+    position: absolute;
+}
+
+.setting-card-short.hide {
+    opacity: 0;
+}
+
+.setting-card-detail {
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.setting-card-detail.show {
+    opacity: 1;
+}
+
+.setting-card .italic {
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .setting-card {
+        left: 10px;
+        right: 10px;
+        min-width: unset;
+        width: 95vw;
+        max-width: 98vw;
+        padding: 10px 10px;
+    }
+}

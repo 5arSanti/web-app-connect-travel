@@ -29,6 +29,9 @@ import SectionServices from "../../components/ScreenHome/SectionServices";
 import { clientOpinionService } from "../../../services/client-opinions/client-opinion.service";
 import { ClientOpinion } from "../../../services/client-opinions/interfaces/client-opinion.interface";
 import { Header } from "../../components/Header";
+import { AppSettings } from "../../../services/app-settings/interfaces/app-settings";
+import { appSettingsService } from "../../../services/app-settings/app-settings.service";
+import SettingCard from "../../components/SettingCard";
 
 const Home = () => {
     const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
@@ -37,6 +40,7 @@ const Home = () => {
     const [categories, setCategories] = React.useState<Category[]>([]);
     const [connectServices, setConnectServices] = React.useState<ConnectService[]>([]);
     const [clientOpinions, setClientOpinions] = React.useState<ClientOpinion[]>([]);
+    const [setting, setSetting] = React.useState<AppSettings>();
 
     const fetchTravelWeeks = async () => {
         const image_records = await imageRecordService.getActiveImageRecords();
@@ -64,12 +68,18 @@ const Home = () => {
         setClientOpinions(clientOpinions);
     };
 
+    const fetchAppSettings = async () => {
+        const appSettings = await appSettingsService.findOne("5dd8a8fd-83a1-4e53-beb7-32bd83eb64bc");
+        setSetting(appSettings);
+    };
+
     React.useEffect(() => {
         fetchTravelWeeks();
         fetchNews();
         fetchCategories();
         fetchConnectServices();
         fetchClientOpinions();
+        fetchAppSettings();
     }, []);
 
     return (
@@ -78,6 +88,8 @@ const Home = () => {
             <HeaderContact />
 
             <FloatingWhatsApp />
+
+            {setting && <SettingCard setting={setting} />}
 
             <FadeWrapper>
                 <StyledSection id="home">
