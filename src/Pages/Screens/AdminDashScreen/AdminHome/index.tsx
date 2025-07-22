@@ -6,15 +6,20 @@ import { getMenuItems } from '../../../utils/menu-item.utils';
 import { ButtonCard } from '../../../components/ButtonCard';
 import { MenuItem } from '../../../../config/interfaces/menu-items';
 import { useNavigate } from 'react-router-dom';
-import './styles.css';
 import { AppContext } from '../../../../Context';
 import { FadeWrapper } from '../../../components/FadeWrapper';
+
+import './styles.css';
 
 const AdminHome = () => {
     const navigate = useNavigate();
     const { setSelectedItem }: { setSelectedItem: (item: MenuItem) => void } = useContext(AppContext);
 
     const menuItems = getMenuItems();
+
+    React.useEffect(() => {
+        setSelectedItem(menuItems[0]);
+    }, []);
 
     return (
         <WrapperContainer2

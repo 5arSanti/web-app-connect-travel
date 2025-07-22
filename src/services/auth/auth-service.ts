@@ -1,6 +1,6 @@
 import { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
-import { supabase } from './supabase';
-import { AuthLoginResponse, AuthStateResponse } from '../interfaces/auth';
+import { supabase } from '../supabase';
+import { AuthLoginResponse, AuthStateResponse } from '../../config/interfaces/auth';
 
 export const authService = {
     async login(email: string, password: string): Promise<AuthLoginResponse> {

@@ -14,12 +14,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 // Components
 import { ToastContainer } from "react-toastify";
-import { AppRoutes } from "../Routes";
 
 // Utils
 import { scrollToValue } from "../utils/scrollToValue";
 
 import { AppProvider } from "../../Context";
+import { AppRoutes } from "../Routes";
 
 const Wrapper = ({ children }) => {
     const location = useLocation();

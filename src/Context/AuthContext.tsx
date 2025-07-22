@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
-import { AuthLoginResponse } from '../interfaces/auth';
-import { authService } from '../services/authService';
+import { authService } from '../services/auth/auth-service';
+import { AuthLoginResponse } from '../config/interfaces/auth';
 
 interface AuthContextType {
     user: User | null;

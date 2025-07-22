@@ -10,8 +10,8 @@
     }
 
     .nav-buttons-admin-home {
-        display: block;
-        text-align: start;
+        display: inline-block !important;
+        text-align: start !important;
         width: 100% !important;
     }
 

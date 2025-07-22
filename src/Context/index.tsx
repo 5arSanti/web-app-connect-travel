@@ -39,11 +39,6 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
 
     React.useEffect(() => {
-        const menuItems = getMenuItems();
-        setSelectedItem(menuItems[0]);
-    }, []);
-
-    React.useEffect(() => {
         function handleResize() {
             setWindowWidth(window.innerWidth)
         }
