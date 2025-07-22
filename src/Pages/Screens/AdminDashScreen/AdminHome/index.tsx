@@ -4,7 +4,7 @@ import { TextCard } from '../../../components/TextComponents';
 import { SubTitle } from '../../../components/SubTitle';
 import { getMenuItems } from '../../../utils/menu-item.utils';
 import { ButtonCard } from '../../../components/ButtonCard';
-import { MenuItem } from '../../../../interfaces/menu-items';
+import { MenuItem } from '../../../../config/interfaces/menu-items';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import { AppContext } from '../../../../Context';
@@ -23,6 +23,7 @@ const AdminHome = () => {
             alignItems="start"
             gap={24}
             width="100%"
+            className="admin-container"
         >
             <FadeWrapper
                 width="100%"
@@ -46,7 +47,7 @@ const AdminHome = () => {
                 >
                     {menuItems.map((item: MenuItem, index: number) => (
                         <ButtonCard
-                            className='nav-buttons'
+                            className='nav-buttons-admin-home'
                             borderWidth={0}
                             key={index}
                             padding={5}

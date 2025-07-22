@@ -26,7 +26,7 @@ const ContentCollapseBar = ({ collapsed, setCollapsed, title, description }) => 
                     title={collapsed ? "Expandir" : "Colapsar"}
                 >
                     {collapsed ? <TbLayoutSidebarRightCollapse /> : <TbLayoutSidebarLeftCollapse />} {title}
-                    <FaArrowRight className="arrow-icon" /> <SpanCard fontSize={10} color="var(--pallete-2)">{description}</SpanCard>
+                    <FaArrowRight className="arrow-icon" /> <SpanCard className="collapse-bar-description" fontSize={10} color="var(--pallete-2)">{description}</SpanCard>
                 </ButtonCard>
 
             </WrapperContainer2>

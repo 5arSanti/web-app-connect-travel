@@ -9,8 +9,9 @@ import { ImageCard } from "../ImageCard";
 import { FormStatus } from "../../../config/enum/form-status.enum";
 import { ConnectService, ConnectServiceFormValues } from "../../../services/connect-services/interfaces/connect-services";
 import { EditServiceForm } from "../../Screens/AdminDashScreen/ConnectServicesScreen/EditServiceForm";
-import { FadeWrapper } from "../FadeWrapper";
 import { icons } from "../../utils/Icons";
+
+import "./styles.css";
 
 interface ConnectServiceCardProps {
     connectService: ConnectService;
@@ -53,6 +54,7 @@ const ConnectServiceCard = ({ connectService, handleUpdate, handleDelete, loadin
                 gap={30}
                 width="100%"
                 padding={"20px 35px"}
+                className="connect-service-card-container"
             >
                 <WrapperContainer2
                     padding={0}
@@ -61,6 +63,7 @@ const ConnectServiceCard = ({ connectService, handleUpdate, handleDelete, loadin
                     justifyContent="start"
                     alignItems="center"
                     gap={20}
+                    className="connect-service-card-image-container"
                 >
                     {image_url && <ImageCard imageUrl={connectService.image_url} alt={connectService.name} />}
                     <WrapperContainer2
@@ -88,6 +91,7 @@ const ConnectServiceCard = ({ connectService, handleUpdate, handleDelete, loadin
                             gap={50}
                             padding={0}
                             height="auto"
+                            className="connect-service-card-text-container"
                         >
 
                             <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Nombre:</SpanCard> {name}</TextCard>
@@ -107,6 +111,7 @@ const ConnectServiceCard = ({ connectService, handleUpdate, handleDelete, loadin
                     width="auto"
                     gap={20}
                     padding={0}
+                    className="connect-service-card-buttons-container"
                 >
                     <ButtonCard
                         title="Editar"

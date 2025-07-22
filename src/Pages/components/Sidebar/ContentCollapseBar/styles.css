@@ -5,3 +5,10 @@
     width: 15px !important;
     height: 15px !important;
 }
+
+@media (max-width: 768px) {
+    .collapse-bar-description {
+        white-space: pre-line;
+        text-align: start;
+    }
+}

@@ -10,6 +10,8 @@ import { ExpandableCard } from "../ExpandableCard";
 import { AppSettingForm } from "./AppSettingForm";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
+import "./styles.css";
+
 interface AppSettingCardProps {
     appSetting: AppSettings;
     handleSubmit: (e: React.FormEvent<HTMLFormElement>, formData: AppSettingFormValues) => void;
@@ -36,6 +38,7 @@ const AppSettingCard = ({ appSetting, handleSubmit }: AppSettingCardProps) => {
                 gap={30}
                 width="100%"
                 padding={"20px 35px"}
+                className="app-setting-card-container"
             >
                 <WrapperContainer2
                     padding={0}
@@ -61,6 +64,7 @@ const AppSettingCard = ({ appSetting, handleSubmit }: AppSettingCardProps) => {
                             alignItems="start"
                             gap={50}
                             padding={0}
+                            className="app-setting-card-text-container"
                         >
                             <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Nombre:</SpanCard> {appSetting.key}</TextCard>
                             <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Valor actual:</SpanCard> {appSetting.value}</TextCard>
@@ -76,7 +80,7 @@ const AppSettingCard = ({ appSetting, handleSubmit }: AppSettingCardProps) => {
                     padding={10}
                     borderWidth={0}
                     borderRadius={10}
-                    className="shadow-style"
+                    className="shadow-style app-setting-card-button"
                     disabled={isLoading}
                 >
                     {isEditing ? <IoCloseCircleOutline /> : <FaEdit />}

@@ -101,6 +101,7 @@ const ConnectServicesScreen = () => {
             alignItems="start"
             gap={24}
             width="100%"
+            className="admin-container"
         >
             <SubTitle>
                 Gestión de Servicios

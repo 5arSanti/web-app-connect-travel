@@ -4,6 +4,8 @@ import { ServiceForm } from "../ServiceForm";
 import { FormStatus } from "../../../../../config/enum/form-status.enum";
 import { ConnectService, ConnectServiceFormValues } from "../../../../../services/connect-services/interfaces/connect-services";
 
+import "./styles.css";
+
 interface EditNewFormProps {
     connectService: ConnectService;
     handleSubmit: (e: React.FormEvent<HTMLFormElement>, values: Partial<ConnectServiceFormValues>) => void;
@@ -27,6 +29,7 @@ const EditServiceForm = ({ connectService, handleSubmit, setIsEditing, loading, 
             alignItems="start"
             gap={24}
             width="100%"
+            className="edit-service-form-container"
         >
             <form onSubmit={(e) => handleSubmit(e, values)} className="form-style">
                 <ServiceForm

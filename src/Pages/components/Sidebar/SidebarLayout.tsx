@@ -9,8 +9,17 @@ interface SidebarLayoutProps {
 }
 
 const SidebarLayout = ({ menuItems }: SidebarLayoutProps) => {
+
+    const { windowWidth } = useContext(AppContext);
+
     const { selectedItem }: { selectedItem: MenuItem | null } = useContext(AppContext);
     const [collapsed, setCollapsed] = useState<boolean>(false);
+
+    React.useEffect(() => {
+        if (windowWidth < 768) {
+            setCollapsed(true);
+        }
+    }, [windowWidth]);
 
     return (
         <div style={{ display: 'flex', height: '100vh' }}>

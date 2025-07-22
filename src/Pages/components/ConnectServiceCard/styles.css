@@ -1,0 +1,25 @@
+@media (max-width: 768px) {
+    .connect-service-card-container {
+        padding: 20px !important;
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .connect-service-card-image-container {
+        flex-direction: column !important;
+    }
+
+    .connect-service-card-text-container {
+        flex-direction: column !important;
+        gap: 20px !important;
+
+    }
+
+    .connect-service-card-buttons-container {
+        width: 100% !important;
+    }
+
+    .connect-service-card-buttons-container button {
+        width: 100% !important;
+    }
+}

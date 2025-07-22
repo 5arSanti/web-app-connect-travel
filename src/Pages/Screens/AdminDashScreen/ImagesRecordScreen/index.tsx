@@ -106,6 +106,7 @@ const ImagesRecordScreen = () => {
             alignItems="start"
             gap={15}
             width="100%"
+            className="admin-container"
         >
             <SubTitle>
                 Carga de imagenes

@@ -1,5 +1,5 @@
 import React from "react";
-import { MenuItem } from "../interfaces/menu-items";
+import { MenuItem } from "../config/interfaces/menu-items";
 import { User } from "@supabase/supabase-js";
 import { getMenuItems } from "../Pages/utils/menu-item.utils";
 
@@ -10,6 +10,8 @@ interface AppContextType {
     setUser: React.Dispatch<React.SetStateAction<User | null>>;
     selectedItem: MenuItem | null;
     setSelectedItem: React.Dispatch<React.SetStateAction<MenuItem | null>>;
+    windowWidth: number;
+    setWindowWidth: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const AppContext = React.createContext<AppContextType>({
@@ -19,6 +21,8 @@ export const AppContext = React.createContext<AppContextType>({
     setUser: () => { },
     selectedItem: null,
     setSelectedItem: () => { },
+    windowWidth: 0,
+    setWindowWidth: () => { },
 });
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
@@ -29,6 +33,8 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     //Login Auth
     const [user, setUser] = React.useState<User | null>(null);
 
+    const [windowWidth, setWindowWidth] = React.useState<number>(0);
+
 
     const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
 
@@ -36,6 +42,20 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
         const menuItems = getMenuItems();
         setSelectedItem(menuItems[0]);
     }, []);
+
+    React.useEffect(() => {
+        function handleResize() {
+            setWindowWidth(window.innerWidth)
+        }
+
+        window.addEventListener("resize", handleResize)
+
+        handleResize()
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [setWindowWidth])
 
     return (
         <AppContext.Provider
@@ -47,7 +67,10 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
                 setUser,
 
                 selectedItem,
-                setSelectedItem
+                setSelectedItem,
+
+                windowWidth,
+                setWindowWidth
             }}
         >
             {children}

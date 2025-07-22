@@ -31,3 +31,13 @@
         transform: translateY(0);
     }
 }
+
+@media (max-width: 768px) {
+    .expandable-content {
+        max-height: 100% !important;
+    }
+
+    .expandable-inner-content {
+        padding: 5px !important;
+    }
+}

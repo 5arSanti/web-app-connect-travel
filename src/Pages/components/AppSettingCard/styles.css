@@ -1,0 +1,25 @@
+@media (max-width: 768px) {
+    .app-setting-card-container {
+        padding: 20px !important;
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .app-setting-card-container svg {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .app-setting-card-button {
+        width: 100% !important;
+    }
+
+    .app-setting-card-text-container {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .app-setting-card-text-container p {
+        font-size: 12px !important;
+    }
+}
