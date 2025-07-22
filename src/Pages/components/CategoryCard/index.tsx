@@ -34,6 +34,7 @@ const CategoryCard = ({ category, handleDelete }: CategoryCardProps) => {
                 gap={30}
                 width="100%"
                 padding={"20px 35px"}
+                className="mobile-flex-column buttons-100"
             >
                 <WrapperContainer2
                     padding={0}

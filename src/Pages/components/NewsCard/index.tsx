@@ -12,6 +12,8 @@ import { EditNewForm } from "../../Screens/AdminDashScreen/NewsScreen/EditNewFor
 import { Category } from "../../../services/categories/interface/categories.interface";
 import { FormStatus } from "../../../config/enum/form-status.enum";
 
+import "./styles.css";
+
 interface NewsCardProps {
     news: News;
     categories: Category[];
@@ -56,6 +58,7 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
                 gap={30}
                 width="100%"
                 padding={"20px 35px"}
+                className="news-card-container"
             >
                 <WrapperContainer2
                     padding={0}
@@ -64,6 +67,7 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
                     justifyContent="start"
                     alignItems="center"
                     gap={20}
+                    className="news-card-image-container"
                 >
                     <ImageCard imageUrl={news.image_url} alt={news.title} />
                     <WrapperContainer2
@@ -81,6 +85,7 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
                             gap={50}
                             padding={0}
                             height="auto"
+                            className="news-card-text-container"
                         >
 
                             <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Título:</SpanCard> {news.title}</TextCard>
@@ -102,6 +107,7 @@ const NewsCard = ({ news, categories, handleUpdate, handleDelete, loading }: New
                     width="auto"
                     gap={20}
                     padding={0}
+                    className="news-card-buttons-container"
                 >
                     <ButtonCard
                         title="Editar"

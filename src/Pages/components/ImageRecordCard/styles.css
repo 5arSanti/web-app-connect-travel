@@ -11,3 +11,23 @@
     width: 20px;
     height: 20px;
 }
+
+@media (max-width: 768px) {
+    .image-record-card-container {
+        padding: 15px !important;
+        flex-direction: column !important;
+    }
+
+    .image-record-card-text-container {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .image-record-card-buttons-container {
+        width: 100% !important;
+    }
+
+    .image-record-card-buttons-container button {
+        width: 100% !important;
+    }
+}

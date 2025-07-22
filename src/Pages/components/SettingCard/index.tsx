@@ -3,13 +3,14 @@ import { AppSettings } from "../../../services/app-settings/interfaces/app-setti
 import { TextCard } from "../TextComponents";
 
 import "./styles.css";
+import { formatDate } from "../../utils/format-date.utils";
 
 interface SettingCardProps {
     setting: AppSettings;
 }
 
 const SettingCard = ({ setting }: SettingCardProps) => {
-    const { key, value } = setting;
+    const { key, value, updated_at } = setting;
     const [hovered, setHovered] = useState(false);
 
     return (
@@ -19,8 +20,16 @@ const SettingCard = ({ setting }: SettingCardProps) => {
             onMouseLeave={() => setHovered(false)}
         >
             <TextCard textAlign="center" fontSize={12} white={hovered ? false : true} className="italic">
-                {hovered ? `El valor diario del ${key} es de ${value}` : `${key} ${value}`}
+                {hovered
+                    ? `El valor diario del ${key} es de ${value}.`
+                    : `${key} ${value}`
+                }
             </TextCard>
+            {hovered &&
+                <TextCard textAlign="center" fontSize={12} white={hovered ? false : true} className="italic">
+                    Ultima actualización: {formatDate(updated_at || "")}
+                </TextCard>
+            }
         </div>
     );
 };

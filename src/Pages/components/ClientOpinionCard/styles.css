@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+    .client-opinion-card-container {
+        padding: 15px !important;
+        flex-direction: column !important;
+    }
+
+    .buttons-100 {
+        width: 100% !important;
+    }
+
+    .buttons-100 button {
+        width: 100% !important;
+    }
+
+    .mobile-flex-column {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+}

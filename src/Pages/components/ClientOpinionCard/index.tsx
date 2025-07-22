@@ -11,6 +11,9 @@ import { FormStatus } from "../../../config/enum/form-status.enum";
 import { ClientOpinion } from "../../../services/client-opinions/interfaces/client-opinion.interface";
 import { ConnectService } from "../../../services/connect-services/interfaces/connect-services";
 
+import "./styles.css";
+import { formatDate } from "../../utils/format-date.utils";
+
 interface ClientOpinionCardProps {
     clientOpinion: ClientOpinion;
     connectServices: ConnectService[];
@@ -21,16 +24,7 @@ interface ClientOpinionCardProps {
 const ClientOpinionCard = ({ clientOpinion, connectServices, handleDelete, loading }: ClientOpinionCardProps) => {
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
-    const formatDate = (dateString: string | Date) => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('es-ES', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-    };
+
 
     const getConnectServiceName = (connectServiceId: string) => {
         const connectService = connectServices.find(service => service.id === connectServiceId);
@@ -54,6 +48,7 @@ const ClientOpinionCard = ({ clientOpinion, connectServices, handleDelete, loadi
                 gap={30}
                 width="100%"
                 padding={"20px 35px"}
+                className="client-opinion-card-container"
             >
                 <WrapperContainer2
                     padding={0}
@@ -78,6 +73,7 @@ const ClientOpinionCard = ({ clientOpinion, connectServices, handleDelete, loadi
                             gap={50}
                             padding={0}
                             height="auto"
+                            className="mobile-flex-column"
                         >
 
                             <TextCard width="auto" fontSize={14}><SpanCard fontSize={14}>Nombre del cliente:</SpanCard> {clientOpinion.client_name}</TextCard>
@@ -99,6 +95,7 @@ const ClientOpinionCard = ({ clientOpinion, connectServices, handleDelete, loadi
                     width="auto"
                     gap={20}
                     padding={0}
+                    className="buttons-100"
                 >
                     <ButtonCard
                         title="Eliminar"

@@ -13,6 +13,8 @@ import { ScrollableWrapper } from "../../../components/ScrollableWrapper";
 import { ButtonCard } from "../../../components/ButtonCard";
 import { IMAGE_RECORD_TYPES } from "../../../../services/image-record/constant/image-record.constant";
 
+import "./styles.css";
+
 const ImagesRecordScreen = () => {
 
     const [imageRecords, setImageRecords] = useState<ImageRecord[]>([]);
@@ -129,6 +131,7 @@ const ImagesRecordScreen = () => {
                         width="100%"
                         justifyContent="start"
                         alignItems="start"
+                        className="image-record-card-filter-container"
                     >
                         <ButtonCard
                             padding={"5px 20px" as unknown as number}

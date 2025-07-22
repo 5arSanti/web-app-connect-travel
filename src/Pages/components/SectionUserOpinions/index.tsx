@@ -63,7 +63,7 @@ const SectionUsersOpinions = ({ clientOpinions }: { clientOpinions: ClientOpinio
 
                 <div className="opinions-image-container">
                     <WrapperContainer2 className="image-overlay" flexDirection="column" justifyContent="center" alignItems="center" padding={50} gap={30}>
-                        <FadeWrapper delay={300}>
+                        <FadeWrapper delay={300} className="z-2">
                             <WrapperContainer2 flexDirection="column" justifyContent="center" alignItems="center" padding={50} gap={30}>
                                 <div className="satisfaction-icon">
                                     <span className="satisfaction-emoji">😊</span>

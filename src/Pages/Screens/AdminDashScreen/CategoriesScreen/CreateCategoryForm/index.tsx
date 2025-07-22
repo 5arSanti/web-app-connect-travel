@@ -26,7 +26,7 @@ const CreateCategoryForm = ({ handleSubmit, setOpen }: CreateCategoryFormProps) 
             alignItems="start"
             gap={24}
             width="100%"
-            padding={0}
+            padding={10}
         >
             <form onSubmit={(e) => handleSubmit(e, values)} className="form-style">
                 <WrapperContainer2

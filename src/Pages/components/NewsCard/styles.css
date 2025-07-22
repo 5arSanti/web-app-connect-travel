@@ -1,0 +1,23 @@
+@media (max-width: 768px) {
+    .news-card-container {
+        padding: 15px !important;
+        flex-direction: column !important;
+    }
+
+    .news-card-image-container {
+        flex-direction: column !important;
+    }
+
+    .news-card-text-container {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .news-card-buttons-container {
+        width: 100% !important;
+    }
+
+    .news-card-buttons-container button {
+        width: 100% !important;
+    }
+}

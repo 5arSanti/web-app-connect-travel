@@ -37,6 +37,7 @@ const ImageRecordCard = ({ imageRecord, onUpdateImageRecord, onDeleteImageRecord
                 gap={30}
                 width="100%"
                 padding={"20px 35px"}
+                className="image-record-card-container"
             >
                 <ImageCard imageUrl={imageRecord.image_url} alt={imageRecord.name} />
 
@@ -76,6 +77,7 @@ const ImageRecordCard = ({ imageRecord, onUpdateImageRecord, onDeleteImageRecord
                     gap={10}
                     width="auto"
                     height="auto"
+                    className="image-record-card-buttons-container"
                 >
                     <SwitchCard
                         checked={imageRecord.is_active}
