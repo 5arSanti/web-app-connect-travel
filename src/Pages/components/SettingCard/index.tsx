@@ -21,8 +21,8 @@ const SettingCard = ({ setting }: SettingCardProps) => {
         >
             <TextCard textAlign="center" fontSize={12} white={hovered ? false : true} className="italic">
                 {hovered
-                    ? `El valor diario del ${key} es de ${value}.`
-                    : `${key} ${value}`
+                    ? `${key} vigente: 1 USD = ${value} COP`
+                    : `${key}: 1 USD = ${value} COP`
                 }
             </TextCard>
             {hovered &&

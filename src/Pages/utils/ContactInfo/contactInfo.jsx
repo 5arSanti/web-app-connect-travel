@@ -5,12 +5,12 @@ import { FaSquarePhone, FaEnvelope } from "react-icons/fa6";
 const contactInfo = {
     phone: {
         name: "Numero de celular",
-        info: "000 000 0000",
+        info: "313 836 3610",
         icon: <FaSquarePhone />
     },
     email: {
         name: "Correo Electrónico",
-        info: "info@connecttravel.com",
+        info: "ventas@connecttravel.co",
         icon: <FaEnvelope />
     },
     hours: {

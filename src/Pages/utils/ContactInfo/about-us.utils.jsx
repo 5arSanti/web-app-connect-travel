@@ -34,9 +34,9 @@ const aboutData = [
 ];
 
 const statsData = [
-    { number: "15+", label: "Años de Experiencia", icon: <MdFlight /> },
-    { number: "50K+", label: "Clientes Satisfechos", icon: <MdPeople /> },
-    { number: "100+", label: "Destinos Disponibles", icon: <MdExplore /> },
+    { number: "24+", label: "Años de Experiencia", icon: <MdFlight /> },
+    { number: "1K+", label: "Clientes Satisfechos", icon: <MdPeople /> },
+    { number: "500+", label: "Destinos Disponibles", icon: <MdExplore /> },
     { number: "4.9", label: "Calificación Promedio", icon: <MdStar /> }
 ];
 
