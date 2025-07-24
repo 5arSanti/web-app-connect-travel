@@ -51,9 +51,9 @@ export const newsService = {
 
         if (!id) { throw new Error('No se ha proporcionado el id de la noticia a actualizar'); }
 
-        const file = storageService.validateFile(files || []);
+        if (files && files.length) {
+            const file = storageService.validateFile(files);
 
-        if (files) {
             const { image_url: newImageUrl } = await storageService.uploadFile(file, StorageBuckets.NEWS);
 
             if (newImageUrl) {
