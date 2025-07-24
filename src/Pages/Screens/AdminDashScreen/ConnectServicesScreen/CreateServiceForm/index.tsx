@@ -18,8 +18,6 @@ const CreateServiceForm = ({ handleSubmit, setOpen, loading }: CreateConnectServ
         icon_name: "",
     });
 
-    console.log(values);
-
     return (
         <WrapperContainer2
             flexDirection="column"

@@ -9,7 +9,7 @@ const FloatingWhatsApp = () => {
 
     const handleWhatsAppClick = () => {
         const phoneNumber = contactInfo.phone.info.replace(/\s/g, '');
-        const message = "Hola! Me interesa conocer más sobre los servicios de Connect Travel's. ¿Podrían ayudarme?";
+        const message = "Hola! Mi nombre es [Nombre] y me interesa conocer más sobre los servicios de Connect Travel's";
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };

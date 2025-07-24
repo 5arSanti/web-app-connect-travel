@@ -36,7 +36,6 @@ const ConnectServicesScreen = () => {
         try {
             setLoading(true);
             setOpen(false);
-            console.log(values);
             const response = await connectServicesService.createConnectService(values);
 
             if (response.success) {

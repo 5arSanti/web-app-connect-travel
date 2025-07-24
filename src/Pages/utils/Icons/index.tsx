@@ -1,12 +1,16 @@
 import React from "react";
 import { DropCardItem } from "../../components/DropCard";
-import { FaBusinessTime, FaCalendarAlt, FaCar, FaFutbol, FaGamepad, FaGlobe, FaGraduationCap, FaHotel, FaMapMarkedAlt, FaMedkit, FaPlane, FaUtensils, FaShip } from "react-icons/fa";
+import { FaAddressBook, FaBusinessTime, FaCalendarAlt, FaCar, FaFutbol, FaGamepad, FaGlobe, FaGraduationCap, FaHotel, FaMapMarkedAlt, FaMedkit, FaPlane, FaUtensils, FaShip } from "react-icons/fa";
 import { BiTrip } from "react-icons/bi";
 
 const icons: DropCardItem[] = [
     {
         name: "Vuelos",
         icon: <FaPlane />
+    },
+    {
+        name: "Visas",
+        icon: <FaAddressBook />
     },
     {
         name: "Cruceros",

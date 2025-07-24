@@ -45,8 +45,6 @@ export const storageService = {
             .from(storage)
             .remove([path]);
 
-        console.log(data);
-
         if (error) throw error;
     }
 }
