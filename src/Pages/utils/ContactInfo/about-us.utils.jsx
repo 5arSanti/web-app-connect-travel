@@ -4,33 +4,35 @@ const aboutData = [
     {
         icon: <MdBusinessCenter />,
         title: "MISIÓN",
-        description: "Conectar viajeros con experiencias únicas alrededor del mundo, ofreciendo servicios de calidad que transformen cada viaje en una aventura inolvidable."
+        description: "Brindar experiencias de viajes personalizadas y memorables creando recuerdos inolvidables en nuestros clientes."
     },
     {
         icon: <MdVisibility />,
         title: "VISIÓN",
-        description: "Ser la agencia de viajes líder en Latinoamérica, reconocida por la excelencia en el servicio y la innovación en experiencias turísticas."
+        description: "Ser la agencia de confianza ofreciendo atención personalizada y brindando respaldo a nuestros clintes en momentos oportunos."
     },
     {
         icon: <MdGpsFixed />,
         title: "OBJETIVOS",
-        description: "Expandir nuestra presencia a 50 destinos internacionales, aumentar la satisfacción del cliente al 98% y reducir nuestra huella de carbono en un 30%."
-    },
-    {
-        icon: <MdSecurity />,
-        title: "SEGURIDAD",
-        description: "Garantizar la seguridad de nuestros viajeros con protocolos internacionales, seguros completos y soporte 24/7 en todos nuestros destinos."
+        description: [
+            'Brindar experiencias personalizadas.',
+            'Fidelización de clientes.',
+            'Garantizar la satisfacción del cliente.',
+            'Estar actualizados con las tendencias del mercado.',
+            'Brindar confianza a nuestros clientes asegurando cumplimiento, transparencia, honestidad y acompañamiento constante.'
+        ]
     },
     {
         icon: <MdHandshake />,
         title: "CONFIANZA",
-        description: "Construir relaciones duraderas basadas en la transparencia, honestidad y compromiso con la satisfacción total de nuestros clientes."
+        description: [
+            'Cumplimiento.',
+            'Honestidad.',
+            'Transparencia.',
+            'Empatía.',
+            'Excelencia en el servicio.'
+        ]
     },
-    {
-        icon: <MdTrendingUp />,
-        title: "CRECIMIENTO",
-        description: "Innovar constantemente en servicios turísticos, expandiendo nuestras opciones y mejorando la experiencia del viajero moderno."
-    }
 ];
 
 const statsData = [

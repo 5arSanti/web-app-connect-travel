@@ -35,9 +35,13 @@ const TimelineCard = ({ icon, title, description, side }: TimelineCardProps) => 
                             {side === "left" && <div className="timeline-icon">{icon}</div>}
                         </WrapperContainer2>
                     </FadeWrapper>
-                    <FadeWrapper delay={100}>
-                        <TextCard fontSize={18} textAlign={align} className="timeline-description">{description}</TextCard>
-                    </FadeWrapper>
+                    {Array.isArray(description) ? description.map((item, idx) => (
+                        <TextCard key={idx} fontSize={18} textAlign={align} className="timeline-description">{item}</TextCard>
+                    )) : (
+                        <FadeWrapper delay={100}>
+                            <TextCard fontSize={18} textAlign={align} className="timeline-description">{description}</TextCard>
+                        </FadeWrapper>
+                    )}
                 </WrapperContainer1>
             </WrapperContainer2>
             <div />
