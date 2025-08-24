@@ -38,7 +38,7 @@ const Footer = () => {
                     >
                         <GridContainer className="grid-1-1" gap={10}>
                             <TextCard width="100%" fontSize={13} white={true} textAlign="center" padding={0}>
-                                <SpanCard className="animacion2 italic" white={true}>RNT: 220989</SpanCard>
+                                <SpanCard className="animacion2 italic" white={true}>Registro Nacional de Turismo: 220989</SpanCard>
                             </TextCard>
                             <TextCard width="100%" fontSize={13} white={true} textAlign="center" padding={0}>
                                 <SpanCard className="animacion2 italic" white={true}>NIT: 901691611-2</SpanCard>
