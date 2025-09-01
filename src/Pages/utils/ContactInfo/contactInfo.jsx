@@ -1,6 +1,7 @@
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaSquarePhone, FaEnvelope } from "react-icons/fa6";
+import { handleWhatsAppClick } from "../../components/FloatingWhatsApp";
 
 const contactInfo = {
     phone: {
@@ -36,6 +37,7 @@ const getSocialMediaInfo = (white = false) => {
             name: "WhatsApp",
             link: "",
             icon: <FaWhatsapp className={white ? "white-color" : "lines-color"} />,
+            callback: () => handleWhatsAppClick()
         },
     ]
 

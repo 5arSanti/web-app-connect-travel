@@ -4,15 +4,15 @@ import { contactInfo } from "../../utils/ContactInfo/contactInfo";
 
 import "./styles.css";
 
+export const handleWhatsAppClick = () => {
+    const phoneNumber = contactInfo.phone.info.replace(/\s/g, '');
+    const message = "Hola! Mi nombre es [Nombre] y me interesa conocer más sobre los servicios de Connect Travel's";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+};
+
 const FloatingWhatsApp = () => {
     const [isExpanded, setIsExpanded] = useState(false);
-
-    const handleWhatsAppClick = () => {
-        const phoneNumber = contactInfo.phone.info.replace(/\s/g, '');
-        const message = "Hola! Mi nombre es [Nombre] y me interesa conocer más sobre los servicios de Connect Travel's";
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-    };
 
     const toggleExpanded = () => {
         setIsExpanded(!isExpanded);
