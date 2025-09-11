@@ -11,6 +11,7 @@ import { GridContainer } from "../GridContainer";
 import { ImageCard } from "../ImageCard";
 import { LogoCard } from "../LogoCard";
 import { IconsList } from "../IconsList";
+import { contactInfo } from "../../utils/ContactInfo/contactInfo";
 
 const Footer = () => {
     const date = new Date();
@@ -23,7 +24,7 @@ const Footer = () => {
                 <WrapperContainer2 flexDirection="column" gap={50}>
                     <WrapperContainer2 justifyContent="center" alignItems="center" gap={5} flexDirection="column">
                         <Link to={"/home"}>
-                            <Title className="animacion2" white={true}>CONNECT TRAVEL'S</Title>
+                            <Title className="animacion2" white={true}>CONNECT TRAVELS</Title>
                             <TextCard width="auto" className="animacion2" white={true} textAlign="center">{SLOGAN}</TextCard>
                         </Link>
                     </WrapperContainer2>
@@ -44,9 +45,17 @@ const Footer = () => {
                                 <SpanCard className="animacion2 italic" white={true}>NIT: 901691611-2</SpanCard>
                             </TextCard>
                         </GridContainer>
+                        <WrapperContainer2 flexDirection="column" gap={5} justifyContent="center" alignItems="center" padding={0}>
+                            <TextCard width="auto" className="italic" fontSize={13} white={true} textAlign="center" padding={0}>
+                                Correo electrónico: {contactInfo.email.info}
+                            </TextCard>
+                            <TextCard width="auto" className="italic" fontSize={13} white={true} textAlign="center" padding={0}>
+                                Numero de contacto: (+57) {contactInfo.phone.info}
+                            </TextCard>
+                        </WrapperContainer2>
 
                         <IconsList white={true} size={20} padding={0} />
-                        <TextCard textAlign="center" white={true} fontSize={10}>Copyright &copy; {date.getFullYear()} Connect Travel's</TextCard>
+                        <TextCard textAlign="center" white={true} fontSize={10}>Copyright &copy; {date.getFullYear()} Connect Travels</TextCard>
 
                     </WrapperContainer2>
                 </WrapperContainer2>

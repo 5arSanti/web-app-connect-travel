@@ -35,7 +35,7 @@ const SectionAboutUs = () => {
                 <FadeWrapper>
                     <WrapperContainer2 flexDirection="column" gap={20} className="about-us-text-container">
                         <TextCard fontSize={14} textAlign="center" className="about-subtitle">Descubre</TextCard>
-                        <Title fontSize={60}>CONNECT TRAVEL'S</Title>
+                        <Title fontSize={60}>CONNECT TRAVELS</Title>
                         <TextCard textAlign="center" fontSize={18} className="about-main-description">
                             Somos una agencia especializada en turismo nacional e internacional con más de 15 años de trayectoria en el mercado, creando momentos inolvidables para cada viajero.
                         </TextCard>
@@ -69,7 +69,7 @@ const SectionAboutUs = () => {
                             ¿Listo para tu próxima aventura?
                         </TextCard>
                         <TextCard textAlign="center" fontSize={16} className="cta-subtext">
-                            Únete a miles de viajeros que ya han descubierto el mundo con Connect Travel's
+                            Únete a miles de viajeros que ya han descubierto el mundo con Connect Travels
                         </TextCard>
                     </WrapperContainer2>
                 </FadeWrapper>

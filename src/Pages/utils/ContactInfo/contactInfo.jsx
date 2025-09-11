@@ -7,11 +7,12 @@ const contactInfo = {
     phone: {
         name: "Numero de celular",
         info: "313 836 3610",
-        icon: <FaSquarePhone />
+        icon: <FaSquarePhone />,
+        prefix: "+57"
     },
     email: {
         name: "Correo Electrónico",
-        info: "ventas@connecttravel.co",
+        info: "ventas@connecttravels.co",
         icon: <FaEnvelope />
     },
     hours: {

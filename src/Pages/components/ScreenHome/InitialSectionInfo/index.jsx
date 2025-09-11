@@ -11,7 +11,7 @@ const InitialSectioninfo = () => {
             <TextCard white={true} textAlign="center" fontSize={16}>Bienvenido a</TextCard>
 
             <WrapperContainer2 justifyContent="center" alignItems="center" gap={5} flexDirection="column">
-                <Title white={true}>CONNECT TRAVEL'S</Title>
+                <Title white={true}>CONNECT TRAVELS</Title>
                 <TextCard white={true} textAlign="center">{SLOGAN}</TextCard>
 
             </WrapperContainer2>
