@@ -6,6 +6,7 @@ import "./styles.css";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import { navigationItems } from "../../utils/navigationItems";
+import { TextCard } from "../TextComponents";
 
 const FloatingNav = ({ isAuthPage = false }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,7 @@ const FloatingNav = ({ isAuthPage = false }) => {
                 {isOpen ? <MdClose /> : <MdMenu />}
             </button>
             <div className="floating-nav-menu">
+                <TextCard width="100%" textAlign="center italic" fontSize={10}>Navega por Connect Travels</TextCard>
                 {navigationItems.map((item, index) => (
                     <HashLink
                         key={index}
