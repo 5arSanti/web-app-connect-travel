@@ -24,7 +24,8 @@ const SectionServices = ({
             <p className="services-slogan">
               Descubre la amplia gama de servicios y destinos turísticos que
               tenemos preparados para ti, creando una experiencia única e
-              inolvidable en tus viajes.
+              inolvidable en tus viajes. ¡Te ayudamos con viajes o tramite de
+              visas internacionales! ¡No te quedes sin tu próximo destino!
             </p>
           </WrapperContainer2>
 
