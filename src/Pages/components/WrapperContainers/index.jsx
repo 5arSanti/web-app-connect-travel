@@ -45,7 +45,7 @@ const WrapperContainer2 = ({
     className = "",
     height = "100%",
     width = "100%",
-    backgroundColor = "transparent"
+    backgroundColor = "transparent",
 }) => {
     return (
         <div className={`wrapper-container2 ${className}`} style={{

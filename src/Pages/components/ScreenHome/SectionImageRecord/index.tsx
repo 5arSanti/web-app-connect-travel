@@ -26,33 +26,36 @@ const SectionImageRecord = ({
   travelWeeks,
 }: SectionTravelWeekProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isZoomOpen, setIsZoomOpen] = useState(false);
 
   useEffect(() => {
-    if (travelWeeks.length <= 1) return;
-
+    if (travelWeeks.length <= 1 || isPaused) return;
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % travelWeeks.length);
-    }, 10000);
-
+    }, 25000);
     return () => clearInterval(interval);
-  }, [travelWeeks.length]);
+  }, [travelWeeks.length, isPaused]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsZoomOpen(false);
+        setIsPaused(false);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   const handleNext = () => {
-    if (isTransitioning) return;
-
-    setIsTransitioning(true);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % travelWeeks.length);
-    setTimeout(() => setIsTransitioning(false), 1000);
   };
 
   const handlePrev = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? travelWeeks.length - 1 : prevIndex - 1
     );
-    setTimeout(() => setIsTransitioning(false), 1000);
   };
 
   const currentTravelWeek = travelWeeks[currentIndex];
@@ -73,7 +76,20 @@ const SectionImageRecord = ({
       <div className="travel-week-content">
         <GridContainer className={`grid-1-1`} padding={0} gap={20}>
           {layout === "text-right" && (
-            <ImageRecordCard currentTravelWeek={currentTravelWeek} />
+            <div
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onClick={() => {
+                setIsZoomOpen(true);
+                setIsPaused(true);
+              }}
+              style={{ width: "100%" }}
+            >
+              <ImageRecordCard
+                key={currentIndex}
+                currentTravelWeek={currentTravelWeek}
+              />
+            </div>
           )}
 
           <WrapperContainer2
@@ -120,30 +136,16 @@ const SectionImageRecord = ({
                         className={`nav-dot ${
                           index === currentIndex ? "active" : ""
                         }`}
-                        onClick={() => {
-                          if (!isTransitioning) {
-                            setIsTransitioning(true);
-                            setCurrentIndex(index);
-                            setTimeout(() => setIsTransitioning(false), 500);
-                          }
-                        }}
+                        onClick={() => setCurrentIndex(index)}
                       />
                     ))}
                   </div>
 
                   <div className="nav-arrows">
-                    <button
-                      className="nav-arrow prev"
-                      onClick={handlePrev}
-                      disabled={isTransitioning}
-                    >
+                    <button className="nav-arrow prev" onClick={handlePrev}>
                       <MdNavigateBefore />
                     </button>
-                    <button
-                      className="nav-arrow next"
-                      onClick={handleNext}
-                      disabled={isTransitioning}
-                    >
+                    <button className="nav-arrow next" onClick={handleNext}>
                       <MdNavigateNext />
                     </button>
                   </div>
@@ -153,10 +155,38 @@ const SectionImageRecord = ({
           </WrapperContainer2>
 
           {layout === "text-left" && (
-            <ImageRecordCard currentTravelWeek={currentTravelWeek} />
+            <div
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onClick={() => {
+                setIsZoomOpen(true);
+                setIsPaused(true);
+              }}
+              style={{ width: "100%" }}
+            >
+              <ImageRecordCard
+                key={currentIndex}
+                currentTravelWeek={currentTravelWeek}
+              />
+            </div>
           )}
         </GridContainer>
       </div>
+      {isZoomOpen && (
+        <div
+          className="zoom-overlay"
+          onClick={() => {
+            setIsZoomOpen(false);
+            setIsPaused(false);
+          }}
+        >
+          <img
+            src={currentTravelWeek?.image_url}
+            alt={currentTravelWeek?.name}
+            className="zoom-image"
+          />
+        </div>
+      )}
     </SectionWrapper>
   );
 };
