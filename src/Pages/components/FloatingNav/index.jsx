@@ -16,15 +16,20 @@ const FloatingNav = ({ isAuthPage = false }) => {
     };
 
     return (
-        <div className={`floating-nav ${isOpen ? 'open' : ''}`}>
+        <div className={`floating-nav ${isOpen ? 'open' : ''}`} aria-expanded={isOpen}
+            style={{
+                width: isOpen ? "210px" : "100px",
+            }}
+        >
             <button
                 className="floating-nav-toggle"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle navigation"
+                aria-pressed={isOpen}
             >
                 {isOpen ? <MdClose /> : <MdMenu />}
             </button>
-            <div className="floating-nav-menu">
+            <div className="floating-nav-menu" role="menu" aria-hidden={!isOpen}>
                 <TextCard width="100%" textAlign="center italic" fontSize={10}>Navega por Connect Travels</TextCard>
                 {navigationItems.map((item, index) => (
                     <HashLink
@@ -33,6 +38,7 @@ const FloatingNav = ({ isAuthPage = false }) => {
                         className="floating-nav-item"
                         onClick={handleNavClick}
                         title={item.label}
+                        role="menuitem"
                     >
                         {item.icon}
                         <span className="floating-nav-label">{item.label}</span>
@@ -48,6 +54,7 @@ const FloatingNav = ({ isAuthPage = false }) => {
                             className="floating-nav-item floating-nav-login"
                             onClick={handleNavClick}
                             title="Iniciar Sesión"
+                            role="menuitem"
                         >
                             <FaUser />
                             <span className="floating-nav-label">Iniciar Sesión</span>
