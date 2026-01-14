@@ -10,6 +10,7 @@ import { FadeWrapper } from "../../FadeWrapper";
 import { Title } from "../../Title";
 import "./styles.css";
 import { WrapperContainer2 } from "../../WrapperContainers";
+import { TextCard } from "../../TextComponents";
 
 const SectionImageGallery = () => {
   const [imageTypes, setImageTypes] = useState<ImageType[]>([]);
@@ -70,20 +71,28 @@ const SectionImageGallery = () => {
   return (
     <SectionWrapper
       id="galeria"
-      padding={60}
+      padding={"60px 30px" as unknown as number}
       innerPadding={0}
       className="section-image-gallery"
     >
       <FadeWrapper>
-        <WrapperContainer2 flexDirection="column" gap={20}>
-          <Title
-            fontSize={38}
+        <WrapperContainer2
+          flexDirection="column"
+          gap={20}
+          className="about-us-text-container"
+        >
+          <TextCard fontSize={14} textAlign="center" className="about-subtitle">
+            Nuestra Galería
+          </TextCard>
+          <Title fontSize={60}>DESCUBRE NUESTRAS OFERTAS</Title>
+          <TextCard
             textAlign="center"
-            padding={0}
-            className="gallery-main-title"
+            fontSize={18}
+            className="about-main-description"
           >
-            Explora Nuestras Ofertas
-          </Title>
+            Encuentra las mejores ofertas y promociones para tus próximos viajes
+            con categorias a tu gusto.
+          </TextCard>
         </WrapperContainer2>
       </FadeWrapper>
 
