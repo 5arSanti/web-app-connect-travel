@@ -1,7 +1,7 @@
 import React from "react";
 import { SectionContact } from "../../components/ScreenHome/SectionContact";
 
-import "./styles.css"
+import "./styles.css";
 import { SectionAboutUs } from "../../components/ScreenHome/SectionAboutUs";
 import { SectionNews } from "../../components/SectionNews";
 import { SectionUsersOpinions } from "../../components/SectionUserOpinions";
@@ -34,100 +34,117 @@ import { appSettingsService } from "../../../services/app-settings/app-settings.
 import SettingCard from "../../components/SettingCard";
 
 const Home = () => {
-    const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
-    const [blocks, setBlocks] = React.useState<ImageRecord[]>([]);
-    const [news, setNews] = React.useState<News[]>([]);
-    const [categories, setCategories] = React.useState<Category[]>([]);
-    const [connectServices, setConnectServices] = React.useState<ConnectService[]>([]);
-    const [clientOpinions, setClientOpinions] = React.useState<ClientOpinion[]>([]);
-    const [setting, setSetting] = React.useState<AppSettings>();
+  const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
+  const [blocks, setBlocks] = React.useState<ImageRecord[]>([]);
+  const [news, setNews] = React.useState<News[]>([]);
+  const [categories, setCategories] = React.useState<Category[]>([]);
+  const [connectServices, setConnectServices] = React.useState<
+    ConnectService[]
+  >([]);
+  const [clientOpinions, setClientOpinions] = React.useState<ClientOpinion[]>(
+    []
+  );
+  const [setting, setSetting] = React.useState<AppSettings>();
 
-    const fetchTravelWeeks = async () => {
-        const image_records = await imageRecordService.getActiveImageRecords();
-        setTravelWeeks(image_records.filter(item => item.image_type === ImageRecordType.TRAVEL_WEEK));
-        setBlocks(image_records.filter(item => item.image_type === ImageRecordType.BLOCK));
-    };
+  // const fetchTravelWeeks = async () => {
+  //     const image_records = await imageRecordService.getActiveImageRecords();
+  //     setTravelWeeks(image_records.filter(item => item.image_type === ImageRecordType.TRAVEL_WEEK));
+  //     setBlocks(image_records.filter(item => item.image_type === ImageRecordType.BLOCK));
+  // };
 
-    const fetchNews = async () => {
-        const news = await newsService.getNews();
-        setNews(news);
-    };
+  const fetchNews = async () => {
+    const news = await newsService.getNews();
+    setNews(news);
+  };
 
-    const fetchCategories = async () => {
-        const categories = await categoriesService.getCategories();
-        setCategories(categories);
-    };
+  const fetchCategories = async () => {
+    const categories = await categoriesService.getCategories();
+    setCategories(categories);
+  };
 
-    const fetchConnectServices = async () => {
-        const connectServices = await connectServicesService.getConnectServices();
-        setConnectServices(connectServices);
-    };
+  const fetchConnectServices = async () => {
+    const connectServices = await connectServicesService.getConnectServices();
+    setConnectServices(connectServices);
+  };
 
-    const fetchClientOpinions = async () => {
-        const clientOpinions = await clientOpinionService.getClientOpinions();
-        setClientOpinions(clientOpinions);
-    };
+  const fetchClientOpinions = async () => {
+    const clientOpinions = await clientOpinionService.getClientOpinions();
+    setClientOpinions(clientOpinions);
+  };
 
-    const fetchAppSettings = async () => {
-        const appSettings = await appSettingsService.findOne("5dd8a8fd-83a1-4e53-beb7-32bd83eb64bc");
-        setSetting(appSettings);
-    };
-
-    React.useEffect(() => {
-        fetchTravelWeeks();
-        fetchNews();
-        fetchCategories();
-        fetchConnectServices();
-        fetchClientOpinions();
-        fetchAppSettings();
-    }, []);
-
-    return (
-        <div style={{ width: '100%', height: '100%', boxSizing: 'border-box', margin: 0, padding: 0 }}>
-            <Header />
-            <HeaderContact />
-
-            <FloatingWhatsApp />
-
-            {setting && <SettingCard setting={setting} />}
-
-            <FadeWrapper>
-                <StyledSection id="home">
-                    <InitialSectioninfo />
-                </StyledSection>
-            </FadeWrapper>
-
-            <SectionServices connectServices={connectServices} />
-
-            <SectionImageRecord
-                title="¡Te presentamos los Travel Weeks!"
-                description="¡La oportunidad perfecta para vacacionar con un precio exclusivo!"
-                icon={<GiCommercialAirplane />}
-                layout="text-left"
-                travelWeeks={travelWeeks}
-            />
-
-            <SectionImageRecord
-                title="¡Pero no solo viajes, tambien bloqueos!"
-                description="¡Tienes la disponibilidad de elegir viajar en cualquier momento!"
-                icon={<MdOutlineTravelExplore />}
-                layout="text-right"
-                travelWeeks={blocks}
-            />
-
-            <SectionAboutUs />
-
-            <SectionUsersOpinions clientOpinions={clientOpinions} />
-
-            <SectionContact />
-
-            <SectionOpinionForm connectServices={connectServices} realoadClientOpinions={fetchClientOpinions} />
-
-            <SectionNews news={news} categories={categories} />
-
-            <Footer />
-        </div>
+  const fetchAppSettings = async () => {
+    const appSettings = await appSettingsService.findOne(
+      "5dd8a8fd-83a1-4e53-beb7-32bd83eb64bc"
     );
-}
+    setSetting(appSettings);
+  };
+
+  React.useEffect(() => {
+    // fetchTravelWeeks();
+    fetchNews();
+    fetchCategories();
+    fetchConnectServices();
+    fetchClientOpinions();
+    fetchAppSettings();
+  }, []);
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        boxSizing: "border-box",
+        margin: 0,
+        padding: 0,
+      }}
+    >
+      <Header />
+      <HeaderContact />
+
+      <FloatingWhatsApp />
+
+      {setting && <SettingCard setting={setting} />}
+
+      <FadeWrapper>
+        <StyledSection id="home">
+          <InitialSectioninfo />
+        </StyledSection>
+      </FadeWrapper>
+
+      <SectionServices connectServices={connectServices} />
+
+      <SectionImageRecord
+        title="¡Te presentamos los Travel Weeks!"
+        description="¡La oportunidad perfecta para vacacionar con un precio exclusivo!"
+        icon={<GiCommercialAirplane />}
+        layout="text-left"
+        travelWeeks={travelWeeks}
+      />
+
+      <SectionImageRecord
+        title="¡Pero no solo viajes, tambien bloqueos!"
+        description="¡Tienes la disponibilidad de elegir viajar en cualquier momento!"
+        icon={<MdOutlineTravelExplore />}
+        layout="text-right"
+        travelWeeks={blocks}
+      />
+
+      <SectionAboutUs />
+
+      <SectionUsersOpinions clientOpinions={clientOpinions} />
+
+      <SectionContact />
+
+      <SectionOpinionForm
+        connectServices={connectServices}
+        realoadClientOpinions={fetchClientOpinions}
+      />
+
+      <SectionNews news={news} categories={categories} />
+
+      <Footer />
+    </div>
+  );
+};
 
 export { Home };
