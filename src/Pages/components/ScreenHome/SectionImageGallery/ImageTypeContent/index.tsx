@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ImageType } from "../../../../../services/image_type/interfaces/image_type";
 import { ImageRecord } from "../../../../../services/image-record/interfaces/image-record";
 import { ImageGalleryCard } from "../ImageGalleryCard";
 import { FadeWrapper } from "../../../FadeWrapper";
 import { TextCard } from "../../../TextComponents";
+import { FaPlus, FaMinus, FaTimes } from "react-icons/fa";
 import "./styles.css";
 
 interface ImageTypeContentProps {
@@ -18,6 +19,21 @@ const ImageTypeContent = ({
   loading,
 }: ImageTypeContentProps) => {
   const [zoomedImage, setZoomedImage] = useState<ImageRecord | null>(null);
+  const [zoomLevel, setZoomLevel] = useState<number>(1);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  const handleZoomIn = () => {
+    setZoomLevel((prev) => Math.min(prev + 0.25, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel((prev) => Math.max(prev - 0.25, 0.5));
+  };
+
+  const handleCloseZoom = () => {
+    setZoomedImage(null);
+    setZoomLevel(1);
+  };
 
   if (!selectedType) {
     return (
@@ -82,12 +98,51 @@ const ImageTypeContent = ({
 
       {/* Zoom Overlay */}
       {zoomedImage && (
-        <div className="zoom-overlay" onClick={() => setZoomedImage(null)}>
-          <img
-            src={zoomedImage.image_url}
-            alt={zoomedImage.name}
-            className="zoom-image"
-          />
+        <div className="zoom-overlay" onClick={handleCloseZoom}>
+          <div className="zoom-controls">
+            <button
+              className="zoom-control-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleZoomIn();
+              }}
+              title="Acercar"
+            >
+              <FaPlus />
+            </button>
+            <button
+              className="zoom-control-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleZoomOut();
+              }}
+              title="Alejar"
+            >
+              <FaMinus />
+            </button>
+            <button
+              className="zoom-control-btn close-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCloseZoom();
+              }}
+              title="Cerrar"
+            >
+              <FaTimes />
+            </button>
+          </div>
+          <div
+            className="zoom-image-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              ref={imageRef}
+              src={zoomedImage.image_url}
+              alt={zoomedImage.name}
+              className="zoom-image"
+              style={{ transform: `scale(${zoomLevel})` }}
+            />
+          </div>
         </div>
       )}
     </div>
