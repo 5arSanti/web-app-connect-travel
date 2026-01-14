@@ -9,3 +9,15 @@ export interface CreateImageType {
   name: string;
   image_url?: string;
 }
+
+export interface ImageTypeFormValues {
+  id?: string;
+  name: string;
+  files: File[];
+  image_url?: string;
+}
+
+export interface ImageTypeResponse {
+  success: boolean;
+  message: string;
+}
