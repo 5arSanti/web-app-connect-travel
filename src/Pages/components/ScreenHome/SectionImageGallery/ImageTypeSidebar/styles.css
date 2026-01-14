@@ -1,0 +1,114 @@
+.image-type-sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: linear-gradient(180deg, var(--pallete-2) 0%, #1a2235 100%);
+  border-radius: 16px;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-header {
+  padding: 0 24px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 16px;
+}
+
+.sidebar-title {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 12px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-item.active {
+  background: linear-gradient(
+    90deg,
+    var(--pallete-3) 0%,
+    var(--pallete-1) 100%
+  );
+}
+
+.sidebar-item-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.sidebar-item.active .sidebar-item-indicator {
+  background: var(--white);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.sidebar-item-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.sidebar-item.active .sidebar-item-text {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.sidebar-item:hover .sidebar-item-text {
+  color: var(--white);
+}
+
+@media (max-width: 900px) {
+  .image-type-sidebar {
+    width: 100%;
+    min-width: unset;
+    flex-direction: row;
+    padding: 16px;
+    overflow-x: auto;
+    border-radius: 12px;
+  }
+
+  .sidebar-header {
+    display: none;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 8px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .sidebar-item {
+    white-space: nowrap;
+    padding: 10px 16px;
+  }
+}

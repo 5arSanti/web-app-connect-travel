@@ -8,14 +8,7 @@ import { SectionUsersOpinions } from "../../components/SectionUserOpinions";
 import { StyledSection } from "../../components/StyledSection";
 import { InitialSectioninfo } from "../../components/ScreenHome/InitialSectionInfo";
 import { HeaderContact } from "../../components/HeaderContact";
-import { FloatingNav } from "../../components/FloatingNav";
 import { Footer } from "../../components/Footer";
-import { imageRecordService } from "../../../services/image-record/image-record.service";
-import { ImageRecordType } from "../../../services/image-record/enum/image-record.enum";
-import { ImageRecord } from "../../../services/image-record/interfaces/image-record";
-import { MdOutlineTravelExplore } from "react-icons/md";
-import { SectionImageRecord } from "../../components/ScreenHome/SectionImageRecord";
-import { GiCommercialAirplane } from "react-icons/gi";
 import { FloatingWhatsApp } from "../../components/FloatingWhatsApp";
 import { SectionOpinionForm } from "../../components/ScreenHome/SectionOpinionForm";
 import { FadeWrapper } from "../../components/FadeWrapper";
@@ -32,10 +25,11 @@ import { Header } from "../../components/Header";
 import { AppSettings } from "../../../services/app-settings/interfaces/app-settings";
 import { appSettingsService } from "../../../services/app-settings/app-settings.service";
 import SettingCard from "../../components/SettingCard";
+import { SectionImageGallery } from "../../components/ScreenHome/SectionImageGallery";
+import { imageRecordService } from "../../../services/image-record/image-record.service";
+import { ImageRecord } from "../../../services/image-record/interfaces/image-record";
 
 const Home = () => {
-  const [travelWeeks, setTravelWeeks] = React.useState<ImageRecord[]>([]);
-  const [blocks, setBlocks] = React.useState<ImageRecord[]>([]);
   const [news, setNews] = React.useState<News[]>([]);
   const [categories, setCategories] = React.useState<Category[]>([]);
   const [connectServices, setConnectServices] = React.useState<
@@ -45,12 +39,7 @@ const Home = () => {
     []
   );
   const [setting, setSetting] = React.useState<AppSettings>();
-
-  // const fetchTravelWeeks = async () => {
-  //     const image_records = await imageRecordService.getActiveImageRecords();
-  //     setTravelWeeks(image_records.filter(item => item.image_type === ImageRecordType.TRAVEL_WEEK));
-  //     setBlocks(image_records.filter(item => item.image_type === ImageRecordType.BLOCK));
-  // };
+  const [imageRecords, setImageRecords] = React.useState<ImageRecord[]>([]);
 
   const fetchNews = async () => {
     const news = await newsService.getNews();
@@ -79,13 +68,18 @@ const Home = () => {
     setSetting(appSettings);
   };
 
+  const fetchImageRecords = async () => {
+    const imageRecords = await imageRecordService.getActiveImageRecords();
+    setImageRecords(imageRecords);
+  };
+
   React.useEffect(() => {
-    // fetchTravelWeeks();
     fetchNews();
     fetchCategories();
     fetchConnectServices();
     fetchClientOpinions();
     fetchAppSettings();
+    fetchImageRecords();
   }, []);
 
   return (
@@ -113,21 +107,7 @@ const Home = () => {
 
       <SectionServices connectServices={connectServices} />
 
-      <SectionImageRecord
-        title="¡Te presentamos los Travel Weeks!"
-        description="¡La oportunidad perfecta para vacacionar con un precio exclusivo!"
-        icon={<GiCommercialAirplane />}
-        layout="text-left"
-        travelWeeks={travelWeeks}
-      />
-
-      <SectionImageRecord
-        title="¡Pero no solo viajes, tambien bloqueos!"
-        description="¡Tienes la disponibilidad de elegir viajar en cualquier momento!"
-        icon={<MdOutlineTravelExplore />}
-        layout="text-right"
-        travelWeeks={blocks}
-      />
+      <SectionImageGallery />
 
       <SectionAboutUs />
 
