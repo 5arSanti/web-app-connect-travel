@@ -1,10 +1,14 @@
-@media (max-width: 768px) {
-    .image-record-card-filter-container {
-        flex-direction: column !important;
-        gap: 10px !important;
-    }
+.image-record-card-filter-container {
+  flex-wrap: wrap;
+}
 
-    .image-record-card-filter-container button {
-        width: 100% !important;
-    }
+@media (max-width: 768px) {
+  .image-record-card-filter-container {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .image-record-card-filter-container button {
+    width: 100% !important;
+  }
 }
