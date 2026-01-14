@@ -45,7 +45,9 @@ export const imageRecordService = {
   ): Promise<{ success: boolean; message: string }> {
     const files: File[] = formData.getAll("file") as File[];
     const image_type_id: string = formData.get("image_type_id") as string;
-    const description: string = formData.get("description") as string;
+    const description: string | null = formData.get("description") as
+      | string
+      | null;
 
     if (!files || !image_type_id) {
       throw new Error("No se han proporcionado archivos o tipo de imagen");
@@ -62,7 +64,7 @@ export const imageRecordService = {
       name: file.name,
       image_url,
       image_type_id,
-      description,
+      description: description || "",
       is_active: true,
       created_at: new Date(),
     };

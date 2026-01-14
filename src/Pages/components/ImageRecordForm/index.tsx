@@ -72,6 +72,7 @@ const ImageRecordForm = ({
           onChange={(event) => handleTextAreaChange(event, setValues)}
           defaultValue={values?.description || ""}
           placeholder="Descripción de la imagen"
+          required={false}
         />
 
         <ButtonCard
