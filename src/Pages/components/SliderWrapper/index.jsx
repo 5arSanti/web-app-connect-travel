@@ -17,7 +17,7 @@ const SliderWrapper = ({ children, padding, arrows = true, dots = true, slidesTo
 		slidesToShow: slidesToShow,
 		slidesToScroll: 1,
 		autoplay: true,
-		autoplaySpeed: 6000,
+		autoplaySpeed: 12000,
 		dots: dots,
 		arrows: arrows,
 		nextArrow: <NextArrowCard />,
