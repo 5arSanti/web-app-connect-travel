@@ -53,7 +53,7 @@ export const imageRecordService = {
       throw new Error("No se han proporcionado archivos o tipo de imagen");
     }
 
-    const file = storageService.validateFile(files);
+    const file = await storageService.validateFile(files);
 
     const { image_url } = await storageService.uploadFile(
       file,

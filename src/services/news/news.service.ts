@@ -18,7 +18,7 @@ export const newsService = {
     async createNews(formData: NewsFormValues): Promise<NewsResponse> {
         const { title, content, category_id, files } = formData;
 
-        const file = storageService.validateFile(files);
+        const file = await storageService.validateFile(files);
 
         const { image_url } = await storageService.uploadFile(file, StorageBuckets.NEWS);
 
@@ -52,7 +52,7 @@ export const newsService = {
         if (!id) { throw new Error('No se ha proporcionado el id de la noticia a actualizar'); }
 
         if (files && files.length) {
-            const file = storageService.validateFile(files);
+            const file = await storageService.validateFile(files);
 
             const { image_url: newImageUrl } = await storageService.uploadFile(file, StorageBuckets.NEWS);
 

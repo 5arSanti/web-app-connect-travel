@@ -32,7 +32,7 @@ export const imageTypeService = {
       throw new Error("La imagen es requerida");
     }
 
-    const file = storageService.validateFile(files);
+    const file = await storageService.validateFile(files);
     const { image_url } = await storageService.uploadFile(
       file,
       StorageBuckets.IMAGE_TYPES_BANNER
@@ -64,7 +64,7 @@ export const imageTypeService = {
     let image_url = existingImageUrl || "";
 
     if (files && files.length > 0) {
-      const file = storageService.validateFile(files);
+      const file = await storageService.validateFile(files);
       const { image_url: newImageUrl } = await storageService.uploadFile(
         file,
         StorageBuckets.IMAGE_TYPES_BANNER
